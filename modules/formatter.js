@@ -39,7 +39,7 @@ exports.onBoard1 = response => {
             "type": "template",
             "payload": {
                 "template_type": "button",
-                "text": `Select one of the available appointments below an`,
+                "text": `Bonjour ${response.first_name} et bienvenue chez Cumulus Assurance. Que puis-je faire pour vous?`,
                 "buttons": [
                     {
                         "type": "postback",
