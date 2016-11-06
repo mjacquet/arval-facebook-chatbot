@@ -28,69 +28,35 @@ exports.onBoard1 = response => {
 
 exports.onBoard1 = response => {
 
-    let elements = [];
-        elements.push(  
-            {
-                title: 'Winter 2016',
-                subtitle: `Special Offer`,
-                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-Jdk4wZGQ2S2tBQm8',
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Book Now",
-                        "payload": "village_activities,"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Contact Me",
-                        "payload": "contact_me,"
-                    }
-                ]
-            },
-            {
-                title: 'Summer 2017',
-                subtitle: `Special Offer`,
-                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JVEw0OXc3ZEVwVUE',
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Book Now",
-                        "payload": "village_activities,"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Contact Me",
-                        "payload": "contact_me2,"
-                    }
-                ]
-            },
-            {
-                title: 'Last minute offers',
-                subtitle: 'Special Offer',
-                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JX01Vd1JoQ2J3QnM',
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Book Now",
-                        "payload": "village_activities,"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Contact Me",
-                        "payload": "contact_me,"
-                    }
-                ]
-            }
-
-
-        );
-
+    var options = [
+        moment().add(1, 'days').format('ddd MMM Do') + ' at 10am',
+        moment().add(2, 'days').format('ddd MMM Do') + ' at 9am',
+        moment().add(2, 'days').format('ddd MMM Do') + ' at 5pm',
+        moment().add(3, 'days').format('ddd MMM Do') + ' at 1pm',
+        moment().add(3, 'days').format('ddd MMM Do') + ' at 6pm',
+    ];
     return {
         "attachment": {
             "type": "template",
             "payload": {
-                "template_type": "generic",
-                "elements": elements
+                "template_type": "button",
+                "text": `Select one of the available appointments below at`,
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": options[0],
+                        "payload": "confirm_visit," + options[0]
+                    },
+                    {
+                        "type": "postback",
+                        "title": options[1],
+                        "payload": "confirm_visit," + options[1]
+                    },
+                    {
+                        "type": "postback",
+                        "title": options[2],
+                        "payload": "confirm_visit," + options[2]
+                    }]
             }
         }
     };
