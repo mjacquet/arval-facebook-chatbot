@@ -43,18 +43,13 @@ exports.onBoard1 = response => {
                 "buttons": [
                     {
                         "type": "postback",
-                        "title": options[0],
-                        "payload": "confirm_visit"
+                        "title": "Découvrir les offres",
+                        "payload": "button1"
                     },
                     {
                         "type": "postback",
-                        "title": options[1],
-                        "payload": "confirm_visit"
-                    },
-                    {
-                        "type": "postback",
-                        "title": options[2],
-                        "payload": "confirm_visit"
+                        "title": "Je suis client",
+                        "payload": "button2"
                     }]
             }
         }
