@@ -39,22 +39,22 @@ exports.onBoard1 = response => {
             "type": "template",
             "payload": {
                 "template_type": "button",
-                "text": `Select one of the available appointments below at ${property.get("Address__c")} in ${property.get("City__c")}.`,
+                "text": `Select one of the available appointments below an`,
                 "buttons": [
                     {
                         "type": "postback",
                         "title": options[0],
-                        "payload": "confirm_visit," + property.get("Address__c") + " in " + property.get("City__c") + "," + options[0]
+                        "payload": "confirm_visit," + options[0]
                     },
                     {
                         "type": "postback",
                         "title": options[1],
-                        "payload": "confirm_visit," + property.get("Address__c") + " in " + property.get("City__c") + "," + options[1]
+                        "payload": "confirm_visit," + options[1]
                     },
                     {
                         "type": "postback",
                         "title": options[2],
-                        "payload": "confirm_visit," + property.get("Address__c") + " in " + property.get("City__c") + "," + options[2]
+                        "payload": "confirm_visit," + options[2]
                     }]
             }
         }
