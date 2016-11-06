@@ -13,12 +13,12 @@ exports.onBoard1 = response => {
                     {
                         "type": "postback",
                         "title": "Découvrir les offres"
-                        "payload": "button1"
+                        "payload": "button1,"
                     },
                     {
                         "type": "postback",
                         "title": "Je suis client",
-                        "payload": "button2"
+                        "payload": "button2,"
                     }]
             }
         }
