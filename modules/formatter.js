@@ -40,21 +40,22 @@ exports.onBoard1 = response => {
             "type": "template",
             "payload": {
                 "template_type": "button",
+                "text": ``,
                 "buttons": [
                     {
                         "type": "postback",
-                        "title": "btn1",
-                        "payload": "confirm_visit"
+                        "title": options[0],
+                        "payload": "confirm_visit," + options[0]
                     },
                     {
                         "type": "postback",
-                        "title": "btn2",
-                        "payload": "confirm_visit"
+                        "title": options[1],
+                        "payload": "confirm_visit," + options[1]
                     },
                     {
                         "type": "postback",
-                        "title": "btn3",
-                        "payload": "confirm_visit"
+                        "title": options[2],
+                        "payload": "confirm_visit," + options[2]
                     }]
             }
         }
