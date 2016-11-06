@@ -24,7 +24,6 @@ exports.help = (sender) => {
 
 exports.onboard = (sender) => {
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Bonjour ${response.first_name} et bienvenue chez Cumulus Assurance. Que puis-je faire pour vous?`}, sender);
         messenger.send(formatter.onBoard1(response), sender);
     });
 };

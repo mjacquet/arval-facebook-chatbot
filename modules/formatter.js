@@ -2,38 +2,8 @@
 
 let moment = require("moment"),
     numeral = require("numeral");
-/*
-exports.onBoard1 = response => {
-    return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "button",
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Découvrir les offres"
-                        "payload": "button1,"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Je suis client",
-                        "payload": "button2,"
-                    }]
-            }
-        }
-    };
-};
-*/
 
 exports.onBoard1 = response => {
-    var options = [
-        moment().add(1, 'days').format('ddd MMM Do') + ' at 10am',
-        moment().add(2, 'days').format('ddd MMM Do') + ' at 9am',
-        moment().add(2, 'days').format('ddd MMM Do') + ' at 5pm',
-        moment().add(3, 'days').format('ddd MMM Do') + ' at 1pm',
-        moment().add(3, 'days').format('ddd MMM Do') + ' at 6pm',
-    ];
     return {
         "attachment": {
             "type": "template",
@@ -54,7 +24,6 @@ exports.onBoard1 = response => {
             }
         }
     };
-
 };
 
 exports.formatProperties = properties => {
