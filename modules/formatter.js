@@ -2,7 +2,7 @@
 
 let moment = require("moment"),
     numeral = require("numeral");
-
+/*
 exports.onBoard1 = response => {
     return {
         "attachment": {
@@ -23,6 +23,78 @@ exports.onBoard1 = response => {
             }
         }
     };
+};
+*/
+
+exports.onBoard1 = response => {
+
+    let elements = [];
+        elements.push(  
+            {
+                title: 'Winter 2016',
+                subtitle: `Special Offer`,
+                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-Jdk4wZGQ2S2tBQm8',
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Book Now",
+                        "payload": "village_activities,"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Contact Me",
+                        "payload": "contact_me,"
+                    }
+                ]
+            },
+            {
+                title: 'Summer 2017',
+                subtitle: `Special Offer`,
+                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JVEw0OXc3ZEVwVUE',
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Book Now",
+                        "payload": "village_activities,"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Contact Me",
+                        "payload": "contact_me2,"
+                    }
+                ]
+            },
+            {
+                title: 'Last minute offers',
+                subtitle: 'Special Offer',
+                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JX01Vd1JoQ2J3QnM',
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Book Now",
+                        "payload": "village_activities,"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Contact Me",
+                        "payload": "contact_me,"
+                    }
+                ]
+            }
+
+
+        );
+
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+
 };
 
 exports.formatProperties = properties => {
