@@ -29,3 +29,31 @@ exports.contact_me = (sender, values) => {
     });
 
 };
+
+exports.button1 = (sender, values) => {
+
+    //let propertyId = values[1];
+    messenger.getUserInfo(sender).then(response => {
+        /*
+        salesforce.createCase(propertyId, response.first_name + " " + response.first_name, sender).then(() => {
+            
+        });
+        */
+        messenger.send({text: `button1 Thanks for your interest, ${response.first_name}. I asked a broker to contact you asap.`}, sender);
+    });
+
+};
+
+exports.button2 = (sender, values) => {
+
+    //let propertyId = values[1];
+    messenger.getUserInfo(sender).then(response => {
+        /*
+        salesforce.createCase(propertyId, response.first_name + " " + response.first_name, sender).then(() => {
+            
+        });
+        */
+        messenger.send({text: `button2 Thanks for your interest, ${response.first_name}. I asked a broker to contact you asap.`}, sender);
+    });
+
+};

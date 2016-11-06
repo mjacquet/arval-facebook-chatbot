@@ -3,6 +3,28 @@
 let moment = require("moment"),
     numeral = require("numeral");
 
+exports.onBoard1 = response => {
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Découvrir les offres"
+                        "payload": "button1"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Je suis client",
+                        "payload": "button2"
+                    }]
+            }
+        }
+    };
+};
+
 exports.formatProperties = properties => {
     let elements = [];
     properties.forEach(property => {
