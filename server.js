@@ -6,6 +6,9 @@ var express = require('express'),
     handlers = require('./modules/handlers'),
     postbacks = require('./modules/postbacks'),
     uploads = require('./modules/uploads'),
+    formatter = require('./modules/formatter'),
+    salesforce = require('./modules/salesforce'),
+    messenger = require('./modules/messenger'),
     FB_VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN,
     app = express();
 
@@ -48,6 +51,8 @@ app.post('/webhook', (req, res) => {
             }
         } else if (event.message && event.message.attachments) {
             uploads.processUpload(sender, event.message.attachments);
+        } else{
+            messenger.send({text: `Text entered: ${event.message.text}!`}, sender);
         }
     }
     res.sendStatus(200);
