@@ -3,7 +3,10 @@
 let readline = require('readline'),
     fs = require('fs'),
     fileName = 'dictionary.txt',
-    utterances = [];
+    utterances = [],
+    formatter = require('./formatter'),
+    salesforce = require('./salesforce'),
+    messenger = require('./messenger');
 
 const rl = readline.createInterface({
     input: fs.createReadStream(fileName)
@@ -30,6 +33,7 @@ let match = text => {
             return {handler, match};
         } else {
             console.log('no match');
+            messenger.send({text: `Text entered: ${text}!`}, sender);            
         }
     }
 };
