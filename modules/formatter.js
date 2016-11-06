@@ -27,7 +27,6 @@ exports.onBoard1 = response => {
 */
 
 exports.onBoard1 = response => {
-
     var options = [
         moment().add(1, 'days').format('ddd MMM Do') + ' at 10am',
         moment().add(2, 'days').format('ddd MMM Do') + ' at 9am',
