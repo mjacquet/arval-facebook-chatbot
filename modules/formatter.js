@@ -40,22 +40,21 @@ exports.onBoard1 = response => {
             "type": "template",
             "payload": {
                 "template_type": "button",
-                "text": `Select one of the available appointments below at`,
                 "buttons": [
                     {
                         "type": "postback",
-                        "title": options[0],
-                        "payload": "confirm_visit," + options[0]
+                        "title": "btn1",
+                        "payload": "confirm_visit"
                     },
                     {
                         "type": "postback",
-                        "title": options[1],
-                        "payload": "confirm_visit," + options[1]
+                        "title": "btn2",
+                        "payload": "confirm_visit"
                     },
                     {
                         "type": "postback",
-                        "title": options[2],
-                        "payload": "confirm_visit," + options[2]
+                        "title": "btn3",
+                        "payload": "confirm_visit"
                     }]
             }
         }
