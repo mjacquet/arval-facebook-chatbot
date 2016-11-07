@@ -184,11 +184,30 @@ exports.onBoard5 = response => {
         }
     };
 };
+
 exports.test = leads => {
     let elements = [];
     leads.forEach(lead => {
             elements.push({
-                title: lead.get("FirstName")
+                title: lead.get("FirstName"),
+                subtitle: ``,
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Schedule visit",
+                        "payload": "button7"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "View broker info",
+                        "payload": "button7"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Contact me",
+                        "payload": "button7"
+                    }
+                ]
             })
         }
     );
