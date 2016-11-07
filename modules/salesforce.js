@@ -163,40 +163,24 @@ let createLead = (customerFName, customerLName, customerId) => {
     });
 
 };
-let updateLead = (customerFName, customerLName, customerId) => {
+let updateLead = (theLead) => {
 
     return new Promise((resolve, reject) => {
-        let q = `SELECT id,
-                    FirstName,
-                    LastName,
-                    Description
-                FROM Lead
-                WHERE FirstName LIKE '%${customerFName}%'
-                LIMIT 1`;
+        let q = theLead;
+
+        q.set('Description', "TEST: Success");
+
         console.log(q);
-        org.query({query: q}, (err, resp) => {
+
+        org.upsert({sobject: q}, (err, resp) => {
             if (err) {
                 console.error(err);
-                reject("An error as occurred");
-            } else {
-                
-                
-                
-                resolve(resp.records);
-            }
-        });
-        /*
-        resp.records[0].set('Description', "extra: " + customerId);
-
-        org.upsert({sobject: resp.records[0]}, (err2, resp2) => {
-            if (err2) {
-                console.error(err2);
                 reject("An error occurred while updating a Lead");
             } else {
-                resolve(resp2.records);
+                resolve(q);
             }
         });
-        */
+        
     });
 };
 

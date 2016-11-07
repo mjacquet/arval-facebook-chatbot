@@ -59,9 +59,10 @@ exports.onboard5 = (sender) => {
 exports.button1 = (sender) => {
     messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.updateLead(response.first_name, response.last_name, sender).then(leads => {
-            messenger.send(formatter.onBoard2(response), sender);
-            //messenger.send(formatter.test(leads), sender);
+        salesforce.createLead(response.first_name, response.last_name, sender).then(lead => {
+            salesforce.updateLead(lead, sender).then(() => {
+                messenger.send(formatter.onBoard2(response), sender);
+            }); 
         });   
     });
 };
