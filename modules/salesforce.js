@@ -179,16 +179,7 @@ let updateLead = (customerFName, customerLName, customerId) => {
                 console.error(err);
                 reject("An error as occurred");
             } else {
-                q.set('Description', q.Description + "extra: " + customerId);
-
-                org.upsert({sobject: q}, err => {
-                    if (err) {
-                        console.error(err);
-                        reject("An error occurred while updating a Lead");
-                    } else {
-                        resolve(q);
-                    }
-                });
+                resolve(resp.records);
             }
         });
     });
