@@ -171,7 +171,7 @@ let updateLead = (customerFName, customerLName, customerId) => {
                     LastName,
                     Description
                 FROM Lead
-                WHERE FirstName = ${customerFName} AND LastName = ${customerLName} 
+                WHERE FirstName = '${customerFName}' AND LastName = '${customerLName}'
                 LIMIT 1`;
         console.log(q);
         org.query({query: q}, (err, resp) => {
