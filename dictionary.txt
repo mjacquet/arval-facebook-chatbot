@@ -5,19 +5,19 @@ onboard2 onboard2
 onboard3 onboard3
 onboard4 onboard4
 onboard5 onboard5
-Découvrir les offres button1
-Je suis client button2
-Locataire button3
-Colocataire button4
-Propriétaire button5
-Alarme incendie button6
-Objets connectés button7
-Alarme anti-effraction button8
-Je n'ai pas d'assureur button9
-AXA button10
-MAIF button11
-CNP Assurances button12
-Autre button13
-Détails button14
-Souscrire button15
-Mon conseiller button16
+button1 Decouvrir les offres
+button2 Je suis client
+button3 Locataire
+button4 Colocataire
+button5 Propriétaire
+button6 Alarme incendie
+button7 Objets connectés
+button8 Alarme anti-effraction
+button9 Je n'ai pas d'assureur
+button10 AXA
+button11 MAIF
+button12 CNP Assurances
+button13 Autre
+button14 Détails
+button15 Souscrire
+button16 Mon conseiller
