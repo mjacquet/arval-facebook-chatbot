@@ -12,8 +12,8 @@ button4 Colocataire
 button5 Propriétaire
 button6 Alarme incendie
 button7 Objets connectés
-button8 Alarme anti-effraction
-button9 Je n'ai pas d'assureur
+button8 Alarme effraction
+button9 Pas d'assureur
 button10 AXA
 button11 MAIF
 button12 CNP Assurances

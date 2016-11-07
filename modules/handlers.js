@@ -57,14 +57,16 @@ exports.onboard5 = (sender) => {
 
 //if user presses any buttons on q1 send to q2
 exports.button1 = (sender) => {
+    messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
     messenger.getUserInfo(sender).then(response => {
         salesforce.updateLead(response.first_name, response.last_name, sender).then(leads => {
             messenger.send(formatter.onBoard2(response), sender);
-            messenger.send(formatter.test(leads), sender);
+            //messenger.send(formatter.test(leads), sender);
         });   
     });
 };
 exports.button2 = (sender) => {
+    messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard2(response), sender);
     });
