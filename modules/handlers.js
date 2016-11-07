@@ -25,7 +25,11 @@ exports.help = (sender) => {
 exports.onboard1 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard1(response), sender);
+        salesforce.createLead(response.first_name, response.first_name, sender).then(() => {
+            messenger.send({text: `Lead Created`}, sender);
+        });
     });
+
 };
 
 exports.onboard2 = (sender) => {
