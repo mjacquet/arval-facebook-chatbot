@@ -40,6 +40,8 @@ app.post('/webhook', (req, res) => {
                 } else {
                     console.log("Handler " + result.handlerName + " is not defined");
                 }
+            } else{
+                messenger.send({text: `Text entered: ${event.message.text}!`}, sender);
             }
         } else if (event.postback) {
             let payload = event.postback.payload.split(",");
@@ -51,8 +53,6 @@ app.post('/webhook', (req, res) => {
             }
         } else if (event.message && event.message.attachments) {
             uploads.processUpload(sender, event.message.attachments);
-        } else{
-            messenger.send({text: `Text entered: ${event.message.text}!`}, sender);
         }
     }
     res.sendStatus(200);
