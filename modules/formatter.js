@@ -26,20 +26,17 @@ exports.onBoard2 = response => {
         "text":"C'est noté. Êtes vous locataire ou propriétaire?",
         "quick_replies":[
           {
-            "content_type":"text",
-            "type": "postback",
+            "content_type":"postback",
             "title":"Locataire",
             "payload":"button3"
           },
           {
-            "content_type":"text",
-            "type": "postback",
+            "content_type":"postback",
             "title":"Colocataire",
             "payload":"button4"
           },
           {
-            "content_type":"text",
-            "type": "postback",
+            "content_type":"postback",
             "title":"Propriétaire",
             "payload":"button5"
           }
