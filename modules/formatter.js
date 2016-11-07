@@ -60,7 +60,7 @@ exports.onBoard3 = response => {
           },
           {
             "content_type":"text",
-            "title":"Alarme anti-effraction",
+            "title":"Alarme anti-effracti",
             "payload":"button8"
           }
         ]
@@ -73,7 +73,7 @@ exports.onBoard4 = response => {
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Je n'ai pas d'assureur",
+            "title":"Je n'ai pas d'assure",
             "payload":"button9"
           },
           {
