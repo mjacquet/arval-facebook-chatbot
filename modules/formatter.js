@@ -5,7 +5,7 @@ let moment = require("moment"),
 
 exports.onBoard1 = response => {
     return {
-        "text":"Bonjour ${response.first_name} et bienvenue chez Cumulus Assurance. Que puis-je faire pour vous?",
+        "text":"Bonjour " + response.first_name + " et bienvenue chez Cumulus Assurance. Que puis-je faire pour vous?",
         "quick_replies":[
           {
             "content_type":"text",
