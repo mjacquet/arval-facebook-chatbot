@@ -5,4 +5,19 @@ onboard2 onboard2
 onboard3 onboard3
 onboard4 onboard4
 onboard5 onboard5
-test test
+Découvrir les offres button1
+Je suis client button2
+Locataire button3
+Colocataire button4
+Propriétaire button5
+Alarme incendie button6
+Objets connectés button7
+Alarme anti-effraction button8
+Je n'ai pas d'assureur button9
+AXA button10
+MAIF button11
+CNP Assurances button12
+Autre button13
+Détails button14
+Souscrire button15
+Mon conseiller button16

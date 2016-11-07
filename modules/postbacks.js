@@ -97,3 +97,18 @@ exports.button13 = (sender, values) => {
     messenger.send({text: `button13`}, sender);
 
 };
+exports.button14 = (sender, values) => {
+
+    messenger.send({text: `button14`}, sender);
+
+};
+exports.button15 = (sender, values) => {
+
+    messenger.send({text: `button15`}, sender);
+
+};
+exports.button16 = (sender, values) => {
+
+    messenger.send({text: `button16`}, sender);
+
+};

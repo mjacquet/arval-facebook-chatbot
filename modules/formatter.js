@@ -26,17 +26,17 @@ exports.onBoard2 = response => {
         "text":"C'est noté. Êtes vous locataire ou propriétaire?",
         "quick_replies":[
           {
-            "content_type":"postback",
+            "content_type":"text",
             "title":"Locataire",
             "payload":"button3"
           },
           {
-            "content_type":"postback",
+            "content_type":"text",
             "title":"Colocataire",
             "payload":"button4"
           },
           {
-            "content_type":"postback",
+            "content_type":"text",
             "title":"Propriétaire",
             "payload":"button5"
           }
@@ -112,17 +112,17 @@ exports.onBoard5 = response => {
                     {
                         "type": "postback",
                         "title": "Détails",
-                        "payload": "button12"
+                        "payload": "button14"
                     },
                     {
                         "type": "postback",
                         "title": "Souscrire",
-                        "payload": "button13"
+                        "payload": "button15"
                     },
                     {
                         "type": "postback",
                         "title": "Mon conseiller",
-                        "payload": "button14"
+                        "payload": "button16"
                     }
                 ]
             },
@@ -134,17 +134,17 @@ exports.onBoard5 = response => {
                     {
                         "type": "postback",
                         "title": "Détails",
-                        "payload": "button12"
+                        "payload": "button14"
                     },
                     {
                         "type": "postback",
                         "title": "Souscrire",
-                        "payload": "button13"
+                        "payload": "button15"
                     },
                     {
                         "type": "postback",
                         "title": "Mon conseiller",
-                        "payload": "button14"
+                        "payload": "button16"
                     }
                 ]
             },
@@ -156,17 +156,17 @@ exports.onBoard5 = response => {
                     {
                         "type": "postback",
                         "title": "Détails",
-                        "payload": "button12"
+                        "payload": "button14"
                     },
                     {
                         "type": "postback",
                         "title": "Souscrire",
-                        "payload": "button13"
+                        "payload": "button15"
                     },
                     {
                         "type": "postback",
                         "title": "Mon conseiller",
-                        "payload": "button14"
+                        "payload": "button16"
                     }
                 ]
             }

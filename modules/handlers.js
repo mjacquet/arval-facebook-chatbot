@@ -56,10 +56,78 @@ exports.onboard5 = (sender) => {
     });
 };
 
-exports.test = (sender) => {
+//if user presses any buttons on q1 send to q2
+exports.button1 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.test(response), sender);
+        messenger.send(formatter.onBoard2(response), sender);
     });
 };
+exports.button2 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard2(response), sender);
+    });
+};
+
+//if user presses any buttons on q2 send to q3
+exports.button3 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard3(response), sender);
+    });
+};
+exports.button4 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard3(response), sender);
+    });
+};
+exports.button5 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard3(response), sender);
+    });
+};
+
+//if user presses any buttons on q3 send to q4
+exports.button6 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard4(response), sender);
+    });
+};
+exports.button7 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard4(response), sender);
+    });
+};
+exports.button8 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard4(response), sender);
+    });
+};
+
+//if user presses any buttons on q4 send to q5
+exports.button9 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard5(response), sender);
+    });
+};
+exports.button10 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard5(response), sender);
+    });
+};
+exports.button11 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard5(response), sender);
+    });
+};  
+exports.button12 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard5(response), sender);
+    });
+};  
+exports.button13 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard5(response), sender);
+    });
+};  
+
 
 
