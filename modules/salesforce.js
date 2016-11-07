@@ -179,6 +179,7 @@ let updateLead = (customerFName, customerLName, customerId) => {
                 console.error(err);
                 reject("An error as occurred");
             } else {
+                /*
                 resp.records.set('Description', "extra: " + customerId);
 
                 org.upsert({sobject: resp.records}, (err2, resp2) => {
@@ -189,6 +190,8 @@ let updateLead = (customerFName, customerLName, customerId) => {
                         resolve(resp.records);
                     }
                 });
+                */
+                resolve(resp.records);
             }
         });
     });

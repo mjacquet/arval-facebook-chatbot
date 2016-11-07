@@ -60,7 +60,7 @@ exports.button1 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         salesforce.updateLead(response.first_name, response.last_name, sender).then(leads => {
             messenger.send(formatter.onBoard2(response), sender);
-            messenger.send(formatter.test(leads), sender);
+            //messenger.send(formatter.test(leads), sender);
         });   
     });
 };
