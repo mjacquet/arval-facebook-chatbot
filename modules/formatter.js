@@ -5,125 +5,103 @@ let moment = require("moment"),
 
 exports.onBoard1 = response => {
     return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "button",
-                "text": `Bonjour ${response.first_name} et bienvenue chez Cumulus Assurance. Que puis-je faire pour vous?`,
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Découvrir les offres",
-                        "payload": "button1"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Je suis client",
-                        "payload": "button2"
-                    }]
-            }
-        }
-    };
+        "text":"Bonjour ${response.first_name} et bienvenue chez Cumulus Assurance. Que puis-je faire pour vous?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Découvrir les offres",
+            "payload":"button1"
+          },
+          {
+            "content_type":"text",
+            "title":"Je suis client",
+            "payload":"button2"
+          }
+        ]
+    }
 };
 
 exports.onBoard2 = response => {
     return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "button",
-                "text": `C'est noté. Êtes vous locataire ou propriétaire?`,
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Locataire",
-                        "payload": "button3"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Colocataire",
-                        "payload": "button4"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Propriétaire",
-                        "payload": "button5"
-                    }]
-            }
-        }
-    };
-};
-exports.test = response => {
-    return {
-        "text":"Pick a color:",
+        "text":"C'est noté. Êtes vous locataire ou propriétaire?",
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Red",
+            "type": "postback",
+            "title":"Locataire",
+            "payload":"button3"
+          },
+          {
+            "content_type":"text",
+            "type": "postback",
+            "title":"Colocataire",
+            "payload":"button4"
+          },
+          {
+            "content_type":"text",
+            "type": "postback",
+            "title":"Propriétaire",
+            "payload":"button5"
+          }
+        ]
+    }
+};
+
+exports.onBoard3 = response => {
+    return {
+        "text":"Votre logement est-il équipé des dispositifs suivants:",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Alarme incendie",
             "payload":"button6"
           },
           {
             "content_type":"text",
-            "title":"Green",
+            "title":"Objets connectés",
             "payload":"button7"
+          },
+          {
+            "content_type":"text",
+            "title":"Alarme anti-effraction",
+            "payload":"button8"
           }
         ]
-      }
-};
-exports.onBoard3 = response => {
-    return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "button",
-                "text": `Votre logement est-il équipé des dispositifs suivants:`,
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Alarme incendie",
-                        "payload": "button6"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Objets connectés",
-                        "payload": "button7"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Alarme anti-effraction",
-                        "payload": "button8"
-                    }]
-            }
-        }
-    };
+    }
 };
 
 exports.onBoard4 = response => {
     return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "button",
-                "text": `Et pour finir : quel est l'assureur actuel de votre logement?`,
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Je n'ai pas d'assureur",
-                        "payload": "button7"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "AXA",
-                        "payload": "button8"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "MAIF",
-                        "payload": "button9"
-                    }]
-            }
-        }
-    };
+        "text":"Et pour finir : quel est l'assureur actuel de votre logement?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Je n'ai pas d'assureur",
+            "payload":"button9"
+          },
+          {
+            "content_type":"text",
+            "title":"AXA",
+            "payload":"button10"
+          },
+          {
+            "content_type":"text",
+            "title":"MAIF",
+            "payload":"button11"
+          },
+          {
+            "content_type":"text",
+            "title":"CNP Assurances",
+            "payload":"button12"
+          },
+          {
+            "content_type":"text",
+            "title":"Autre",
+            "payload":"button13"
+          }
+
+        ]
+    }
 };
 exports.onBoard5 = response => {
 
