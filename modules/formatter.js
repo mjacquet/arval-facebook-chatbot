@@ -54,6 +54,35 @@ exports.onBoard2 = response => {
     };
 };
 
+exports.onBoard3 = response => {
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": `Votre logement est-il équipé des dispositifs suivants:`,
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Alarme incendie",
+                        "payload": "button6"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Objets connectés",
+                        "payload": "button7"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Alarme anti-effraction",
+                        "payload": "button8"
+                    }]
+            }
+        }
+    };
+};
+
+
 
 
 exports.formatProperties = properties => {
