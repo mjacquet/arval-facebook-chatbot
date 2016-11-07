@@ -180,20 +180,23 @@ let updateLead = (customerFName, customerLName, customerId) => {
                 reject("An error as occurred");
             } else {
                 
-                resp.records[0].set('Description', "extra: " + customerId);
-
-                org.upsert({sobject: resp.records[0]}, (err2, resp2) => {
-                    if (err2) {
-                        console.error(err2);
-                        reject("An error occurred while updating a Lead");
-                    } else {
-                        resolve(resp2.records);
-                    }
-                });
                 
-                //resolve(resp.records);
+                
+                resolve(resp.records[0]);
             }
         });
+        /*
+        resp.records[0].set('Description', "extra: " + customerId);
+
+        org.upsert({sobject: resp.records[0]}, (err2, resp2) => {
+            if (err2) {
+                console.error(err2);
+                reject("An error occurred while updating a Lead");
+            } else {
+                resolve(resp2.records);
+            }
+        });
+        */
     });
 };
 
