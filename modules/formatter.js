@@ -183,7 +183,11 @@ exports.onBoard5 = response => {
             }
         }
     };
-
+};
+exports.onBoard6 = response => {
+    return {
+        "text":"Last question answered",
+    }
 };
 
 

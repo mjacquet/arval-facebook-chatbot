@@ -126,6 +126,21 @@ exports.button13 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard5(response), sender);
     });
+};
+exports.button14 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard6(response), sender);
+    });
+};
+exports.button15 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard6(response), sender);
+    });
+};
+exports.button16 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard6(response), sender);
+    });
 };  
 
 

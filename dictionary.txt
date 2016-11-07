@@ -1,6 +1,6 @@
 hi hi
 help help
-onboard1 onboard1
+onboard1 hello
 onboard2 onboard2
 onboard3 onboard3
 onboard4 onboard4
