@@ -151,6 +151,7 @@ let createLead = (customerFName, customerLName, customerId) => {
         l.set('LastName', `${customerLName}`);
         l.set('Description', "Facebook id: " + customerId);
         l.set('Status', 'New');
+        l.set('External_ID__c', '1001');
 
         org.insert({sobject: l}, err => {
             if (err) {
