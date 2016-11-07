@@ -188,7 +188,7 @@ exports.test = leads => {
     let elements = [];
     leads.forEach(lead => {
             elements.push({
-                title: leads.get("FirstName")
+                title: lead.get("FirstName")
             })
         }
     );
