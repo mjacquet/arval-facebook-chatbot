@@ -182,7 +182,7 @@ let updateLead = (customerFName, customerLName, customerId) => {
                 
                 
                 
-                resolve(resp.records[0]);
+                resolve(resp.records);
             }
         });
         /*
