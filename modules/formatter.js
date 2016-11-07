@@ -184,10 +184,23 @@ exports.onBoard5 = response => {
         }
     };
 };
-exports.onBoard6 = response => {
+exports.test = leads => {
+    let elements = [];
+    leads.forEach(lead => {
+            elements.push({
+                title: leads.get("FirstName")
+            })
+        }
+    );
     return {
-        "text":"Last question answered",
-    }
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
 };
 
 
