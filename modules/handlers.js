@@ -40,4 +40,16 @@ exports.onboard3 = (sender) => {
     });
 };
 
+exports.onboard4 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard4(response), sender);
+    });
+};
+
+exports.onboard5 = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard5(response), sender);
+    });
+};
+
 

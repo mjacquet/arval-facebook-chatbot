@@ -82,6 +82,131 @@ exports.onBoard3 = response => {
     };
 };
 
+exports.onBoard4 = response => {
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": `Et pour finir : quel est l'assureur actuel de votre logement?`,
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Je n'ai pas d'assureur",
+                        "payload": "button7"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "AXA",
+                        "payload": "button8"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "MAIF",
+                        "payload": "button9"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "CNP Assurances",
+                        "payload": "button10"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Autre",
+                        "payload": "button11"
+                    }]
+            }
+        }
+    };
+};
+exports.onBoard5 = response => {
+
+    let elements = [];
+        elements.push(  
+            {
+                title: 'Cumulus Confort',
+                subtitle: `17,99€ par mois`,
+                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-Jdk4wZGQ2S2tBQm8',
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Détails",
+                        "payload": "button12"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Souscrire",
+                        "payload": "button13"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Mon conseiller",
+                        "payload": "button14"
+                    }
+                ]
+            },
+            {
+                title: 'Cumulus Confort Plus',
+                subtitle: `20,99€ par mois`,
+                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-Jdk4wZGQ2S2tBQm8',
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Détails",
+                        "payload": "button12"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Souscrire",
+                        "payload": "button13"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Mon conseiller",
+                        "payload": "button14"
+                    }
+                ]
+            },
+            {
+                title: 'Offre maison connectée',
+                subtitle: `17,99€ par mois`,
+                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-Jdk4wZGQ2S2tBQm8',
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Détails",
+                        "payload": "button12"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Souscrire",
+                        "payload": "button13"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Mon conseiller",
+                        "payload": "button14"
+                    }
+                ]
+            }
+
+
+        );
+
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+
+};
+
+
+
 
 
 
