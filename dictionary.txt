@@ -5,7 +5,7 @@ onboard2 onboard2
 onboard3 onboard3
 onboard4 onboard4
 onboard5 onboard5
-button1 Decouvrir les offres
+button1 Découvrir les offres
 button2 Je suis client
 button3 Locataire
 button4 Colocataire
