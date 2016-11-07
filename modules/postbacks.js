@@ -33,11 +33,27 @@ exports.contact_me = (sender, values) => {
 exports.button1 = (sender, values) => {
 
     messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
+    messenger.send({text: `Pour commencer, quelle est l'adresse de votre logement?`}, sender);
 
 };
 
 exports.button2 = (sender, values) => {
 
     messenger.send({text: `Do Nothing`}, sender);
+
+};
+exports.button3 = (sender, values) => {
+
+    messenger.send({text: `button3`}, sender);
+
+};
+exports.button4 = (sender, values) => {
+
+    messenger.send({text: `button4`}, sender);
+
+};
+exports.button5 = (sender, values) => {
+
+    messenger.send({text: `button5`}, sender);
 
 };

@@ -26,6 +26,36 @@ exports.onBoard1 = response => {
     };
 };
 
+exports.onBoard2 = response => {
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": `C'est noté. Êtes vous locataire ou propriétaire?`,
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Locataire",
+                        "payload": "button3"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Colocataire",
+                        "payload": "button4"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Propriétaire",
+                        "payload": "button5"
+                    }]
+            }
+        }
+    };
+};
+
+
+
 exports.formatProperties = properties => {
     let elements = [];
     properties.forEach(property => {
