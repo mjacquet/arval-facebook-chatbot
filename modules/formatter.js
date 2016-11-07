@@ -55,22 +55,20 @@ exports.onBoard2 = response => {
 };
 exports.test = response => {
     return {
-        "message":{
-            "text":"Pick a color:",
-            "quick_replies":[
-              {
-                "content_type":"text",
-                "title":"Red",
-                "payload":"button6"
-              },
-              {
-                "content_type":"text",
-                "title":"Green",
-                "payload":"button7"
-              }
-            ]
+        "text":"Pick a color:",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Red",
+            "payload":"button6"
+          },
+          {
+            "content_type":"text",
+            "title":"Green",
+            "payload":"button7"
           }
-    }
+        ]
+      }
 };
 exports.onBoard3 = response => {
     return {
