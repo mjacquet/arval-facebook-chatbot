@@ -104,16 +104,6 @@ exports.onBoard4 = response => {
                         "type": "postback",
                         "title": "MAIF",
                         "payload": "button9"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "CNP Assurances",
-                        "payload": "button10"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Autre",
-                        "payload": "button11"
                     }]
             }
         }
