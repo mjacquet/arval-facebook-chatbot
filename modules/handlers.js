@@ -56,4 +56,10 @@ exports.onboard5 = (sender) => {
     });
 };
 
+exports.test = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.test(response), sender);
+    });
+};
+
 
