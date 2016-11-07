@@ -99,16 +99,16 @@ exports.button13 = (sender, values) => {
 };
 exports.button14 = (sender, values) => {
 
-    messenger.send({text: `button14`}, sender);
+    messenger.send({text: `Last Question Answered`}, sender);
 
 };
 exports.button15 = (sender, values) => {
 
-    messenger.send({text: `button15`}, sender);
+    messenger.send({text: `Last Question Answered`}, sender);
 
 };
 exports.button16 = (sender, values) => {
 
-    messenger.send({text: `button16`}, sender);
+    messenger.send({text: `Last Question Answered`}, sender);
 
 };

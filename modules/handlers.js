@@ -58,7 +58,9 @@ exports.onboard5 = (sender) => {
 //if user presses any buttons on q1 send to q2
 exports.button1 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.onBoard2(response), sender);
+        salesforce.updateLead(response.first_name, response.last_name, sender).then(() => {
+            messenger.send(formatter.onBoard2(response), sender);
+        });   
     });
 };
 exports.button2 = (sender) => {
@@ -127,21 +129,6 @@ exports.button13 = (sender) => {
         messenger.send(formatter.onBoard5(response), sender);
     });
 };
-exports.button14 = (sender) => {
-    messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.onBoard6(response), sender);
-    });
-};
-exports.button15 = (sender) => {
-    messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.onBoard6(response), sender);
-    });
-};
-exports.button16 = (sender) => {
-    messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.onBoard6(response), sender);
-    });
-};  
 
 
 

@@ -163,6 +163,36 @@ let createLead = (customerFName, customerLName, customerId) => {
     });
 
 };
+let updateLead = (customerFName, customerLName, customerId) => {
+
+    return new Promise((resolve, reject) => {
+        let q = `SELECT id,
+                    FirstName,
+                    LastName,
+                    Description
+                FROM Lead
+                WHERE FirstName = ${customerFName} AND LastName = ${customerLName} 
+                LIMIT 1`;
+        console.log(q);
+        org.query({query: q}, (err, resp) => {
+            if (err) {
+                console.error(err);
+                reject("An error as occurred");
+            } else {
+                q.set('Description', q.Description + "extra: " + customerId);
+
+                org.upsert({sobject: q}, err => {
+                    if (err) {
+                        console.error(err);
+                        reject("An error occurred while updating a Lead");
+                    } else {
+                        resolve(q);
+                    }
+                });
+            }
+        });
+    });
+};
 
 login();
 

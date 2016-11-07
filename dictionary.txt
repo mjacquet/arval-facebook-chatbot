@@ -18,6 +18,3 @@ button10 AXA
 button11 MAIF
 button12 CNP Assurances
 button13 Autre
-button14 Détails
-button15 Souscrire
-button16 Mon conseiller
