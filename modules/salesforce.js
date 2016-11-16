@@ -37,7 +37,10 @@ let createLead = (customerFName, customerLName, customerId) => {
         l.set('Status', 'New');
 
         org.insert({ sobject: l }, function(err, resp){
-          if(!err) console.log('It worked!');
+            if(!err){
+                console.log('It worked!');
+                resolve(l);
+            }
         });
     });
 
