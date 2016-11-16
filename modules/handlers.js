@@ -31,7 +31,7 @@ exports.start = (sender) => {
 
 exports.theStart = (sender) => {
     console.log('theStart');
-    messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
+    //messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard2(response), sender);
 
