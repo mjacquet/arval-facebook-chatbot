@@ -49,13 +49,13 @@ let createLead = (customerFName, customerLName, customerId) => {
     }
 };
 
-let updateLead = (sender, params) => {
+let updateLead = (params, sender) => {
     if(params){
         return new Promise((resolve, reject) => {
-            
+
             console.log("params: ", params);
 
-            var q = 'SELECT Id, CreatedDate FROM Lead ORDER BY CreatedDate DESC LIMIT 1';
+            var q = 'SELECT Id, CreatedDate, Statut_locatif__c, Equipement__c, Assureur_actuel__c FROM Lead ORDER BY CreatedDate DESC LIMIT 1';
 
             org.query({ query: q }, function(err, resp){
 
