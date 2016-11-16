@@ -20,7 +20,7 @@ exports.start = (sender) => {
 
 exports.test = (sender) => {
     messenger.getUserInfo(sender).then(response => {
-        salesforce.createCase().then(() => {
+        salesforce.createCase(response.first_name, response.last_name, sender).then(() => {
             messenger.send(formatter.onBoard1(response), sender);
         });
     });

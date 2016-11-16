@@ -49,13 +49,14 @@ let createLead = (customerFName, customerLName, customerId) => {
 
 };
 
-let createCase = () => {
+let createCase = (customerFName, customerLName, customerId) => {
 
     return new Promise((resolve, reject) => {
         let l = nforce.createSObject('Lead');
         l.set('Company', `Facebook Customer`);
-        l.set('FirstName', `aaa`);
-        l.set('LastName', `aaa`);
+        l.set('FirstName', `${customerFName}`);
+        l.set('LastName', `${customerLName}`);
+        l.set('Description', "Facebook id: " + customerId);
         l.set('Status', 'New');
 
         org.insert({sobject: l}, err => {
