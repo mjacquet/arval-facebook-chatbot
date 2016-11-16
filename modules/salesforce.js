@@ -87,6 +87,7 @@ let updateLead = (params, sender) => {
         });
     }
     params = null;
+    console.log("params2: ", params);
 };
 
 
