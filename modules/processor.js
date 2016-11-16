@@ -26,13 +26,15 @@ let match = text => {
     for (var i=0; i<utterances.length; i++) {
         var match = text.match(new RegExp(utterances[i].utterance, 'i'));
         console.log('utterances[i].utterance', utterances[i].utterance);
-        if (match) {
-            var handler = utterances[i].handler;
-            console.log('text entered', match); 
-            return {handler, match};
-        } else {
-            console.log('no match');
-            console.log('text entered', match); 
+        if(match != null && match != 'null'){
+            if (match) {
+                var handler = utterances[i].handler;
+                console.log('text entered', match); 
+                return {handler, match};
+            } else {
+                console.log('no match');
+                console.log('text entered', match); 
+            }
         }
     }
 };
