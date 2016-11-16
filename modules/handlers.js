@@ -19,5 +19,7 @@ exports.start = (sender) => {
 };
 
 exports.test = (sender) => {
-    salesforce.test(sender).then(() => {});
+    messenger.getUserInfo(sender).then(response => {
+        salesforce.test(response.first_name, response.last_name, sender).then(() => {});
+    });
 };

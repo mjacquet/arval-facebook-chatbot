@@ -47,18 +47,21 @@ let createLead = (customerFName, customerLName, customerId) => {
     });
 };
 
-let test = () => {
+let test = (customerFName, customerLName, customerId) => {
 
     return new Promise((resolve,reject) => {
-        var acc = nforce.createSObject('Account');
-        acc.set('Name', 'Spiffy Cleaners');
-        acc.set('Phone', '800-555-2345');
+        var l = nforce.createSObject('Lead');
+        l.set('Company', `Facebook Customer`);
+        l.set('FirstName', `${customerFName}`);
+        l.set('LastName', `${customerLName}`);
+        l.set('Description', "Facebook id: " + customerId);
+        l.set('Status', 'New');
 
-        org.insert({ sobject: acc }, function(err, resp){
+        org.insert({ sobject: l }, function(err, resp){
           if(!err) console.log('It worked!');
         });
     });
-    
+
 };
 
 login();
