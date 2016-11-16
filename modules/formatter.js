@@ -9,7 +9,7 @@ exports.onBoard1 = response => {
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Découvrir les offres",
+            "title":"Decouvrir les offres",
             "payload":"theStart"
           },
           {

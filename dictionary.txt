@@ -1,6 +1,6 @@
 hi hi
 start Bonjour
-theStart Découvrir les offres
+theStart Decouvrir les offres
 theStartTwo Je suis client
 button3 Locataire
 button4 Colocataire
