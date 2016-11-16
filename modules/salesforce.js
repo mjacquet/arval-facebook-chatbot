@@ -53,7 +53,6 @@ let createCase = (customerFName, customerLName, customerId) => {
 
     return new Promise((resolve, reject) => {
         let c = nforce.createSObject('Lead');
-        c.set('subject', `ddd`);
         c.set('Company', `Facebook Customer`);
         c.set('FirstName', `aaa`);
         c.set('LastName', `aaa`);
