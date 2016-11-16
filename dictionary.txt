@@ -1,7 +1,7 @@
 hi hi
 start bonjour
-button1 Découvrir les offres
-button2 Je suis client
+theStart Découvrir les offres
+theStartTwo Je suis client
 button3 Locataire
 button4 Colocataire
 button5 Propriétaire

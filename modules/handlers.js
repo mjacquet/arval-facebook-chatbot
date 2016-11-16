@@ -27,14 +27,14 @@ exports.start = (sender) => {
     });
 };
 
-exports.button1 = (sender) => {
+exports.theStart = (sender) => {
     messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard2(response), sender);
 
     });
 };
-exports.button2 = (sender) => {
+exports.theStartTwo = (sender) => {
     messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard2(response), sender);
