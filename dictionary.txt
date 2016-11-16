@@ -2,8 +2,8 @@ hi hi
 start Bonjour
 theStart Decouvrir les offres
 theStartTwo Je suis client
-button3 Locataire
 button4 Colocataire
+button3 Locataire
 button5 Propriétaire
 button6 Alarme incendie
 button7 Objets connectés
