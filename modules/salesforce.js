@@ -52,19 +52,18 @@ let createLead = (customerFName, customerLName, customerId) => {
 let createCase = (customerFName, customerLName, customerId) => {
 
     return new Promise((resolve, reject) => {
-        let l = nforce.createSObject('Lead');
-        l.set('Company', `Facebook Customer`);
-        l.set('FirstName', `${customerFName}`);
-        l.set('LastName', `${customerLName}`);
-        l.set('Description', "Facebook id: " + customerId);
-        l.set('Status', 'New');
+        let c = nforce.createSObject('Case');
+        c.set('subject', `ddd`);
+        c.set('description', "Facebook id: ");
+        c.set('origin', 'Facebook Bot');
+        c.set('status', 'New');
 
-        org.insert({sobject: l}, err => {
+        org.insert({sobject: c}, err => {
             if (err) {
                 console.error(err);
                 reject("An error occurred while creating a case");
             } else {
-                resolve(l);
+                resolve(c);
             }
         });
     });
