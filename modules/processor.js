@@ -23,6 +23,7 @@ rl.on('close', () => {
 });
 
 let match = text => {
+    console.log('text: ', text);
     for (var i=0; i<utterances.length; i++) {
         var match = text.match(new RegExp(utterances[i].utterance, 'i'));
         console.log('utterances[i].utterance', utterances[i].utterance);
