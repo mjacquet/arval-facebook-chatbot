@@ -76,9 +76,13 @@ let updateLead = (params, sender) => {
                     org.update({ sobject: theLead }, function(err, resp){
                         if(!err){
                             console.log('It worked!');
+                            params = null;
+                            console.log("params2: ", params);
                             resolve(theLead);
                         }
                         else{
+                            params = null;
+                            console.log("params2: ", params);
                             reject("Error updating the Lead");
                         }
                     });
@@ -86,8 +90,6 @@ let updateLead = (params, sender) => {
             });
         });
     }
-    params = null;
-    console.log("params2: ", params);
 };
 
 

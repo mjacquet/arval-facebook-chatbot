@@ -10,12 +10,12 @@ exports.onBoard1 = response => {
           {
             "content_type":"text",
             "title":"Découvrir les offres",
-            "payload":"button1"
+            "payload":"theStart"
           },
           {
             "content_type":"text",
             "title":"Je suis client",
-            "payload":"button2"
+            "payload":"theStartTwo"
           }
         ]
     }
