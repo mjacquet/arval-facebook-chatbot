@@ -1,5 +1,5 @@
 hi hi
-start bonjour
+start Bonjour
 theStart Découvrir les offres
 theStartTwo Je suis client
 button3 Locataire
