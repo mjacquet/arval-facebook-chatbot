@@ -22,8 +22,9 @@ exports.onBoard1 = response => {
 };
 
 exports.onBoard2 = response => {
+    console.log('onBoard2');
     return {
-        "text":"Êtes vous locataire ou propriétaire?",
+        "text":"Etes vous locataire ou proprietaire?",
         "quick_replies":[
           {
             "content_type":"text",
@@ -37,7 +38,7 @@ exports.onBoard2 = response => {
           },
           {
             "content_type":"text",
-            "title":"Propriétaire",
+            "title":"Proprietaire",
             "payload":"button5"
           }
         ]

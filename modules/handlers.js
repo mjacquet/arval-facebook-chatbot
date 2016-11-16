@@ -14,12 +14,14 @@ exports.test = (sender) => {
 };
 */
 exports.hi = (sender) => {
+    console.log('hi');
     messenger.getUserInfo(sender).then(response => {
         messenger.send({text: `Hello, ${response.first_name}!`}, sender);
     });
 };
 
 exports.start = (sender) => {
+    console.log('start');
     messenger.getUserInfo(sender).then(response => {
         salesforce.createLead(response.first_name, response.last_name, sender).then(() => {
             messenger.send(formatter.onBoard1(response), sender);
@@ -28,6 +30,7 @@ exports.start = (sender) => {
 };
 
 exports.theStart = (sender) => {
+    console.log('theStart');
     messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard2(response), sender);
@@ -35,6 +38,7 @@ exports.theStart = (sender) => {
     });
 };
 exports.theStartTwo = (sender) => {
+    console.log('theStartTwo ');
     messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard2(response), sender);
