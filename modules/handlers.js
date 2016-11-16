@@ -44,7 +44,7 @@ exports.theStartTwo = (sender) => {
         messenger.send(formatter.onBoard2(response), sender);
     });
 };
-/*
+
 exports.button3 = (sender) => {
     console.log('button3 called');
     messenger.getUserInfo(sender).then(response => {
@@ -143,4 +143,3 @@ exports.button13 = (sender) => {
         });
     });
 };
-*/
