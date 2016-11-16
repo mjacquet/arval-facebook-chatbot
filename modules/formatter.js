@@ -28,18 +28,15 @@ exports.onBoard2 = response => {
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Locataire",
-            "payload":"button3"
+            "title":"Locataire"
           },
           {
             "content_type":"text",
-            "title":"Colocataire",
-            "payload":"button4"
+            "title":"Colocataire"
           },
           {
             "content_type":"text",
-            "title":"Proprietaire",
-            "payload":"button5"
+            "title":"Proprietaire"
           }
         ]
     }
