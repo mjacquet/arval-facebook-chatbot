@@ -27,46 +27,64 @@ let login = () => {
 };
 
 let createLead = (customerFName, customerLName, customerId) => {
+    if(customerFName){
+        return new Promise((resolve,reject) => {
+            var l = nforce.createSObject('Lead');
+            l.set('Company', `Facebook Customer`);
+            l.set('FirstName', `${customerFName}`);
+            l.set('LastName', `${customerLName}`);
+            l.set('Description', "Facebook id: " + customerId);
+            l.set('Status', 'New');
 
-    return new Promise((resolve,reject) => {
-        var l = nforce.createSObject('Lead');
-        l.set('Company', `Facebook Customer`);
-        l.set('FirstName', `${customerFName}`);
-        l.set('LastName', `${customerLName}`);
-        l.set('Description', "Facebook id: " + customerId);
-        l.set('Status', 'New');
-
-        org.insert({ sobject: l }, function(err, resp){
-            if(!err){
-                console.log('It worked!');
-                resolve(l);
-            }
-            else{
-                reject("An error occurred while creating a lead");
-            }
+            org.insert({ sobject: l }, function(err, resp){
+                if(!err){
+                    console.log('It worked!');
+                    resolve(l);
+                }
+                else{
+                    reject("An error occurred while creating a lead");
+                }
+            });
         });
-    });
-
+    }
 };
 
-let createCase = (customerFName, customerLName, customerId) => {
+let updateLead = (sender, params) => {
+    if(params){
+        return new Promise((resolve, reject) => {
+            
+            console.log("params: ", params);
 
-    return new Promise((resolve, reject) => {
-        let c = nforce.createSObject('Lead');
-        c.set('Company', `Facebook Customer`);
-        c.set('FirstName', `aaa`);
-        c.set('LastName', `aaa`);
+            var q = 'SELECT Id, CreatedDate FROM Lead ORDER BY CreatedDate DESC LIMIT 1';
 
-        org.insert({sobject: c}, err => {
-            if (err) {
-                console.error(err);
-                reject("An error occurred while creating a case");
-            } else {
-                resolve(c);
-            }
+            org.query({ query: q }, function(err, resp){
+
+                if(!err && resp.records) {
+
+                    var theLead = resp.records[0];
+                    if(params.q2){
+                        theLead.set('Statut_locatif__c', params.q2);
+                    }
+                    if(params.q3){
+                        theLead.set('Equipement__c', params.q3);
+                    }
+                    if(params.q4){
+                        theLead.set('Assureur_actuel__c', params.q4);
+                    }
+                    console.log("theLead: ", theLead);
+                    org.update({ sobject: theLead }, function(err, resp){
+                        if(!err){
+                            console.log('It worked!');
+                            resolve(theLead);
+                        }
+                        else{
+                            reject("Error updating the Lead");
+                        }
+                    });
+                }
+            });
         });
-    });
-
+    }
 };
 
 
@@ -74,4 +92,4 @@ login();
 
 exports.org = org;
 exports.createLead = createLead;
-exports.createCase = createCase;
+exports.updateLead = updateLead;
