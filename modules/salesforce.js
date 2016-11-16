@@ -41,6 +41,9 @@ let createLead = (customerFName, customerLName, customerId) => {
                 console.log('It worked!');
                 resolve(l);
             }
+            else{
+                reject("An error occurred while creating a lead");
+            }
         });
     });
 
