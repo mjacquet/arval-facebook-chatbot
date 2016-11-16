@@ -17,9 +17,10 @@ exports.start = (sender) => {
         });
     });
 };
-
+/*
 exports.test = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         salesforce.test(response.first_name, response.last_name, sender).then(() => {});
     });
 };
+*/
