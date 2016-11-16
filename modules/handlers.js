@@ -67,19 +67,25 @@ exports.button5 = (sender) => {
 
 exports.button6 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.onBoard4(response), sender);
+        salesforce.updateLead({q3: `Alarme incendie`}, sender).then(() => {
+            messenger.send(formatter.onBoard4(response), sender);
+        });
     });
 };
 
 exports.button7 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.onBoard4(response), sender);
+        salesforce.updateLead({q3: `Objets connectés`}, sender).then(() => {
+            messenger.send(formatter.onBoard4(response), sender);
+        });
     });
 };
 
 exports.button8 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.onBoard4(response), sender);
+        salesforce.updateLead({q3: `Alarme effraction`}, sender).then(() => {
+            messenger.send(formatter.onBoard4(response), sender);
+        });
     });
 };
 
