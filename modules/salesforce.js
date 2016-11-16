@@ -26,6 +26,28 @@ let login = () => {
     });
 };
 
+let createLead = (customerFName, customerLName, customerId) => {
+
+    return new Promise((resolve, reject) => {
+        let l = nforce.createSObject('Lead');
+        l.set('Company', `Facebook Customer`);
+        l.set('FirstName', `${customerFName}`);
+        l.set('LastName', `${customerLName}`);
+        l.set('Description', "Facebook id: " + customerId);
+        l.set('Status', 'New');
+
+        org.insert({sobject: l}, err => {
+            if (err) {
+                console.error(err);
+                reject("An error occurred while creating a Lead");
+            } else {
+                resolve(l);
+            }
+        });
+    });
+};
+
 login();
 
 exports.org = org;
+exports.createLead = createLead;
