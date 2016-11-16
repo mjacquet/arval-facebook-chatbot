@@ -1,10 +1,6 @@
 hi hi
 help help
-onboard1 hello
-onboard2 onboard2
-onboard3 onboard3
-onboard4 onboard4
-onboard5 onboard5
+onboard1 bonjour
 button1 Découvrir les offres
 button2 Je suis client
 button3 Locataire

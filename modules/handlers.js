@@ -31,39 +31,12 @@ exports.onboard1 = (sender) => {
 
 };
 
-exports.onboard2 = (sender) => {
-    messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.onBoard2(response), sender);
-    });
-};
-
-exports.onboard3 = (sender) => {
-    messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.onBoard3(response), sender);
-    });
-};
-
-exports.onboard4 = (sender) => {
-    messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.onBoard4(response), sender);
-    });
-};
-
-exports.onboard5 = (sender) => {
-    messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.onBoard5(response), sender);
-    });
-};
-
 //if user presses any buttons on q1 send to q2
 exports.button1 = (sender) => {
     messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.createLead(response.first_name, response.last_name, sender).then(lead => {
-            salesforce.updateLead(lead, sender).then(() => {
-                messenger.send(formatter.onBoard2(response), sender);
-            }); 
-        });   
+        messenger.send(formatter.onBoard2(response), sender);
+
     });
 };
 exports.button2 = (sender) => {
