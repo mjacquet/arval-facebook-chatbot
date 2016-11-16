@@ -54,8 +54,10 @@ let createCase = () => {
     return new Promise((resolve, reject) => {
         let l = nforce.createSObject('Lead');
         l.set('Company', `Facebook Customer`);
+        l.set('FirstName', `aaa`);
+        l.set('LastName', `aaa`);
         l.set('Status', 'New');
-        
+
         org.insert({sobject: l}, err => {
             if (err) {
                 console.error(err);
