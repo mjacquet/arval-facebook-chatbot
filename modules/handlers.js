@@ -17,3 +17,7 @@ exports.start = (sender) => {
         });
     });
 };
+
+exports.test = (sender) => {
+    salesforce.test(sender).then(() => {});
+};
