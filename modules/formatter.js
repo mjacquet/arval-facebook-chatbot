@@ -44,7 +44,7 @@ exports.onBoard2 = response => {
         ]
     }
 };
-
+/*
 exports.onBoard3 = response => {
     return {
         "text":"Votre logement est-il équipé des dispositifs suivants:",
@@ -186,3 +186,4 @@ exports.onBoard5 = response => {
         }
     };
 };
+*/
