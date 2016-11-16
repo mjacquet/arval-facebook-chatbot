@@ -47,7 +47,22 @@ let createLead = (customerFName, customerLName, customerId) => {
     });
 };
 
+let test = () => {
+
+    return new Promise((resolve,reject) => {
+        var acc = nforce.createSObject('Account');
+        acc.set('Name', 'Spiffy Cleaners');
+        acc.set('Phone', '800-555-2345');
+
+        org.insert({ sobject: acc }, function(err, resp){
+          if(!err) console.log('It worked!');
+        });
+    });
+    
+};
+
 login();
 
 exports.org = org;
 exports.createLead = createLead;
+exports.test = test;
