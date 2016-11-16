@@ -50,6 +50,7 @@ let createLead = (customerFName, customerLName, customerId) => {
 };
 
 let updateLead = (params, sender) => {
+    console.log('how is this getting called');
     if(params){
         return new Promise((resolve, reject) => {
 
@@ -85,6 +86,7 @@ let updateLead = (params, sender) => {
             });
         });
     }
+    params = null;
 };
 
 
