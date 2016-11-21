@@ -105,8 +105,6 @@ let createCase = (customerFName, customerLName, customerId) => {
         c.set('origin', 'Facebook Bot');
         console.log("BURSHT 4");
         c.set('status', 'New');
-        console.log("BURSHT 5");
-        c.set('ContactId', '0013600000PgxmOAAR');
 
         console.log('c: ' , c);
 
