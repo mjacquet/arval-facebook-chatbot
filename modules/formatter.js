@@ -273,8 +273,7 @@ exports.onBoard10 = response => {
     let elements = [];
         elements.push(  
             {
-                title: 'Cumulus Confort',
-                subtitle: `17,99€ par mois`,
+                title: 'Agent',
                 "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JWHdVeWM2dVc5Q2o0dzZVMUJVVGE5NGg3MF84',
                 "buttons": [
                     {

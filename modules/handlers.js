@@ -146,7 +146,7 @@ exports.button14 = (sender) => {
     console.log('button14 called');
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard7(response), sender);
-        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+        salesforce.createCase(response.first_name, response.last_name, sender).then(() => {});
     });
 };
 
@@ -154,7 +154,7 @@ exports.button15 = (sender) => {
     console.log('button15 called');
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard7(response), sender);
-        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+        salesforce.createCase(response.first_name, response.last_name, sender).then(() => {});
     });
 };
 
