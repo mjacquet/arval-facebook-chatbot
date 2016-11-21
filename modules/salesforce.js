@@ -96,7 +96,7 @@ let createCase = (customerFName, customerLName, customerId) => {
 
     return new Promise((resolve, reject) => {
         let c = nforce.createSObject('Case');
-        c.set('subject', `Contact ${customerName} (Facebook Customer)`);
+        c.set('subject', `TEST ${customerName} (Facebook Customer)`);
         c.set('description', "Facebook id: " + customerId);
         c.set('origin', 'Facebook Bot');
         c.set('status', 'New');

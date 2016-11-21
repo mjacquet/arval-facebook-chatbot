@@ -39,7 +39,7 @@ exports.theStart = (sender) => {
 };
 exports.theStartTwo = (sender) => {
     console.log('theStartTwo ');
-    messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
+    //messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
     messenger.getUserInfo(sender).then(response => {
         salesforce.createCase(response.first_name, response.last_name, sender).then(() => {
             messenger.send(formatter.onBoard6(response), sender);
