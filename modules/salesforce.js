@@ -102,7 +102,7 @@ let createCase = (customerFName, customerLName, customerId) => {
         c.set('origin', 'Facebook Bot');
         c.set('status', 'New');
 
-        org.insert({sobject: c}, err => {
+        org.insert({sobject: c}, function(err, resp){
             if (err) {
                 console.error(err);
                 console.log('error: ',err);
