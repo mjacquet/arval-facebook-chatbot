@@ -141,3 +141,86 @@ exports.button13 = (sender) => {
         salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
     });
 };
+
+exports.button14 = (sender) => {
+    console.log('button14 called');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard7(response), sender);
+        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+    });
+};
+
+exports.button15 = (sender) => {
+    console.log('button15 called');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard7(response), sender);
+        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+    });
+};
+
+exports.button16 = (sender) => {
+    console.log('button16 called');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard8(response), sender);
+        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+    });
+};
+
+exports.button17 = (sender) => {
+    console.log('button17 called');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard8(response), sender);
+        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+    });
+};
+
+exports.button18 = (sender) => {
+    console.log('button18 called');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard8(response), sender);
+        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+    });
+};
+
+exports.button19 = (sender) => {
+    console.log('button19 called');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard9(response), sender);
+        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+    });
+};
+
+exports.button20 = (sender) => {
+    console.log('button20 called');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.onBoard9(response), sender);
+        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+    });
+};
+
+exports.button21 = (sender) => {
+    console.log('button21 called');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send({text: `Merci. Votre constat a été transmis à Sarah, agent Cumulus. Elle reviendra vers vous dès que possible.`}, sender);
+        messenger.send(formatter.onBoard10(response), sender);
+        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+    });
+};
+
+exports.button22 = (sender) => {
+    console.log('button22 called');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send({text: `Merci. Votre constat a été transmis à Sarah, agent Cumulus. Elle reviendra vers vous dès que possible.`}, sender);
+        messenger.send(formatter.onBoard10(response), sender);
+        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+    });
+};
+
+exports.button23 = (sender) => {
+    console.log('button23 called');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send({text: `Merci. Votre constat a été transmis à Sarah, agent Cumulus. Elle reviendra vers vous dès que possible.`}, sender);
+        messenger.send(formatter.onBoard10(response), sender);
+        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+    });
+};
