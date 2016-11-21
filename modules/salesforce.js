@@ -129,13 +129,15 @@ let updateCase = (params, sender) => {
 
             console.log("params: ", params);
 
-            var q = 'SELECT Id, CreatedDate, Statut_locatif__c, Equipement__c, Assureur_actuel__c FROM Lead ORDER BY CreatedDate DESC LIMIT 1';
+            var q = 'SELECT Id, Incident__c, Injuries__c, Material_Damage__c FROM Case ORDER BY CreatedDate DESC LIMIT 1';
 
             org.query({ query: q }, function(err, resp){
 
                 if(!err && resp.records) {
 
                     var theCase = resp.records[0];
+                    console.log('theCase', theCase);
+
                     if(params.r2){
                         theCase.set('Incident__c', params.r2);
                     }

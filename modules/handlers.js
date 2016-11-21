@@ -43,8 +43,6 @@ exports.theStartTwo = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         console.log('Inside getUserInfo');
         messenger.send(formatter.onBoard6(response), sender);
-        salesforce.createCase(response.first_name, response.last_name, sender).then(() => {
-        });
     });
 };
 
