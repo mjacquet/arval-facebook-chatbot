@@ -105,6 +105,8 @@ let createCase = (customerFName, customerLName, customerId) => {
         c.set('origin', 'Facebook Bot');
         console.log("BURSHT 4");
         c.set('status', 'New');
+        console.log("BURSHT 5");
+        c.set('ContactId', '0013600000PgxmOAAR');
 
         console.log('c: ' , c);
 
@@ -122,9 +124,49 @@ let createCase = (customerFName, customerLName, customerId) => {
 
 };
 
+let updateCase = (params, sender) => {
+    console.log('how is this getting called Case');
+    if(params){
+        return new Promise((resolve, reject) => {
+
+            console.log("params: ", params);
+
+            var q = 'SELECT Id, CreatedDate, Statut_locatif__c, Equipement__c, Assureur_actuel__c FROM Lead ORDER BY CreatedDate DESC LIMIT 1';
+
+            org.query({ query: q }, function(err, resp){
+
+                if(!err && resp.records) {
+
+                    var theCase = resp.records[0];
+                    if(params.r2){
+                        theCase.set('Incident__c', params.r2);
+                    }
+                    if(params.r3){
+                        theCase.set('Injuries__c', params.r3);
+                    }
+                    if(params.r4){
+                        theCase.set('Material_Damage__c', params.r4);
+                    }
+                    console.log("theCase: ", theCase);
+                    org.update({ sobject: theCase }, function(err, resp){
+                        if(!err){
+                            console.log('It worked!');
+                            resolve(theCase);
+                        }
+                        else{
+                            reject("Error updating the Lead");
+                        }
+                    });
+                }
+            });
+        });
+    }
+};
+
 login();
 
 exports.org = org;
 exports.createLead = createLead;
 exports.updateLead = updateLead;
 exports.createCase = createCase;
+exports.updateCase = updateCase;

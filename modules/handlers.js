@@ -162,7 +162,7 @@ exports.button16 = (sender) => {
     console.log('button16 called');
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard8(response), sender);
-        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+        salesforce.updateCase({r2: `Dégât des eaux`}, sender).then(() => {});
     });
 };
 
@@ -170,7 +170,7 @@ exports.button17 = (sender) => {
     console.log('button17 called');
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard8(response), sender);
-        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+        salesforce.updateCase({r2: `Vol`}, sender).then(() => {});
     });
 };
 
@@ -178,7 +178,7 @@ exports.button18 = (sender) => {
     console.log('button18 called');
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard8(response), sender);
-        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+        salesforce.updateCase({r2: `Incendie`}, sender).then(() => {});
     });
 };
 
@@ -186,7 +186,7 @@ exports.button19 = (sender) => {
     console.log('button19 called');
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard9(response), sender);
-        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+        salesforce.updateCase({r3: `Qui`}, sender).then(() => {});
     });
 };
 
@@ -194,7 +194,7 @@ exports.button20 = (sender) => {
     console.log('button20 called');
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard9(response), sender);
-        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+        salesforce.updateCase({r3: `Non`}, sender).then(() => {});
     });
 };
 
@@ -203,7 +203,7 @@ exports.button21 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         messenger.send({text: `Merci. Votre constat a été transmis à Sarah, agent Cumulus. Elle reviendra vers vous dès que possible.`}, sender);
         messenger.send(formatter.onBoard10(response), sender);
-        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+        salesforce.updateCase({r4: `moins de 1 000€`}, sender).then(() => {});
     });
 };
 
@@ -212,7 +212,7 @@ exports.button22 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         messenger.send({text: `Merci. Votre constat a été transmis à Sarah, agent Cumulus. Elle reviendra vers vous dès que possible.`}, sender);
         messenger.send(formatter.onBoard10(response), sender);
-        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+        salesforce.updateCase({r4: `entre 1 000 et 10 000 €`}, sender).then(() => {});
     });
 };
 
@@ -221,6 +221,6 @@ exports.button23 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         messenger.send({text: `Merci. Votre constat a été transmis à Sarah, agent Cumulus. Elle reviendra vers vous dès que possible.`}, sender);
         messenger.send(formatter.onBoard10(response), sender);
-        //salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
+        salesforce.updateCase({r4: `Plus de 10 000 €`}, sender).then(() => {});
     });
 };
