@@ -95,6 +95,7 @@ let updateLead = (params, sender) => {
 let createCase = (customerFName, customerLName, customerId) => {
 
     return new Promise((resolve, reject) => {
+        console.log('inside createCase');
         let c = nforce.createSObject('Case');
         c.set('subject', `TEST ${customerName} (Facebook Customer)`);
         c.set('description', "Facebook id: " + customerId);

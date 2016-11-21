@@ -41,6 +41,7 @@ exports.theStartTwo = (sender) => {
     console.log('theStartTwo ');
     //messenger.send({text: `Je vais me charger de trouver l'assurance parfaite pour vous. Cela prendra seulement quelques minutes.`}, sender);
     messenger.getUserInfo(sender).then(response => {
+        console.log('Inside getUserInfo');
         salesforce.createCase(response.first_name, response.last_name, sender).then(() => {
             messenger.send(formatter.onBoard6(response), sender);
         });
