@@ -105,8 +105,10 @@ let createCase = (customerFName, customerLName, customerId) => {
         org.insert({sobject: c}, err => {
             if (err) {
                 console.error(err);
+                console.log('error: ',err);
                 reject("An error occurred while creating a case");
             } else {
+                console.log('resolve case');
                 resolve(c);
             }
         });
