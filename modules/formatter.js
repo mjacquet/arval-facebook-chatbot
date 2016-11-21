@@ -274,7 +274,7 @@ exports.onBoard10 = response => {
         elements.push(  
             {
                 title: 'Agent',
-                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JWHdVeWM2dVc5Q2o0dzZVMUJVVGE5NGg3MF84',
+                "image_url": 'http://www.marbellafamilyfun.com/images/wanted-customer-support-agent-21854988.jpg',
                 "buttons": [
                     {
                         "type": "postback",
