@@ -35,6 +35,7 @@ let createLead = (customerFName, customerLName, customerId) => {
             l.set('LastName', `${customerLName}`);
             l.set('Description', "Facebook id: " + customerId);
             l.set('Status', 'New');
+            l.set('Lead_Score__c', 50);
 
             org.insert({ sobject: l }, function(err, resp){
                 if(!err){
@@ -65,12 +66,15 @@ let updateLead = (params, sender) => {
                     var theLead = resp.records[0];
                     if(params.q2){
                         theLead.set('Statut_locatif__c', params.q2);
+                        theLead.set('Lead_Score__c', 60);
                     }
                     if(params.q3){
                         theLead.set('Equipement__c', params.q3);
+                        theLead.set('Lead_Score__c', 75);
                     }
                     if(params.q4){
                         theLead.set('Assureur_actuel__c', params.q4);
+                        theLead.set('Lead_Score__c', 90);
                     }
                     console.log("theLead: ", theLead);
                     org.update({ sobject: theLead }, function(err, resp){
@@ -88,9 +92,30 @@ let updateLead = (params, sender) => {
     }
 };
 
+let createCase = (customerFName, customerLName, customerId) => {
+
+    return new Promise((resolve, reject) => {
+        let c = nforce.createSObject('Case');
+        c.set('subject', `Contact ${customerName} (Facebook Customer)`);
+        c.set('description', "Facebook id: " + customerId);
+        c.set('origin', 'Facebook Bot');
+        c.set('status', 'New');
+
+        org.insert({sobject: c}, err => {
+            if (err) {
+                console.error(err);
+                reject("An error occurred while creating a case");
+            } else {
+                resolve(c);
+            }
+        });
+    });
+
+};
 
 login();
 
 exports.org = org;
 exports.createLead = createLead;
 exports.updateLead = updateLead;
+exports.createCase = createCase;

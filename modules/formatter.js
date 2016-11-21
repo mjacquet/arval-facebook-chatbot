@@ -186,3 +186,21 @@ exports.onBoard5 = response => {
         }
     };
 };
+
+exports.onBoard6 = response => {
+    return {
+        "text":"Que pouvons-nous faire pour vous?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Déclarer un sinistre",
+            "payload":"theStart"
+          },
+          {
+            "content_type":"text",
+            "title":"Découvrir les services Cumulus",
+            "payload":"theStartTwo"
+          }
+        ]
+    }
+};
