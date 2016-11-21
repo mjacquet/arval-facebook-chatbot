@@ -98,7 +98,7 @@ let createCase = (customerFName, customerLName, customerId) => {
         console.log('inside createCase');
         var c = nforce.createSObject('Case');
         console.log("BURSHT 1");
-        c.set('subject', `TEST ${customerName} (Facebook Customer)`);
+        c.set('subject', `Contact Pierre Martin (Facebook Customer)`);
         console.log("BURSHT 2");
         c.set('description', "Facebook id: " + customerId);
         console.log("BURSHT 3");
