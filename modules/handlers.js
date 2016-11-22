@@ -184,7 +184,7 @@ exports.button19 = (sender) => {
     console.log('button19 called');
     messenger.getUserInfo(sender).then(response => {
         messenger.send(formatter.onBoard9(response), sender);
-        salesforce.updateCase({r3: `Qui`}, sender).then(() => {});
+        salesforce.updateCase({r3: `Oui`}, sender).then(() => {});
     });
 };
 
@@ -199,7 +199,7 @@ exports.button20 = (sender) => {
 exports.button21 = (sender) => {
     console.log('button21 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Merci. Votre constat a été transmis à Sarah, agent Cumulus. Elle reviendra vers vous dès que possible.`}, sender);
+        messenger.send({text: `Merci. Votre déclaration a été transmis à Sarah, agent Cumulus. Elle reviendra vers vous dès que possible.`}, sender);
         messenger.send(formatter.onBoard10(response), sender);
         salesforce.updateCase({r4: `moins de 1 000€`}, sender).then(() => {});
     });
@@ -208,7 +208,7 @@ exports.button21 = (sender) => {
 exports.button22 = (sender) => {
     console.log('button22 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Merci. Votre constat a été transmis à Sarah, agent Cumulus. Elle reviendra vers vous dès que possible.`}, sender);
+        messenger.send({text: `Merci. Votre déclaration a été transmis à Sarah, agent Cumulus. Elle reviendra vers vous dès que possible.`}, sender);
         messenger.send(formatter.onBoard10(response), sender);
         salesforce.updateCase({r4: `entre 1 000 et 10 000 €`}, sender).then(() => {});
     });
@@ -217,7 +217,7 @@ exports.button22 = (sender) => {
 exports.button23 = (sender) => {
     console.log('button23 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Merci. Votre constat a été transmis à Sarah, agent Cumulus. Elle reviendra vers vous dès que possible.`}, sender);
+        messenger.send({text: `Merci. Votre déclaration a été transmis à Sarah, agent Cumulus. Elle reviendra vers vous dès que possible.`}, sender);
         messenger.send(formatter.onBoard10(response), sender);
         salesforce.updateCase({r4: `Plus de 10 000 €`}, sender).then(() => {});
     });

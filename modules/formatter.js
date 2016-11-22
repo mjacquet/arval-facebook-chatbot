@@ -234,7 +234,7 @@ exports.onBoard8 = response => {
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Qui",
+            "title":"Oui",
             "payload":"theStart"
           },
           {
