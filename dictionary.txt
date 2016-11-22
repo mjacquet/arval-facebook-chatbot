@@ -20,5 +20,5 @@ button18 Incendie
 button19 Qui
 button20 Non
 button21 moins de 1 000€
-button22 entre 1 000 et 10 000 €
+button22 1 000 - 10 000 €
 button23 Plus de 10 000 €

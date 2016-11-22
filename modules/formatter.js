@@ -257,7 +257,7 @@ exports.onBoard9 = response => {
           },
           {
             "content_type":"text",
-            "title":"entre 1 000 et 10 000 €",
+            "title":"1 000 - 10 000 €",
             "payload":"theStartTwo"
           },
           {
