@@ -13,6 +13,12 @@ exports.test = (sender) => {
     });
 };
 */
+
+exports.test = (sender) => {
+    messenger.getSuggestion(sender).then(response => {
+        messenger.send({text: `${response}`}, sender);
+    });
+};
 exports.hi = (sender) => {
     console.log('hi');
     messenger.getUserInfo(sender).then(response => {

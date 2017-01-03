@@ -42,3 +42,25 @@ exports.getUserInfo = (userId) => {
 
     });
 };
+
+exports.getSuggestion = (suggestion) => {
+
+    return new Promise((resolve, reject) => {
+
+        request({
+            url: `https://pio-octave-engine.herokuapp.com/queries.json`,
+            method: 'POST',
+            json : {"voice_usage":12,"data_usage":0,"text_usage":4},
+        }, (error, response) => {
+            if (error) {
+                console.log('Error sending message: ', error);
+                reject(error);
+            } else if (response.body.error) {
+                console.log('Error: ', response.body.error);
+            } else {
+                resolve(JSON.parse(response.body));
+            }
+        });
+
+    });
+};
