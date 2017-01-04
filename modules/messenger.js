@@ -50,7 +50,7 @@ exports.getSuggestion = (suggestion) => {
         request({
             url: `https://pio-octave-engine.herokuapp.com/queries.json`,
             method: 'POST',
-            json : { data: "voice_usage":12,"data_usage":0,"text_usage":4},
+            json : { "voice_usage":12,"data_usage":0,"text_usage":4},
         }, (error, response) => {
             if (error) {
                 console.log('Error sending message: ', error);
