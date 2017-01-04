@@ -17,6 +17,8 @@ exports.send = (message, recipient) => {
             console.log('Error sending message: ', error);
         } else if (response.body.error) {
             console.log('Error: ', response.body.error);
+        } else{
+            console.log('Send: ', response.body);
         }
     });
 };
