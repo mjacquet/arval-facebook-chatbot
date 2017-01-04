@@ -62,7 +62,7 @@ exports.getSuggestion = (suggestion) => {
             } else if (response.body.error) {
                 console.log('Error: ', response.body.error);
             } else {
-                console.log(response);
+                console.log('No Error: ', response.body);
                 resolve(JSON.parse(response.body));
             }
         });
