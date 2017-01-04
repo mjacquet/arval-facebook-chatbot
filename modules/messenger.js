@@ -38,6 +38,7 @@ exports.getUserInfo = (userId) => {
             } else if (response.body.error) {
                 console.log('Error: ', response.body.error);
             } else {
+                console.log('getUserInfo: ', response.body);
                 resolve(JSON.parse(response.body));
             }
         });
