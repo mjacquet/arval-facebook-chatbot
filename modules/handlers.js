@@ -16,7 +16,7 @@ exports.test = (sender) => {
 
 exports.test = (sender) => {
     messenger.getSuggestion(sender).then(response => {
-        messenger.send({text: `${response}`}, sender);
+        messenger.send({text: `${response.service_plan}`}, sender);
     });
 };
 exports.hi = (sender) => {
