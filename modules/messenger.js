@@ -66,7 +66,7 @@ exports.getSuggestion = (suggestion) => {
                 console.log('Error: ', response.body.error);
             } else {
                 console.log('No Error: ', response.body);
-                //resolve(JSON.parse(response.body));
+                resolve(JSON.parse('{ "service_plan":0 }'));
             }
         });
 
