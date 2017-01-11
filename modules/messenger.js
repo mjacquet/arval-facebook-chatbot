@@ -68,13 +68,13 @@ exports.getSuggestion = (suggestion) => {
             } else {
                 console.log('No Error: ', response.body);
                 var theResponse = String(response.body);
-                console.log('theResponse: %j', theResponse[0]);
+                console.log('theResponse: %j', theResponse);
                 var theServicePlan = theResponse.length;
                 console.log('theServicePlan: ', theServicePlan);
                 //var theConstructedString = '{ "service_plan":'+theServicePlan+' }';
                 //console.log('theConstructedString: ', theConstructedString);
 
-                resolve(JSON.parse('{ "service_plan":0 '));
+                resolve(JSON.parse('{ "service_plan":0 }'));
                 //resolve(JSON.parse(response.body));
             }
         });
