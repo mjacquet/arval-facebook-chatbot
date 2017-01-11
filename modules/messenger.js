@@ -68,7 +68,8 @@ exports.getSuggestion = (suggestion) => {
                 console.log('No Error: ', response.body);
                 var theResponse = String(response.body);
                 console.log('theResponse: ', theResponse);
-                //var theServicePlan = response.body.charAt(16);
+                var theServicePlan = response.body.charAt(16);
+                console.log('theServicePlan: ', theServicePlan);
                 //var theConstructedString = '{ "service_plan":'+theServicePlan+' }';
                 //console.log('theConstructedString: ', theConstructedString);
 
