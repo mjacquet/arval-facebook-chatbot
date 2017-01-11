@@ -2,6 +2,7 @@
 
 let request = require('request'),
     FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN;
+let util = require('util')
 
 exports.send = (message, recipient) => {
     request({
@@ -67,8 +68,8 @@ exports.getSuggestion = (suggestion) => {
             } else {
                 console.log('No Error: ', response.body);
                 var theResponse = String(response.body);
-                console.log('theResponse: ', theResponse);
-                var theServicePlan = theResponse.charAt(16);
+                console.log('theResponse: ', util.inspect(theResponse));
+                var theServicePlan = theResponse.length;
                 console.log('theServicePlan: ', theServicePlan);
                 //var theConstructedString = '{ "service_plan":'+theServicePlan+' }';
                 //console.log('theConstructedString: ', theConstructedString);
