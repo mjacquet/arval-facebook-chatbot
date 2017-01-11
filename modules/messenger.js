@@ -66,9 +66,11 @@ exports.getSuggestion = (suggestion) => {
                 console.log('Error: ', response.body.error);
             } else {
                 console.log('No Error: ', response.body);
-                var theServicePlan = response.body.charAt(16);
-                var theConstructedString = '{ "service_plan":'+theServicePlan+' }';
-                console.log('theConstructedString: ', theConstructedString);
+                var theResponse = response.body;
+                console.log('theResponse: ', theResponse);
+                //var theServicePlan = response.body.charAt(16);
+                //var theConstructedString = '{ "service_plan":'+theServicePlan+' }';
+                //console.log('theConstructedString: ', theConstructedString);
 
                 resolve(JSON.parse('{ "service_plan":0 '));
                 //resolve(JSON.parse(response.body));
