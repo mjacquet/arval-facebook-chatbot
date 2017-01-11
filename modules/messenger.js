@@ -67,7 +67,7 @@ exports.getSuggestion = (suggestion) => {
                 console.log('Error: ', response.body.error);
             } else {
                 console.log('No Error: ', response.body);
-                var theResponse = response.body;
+                var theResponse = JSON.stringify(response.body);
                 console.log('theResponse: ', theResponse);
                 var theServicePlan = theResponse.length;
                 console.log('theServicePlan: ', theServicePlan);
