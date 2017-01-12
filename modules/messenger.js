@@ -55,9 +55,9 @@ exports.getSuggestion = (suggestion) => {
             url: `https://pio-octave-engine.herokuapp.com/queries.json`,
             method: 'POST',
             json : { 
-                voice_usage: 12,
-                data_usage: 0,
-                text_usage: 4
+                voice_usage: 3,
+                data_usage: 3,
+                text_usage: 3
             }
         }, (error, response) => {
             if (error) {
@@ -69,13 +69,7 @@ exports.getSuggestion = (suggestion) => {
                 console.log('No Error: ', response.body);
                 var theResponse = JSON.stringify(response.body);
                 console.log('theResponse: ', theResponse);
-                //var theServicePlan = theResponse.length;
-                //console.log('theServicePlan: ', theServicePlan);
-                //var theConstructedString = '{ "service_plan":'+theServicePlan+' }';
-                //console.log('theConstructedString: ', theConstructedString);
-
                 resolve(JSON.parse(theResponse));
-                //resolve(JSON.parse(response.body));
             }
         });
 
