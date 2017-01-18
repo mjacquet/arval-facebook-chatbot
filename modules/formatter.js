@@ -306,85 +306,41 @@ exports.formatAppointment = response => {
     ];
 
     console.log('options: ', options);
+
     
-    let elements = [];
-        elements.push(  
-            {
-                title: 'Cumulus Confort',
-                subtitle: `17,99€ par mois`,
-                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JWHdVeWM2dVc5Q2o0dzZVMUJVVGE5NGg3MF84',
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Avis Communauté",
-                        "payload": "link_postback"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Rdv conseiller",
-                        "payload": "schedule_visit"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Souscrire",
-                        "payload": "image_postback"
-                    }
-                ]
-            },
-            {
-                title: 'Cumulus Confort Plus',
-                subtitle: `20,99€ par mois`,
-                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JLWRiUjBPejFHREh3dnFZMjNRbzh2U2hyOE9V',
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Avis Communauté",
-                        "payload": "link_postback"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Rdv conseiller",
-                        "payload": "schedule_visit"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Souscrire",
-                        "payload": "image_postback"
-                    }
-                ]
-            },
-            {
-                title: 'Offre maison connectée',
-                subtitle: `17,99€ par mois`,
-                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JOEpjd0wxRTllZUpaNnJWWnpfNTQ2S2gxbHc0',
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Avis Communauté",
-                        "payload": "link_postback"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Rdv conseiller",
-                        "payload": "schedule_visit"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Souscrire",
-                        "payload": "image_postback"
-                    }
-                ]
-            }
-
-
-        );
-
+    /*
     return {
         "attachment": {
             "type": "template",
             "payload": {
                 "template_type": "generic",
                 "elements": elements
+            }
+        }
+    };
+    */
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": `Select one of the available appointments below.`,
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": options[0],
+                        "payload": "confirm_visit," + options[0]
+                    },
+                    {
+                        "type": "postback",
+                        "title": options[1],
+                        "payload": "confirm_visit," + options[1]
+                    },
+                    {
+                        "type": "postback",
+                        "title": options[2],
+                        "payload": "confirm_visit," + options[2]
+                    }]
             }
         }
     };
