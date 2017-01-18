@@ -9,7 +9,7 @@ exports.schedule_visit = () => {
     messenger.send(formatter.formatAppointment('sender'));
 };
 
-exports.confirm_visit = (sender, values) => {
+exports.confirm_visit = (values) => {
 	console.log('values: ', values);
     messenger.send({text: `OK, your appointment is confirmed`}, sender);
 };
