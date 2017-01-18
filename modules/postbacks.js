@@ -5,6 +5,7 @@ let salesforce = require('./salesforce'),
     formatter = require('./formatter');
 
 exports.schedule_visit = (sender) => {
+	console.log('schedule_visit');
     messenger.send(formatter.formatAppointment(sender));
 };
 /*
