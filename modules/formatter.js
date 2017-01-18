@@ -295,7 +295,7 @@ exports.onBoard10 = response => {
         }
     };
 };
-/*
+
 exports.formatAppointment = respomnse => {
     var options = [
         moment().add(1, 'days').format('ddd MMM Do') + ' at 10am',
@@ -330,6 +330,6 @@ exports.formatAppointment = respomnse => {
         }
     };
 };
-*/
+
 
  
