@@ -3,7 +3,7 @@
 let salesforce = require('./salesforce'),
     messenger = require('./messenger'),
     formatter = require('./formatter');
-
+/*
 exports.schedule_visit = (sender) => {
     messenger.send(formatter.formatAppointment(sender);
 };
@@ -22,3 +22,4 @@ exports.image_postback = (sender, values) => {
 	console.log('image_postback');
     messenger.send({text: `Image`}, sender);
 };
+*/
