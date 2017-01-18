@@ -8,12 +8,12 @@ exports.schedule_visit = () => {
 	console.log('schedule_visit');
     messenger.send(formatter.formatAppointment('sender'));
 };
-/*
+
 exports.confirm_visit = (sender, values) => {
 	console.log('values: ', values);
     messenger.send({text: `OK, your appointment is confirmed`}, sender);
 };
-
+/*
 exports.link_postback = (sender, values) => {
 	console.log('link_postback');
     messenger.send({text: `Link`}, sender);

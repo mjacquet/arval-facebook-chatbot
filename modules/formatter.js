@@ -316,17 +316,17 @@ exports.formatAppointment = response => {
                     {
                         "type": "postback",
                         "title": options[0],
-                        "payload": "confirm_visit," + options[0]
+                        "payload": "confirm_visit"
                     },
                     {
                         "type": "postback",
                         "title": options[1],
-                        "payload": "confirm_visit," + options[1]
+                        "payload": "confirm_visit"
                     },
                     {
                         "type": "postback",
                         "title": options[2],
-                        "payload": "confirm_visit," + options[2]
+                        "payload": "confirm_visit"
                     }]
             }
         }
