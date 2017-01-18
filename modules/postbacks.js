@@ -13,15 +13,17 @@ exports.schedule_visit = (sender) => {
 
 exports.confirm_visit = (sender, values) => {
 	console.log('values: ', values);
-    messenger.send({text: `OK, your appointment is confirmed`}, sender);
+    messenger.send({text: `OK, your appointment is confirmed for ${values[1]}`}, sender);
 };
-
+/*
 exports.link_postback = (sender, values) => {
 	console.log('link_postback');
     messenger.send({text: `Link`}, sender);
 };
-
+*/
 exports.image_postback = (sender, values) => {
 	console.log('image_postback');
-    messenger.send({text: `Image`}, sender);
+	messenger.getUserInfo(sender).then(response => {
+    	messenger.send(formatter.imageShow(response), sender);
+    });
 };

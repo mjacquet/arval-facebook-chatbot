@@ -112,9 +112,9 @@ exports.onBoard5 = response => {
                 "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JWHdVeWM2dVc5Q2o0dzZVMUJVVGE5NGg3MF84',
                 "buttons": [
                     {
-                        "type": "postback",
-                        "title": "Avis Communauté",
-                        "payload": "link_postback"
+                        "type":"web_url",
+                        "url":"https://www.facebook.com/cumulusfrance",
+                        "title":"Avis Communauté"
                     },
                     {
                         "type": "postback",
@@ -134,9 +134,9 @@ exports.onBoard5 = response => {
                 "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JLWRiUjBPejFHREh3dnFZMjNRbzh2U2hyOE9V',
                 "buttons": [
                     {
-                        "type": "postback",
-                        "title": "Avis Communauté",
-                        "payload": "link_postback"
+                        "type":"web_url",
+                        "url":"https://www.facebook.com/cumulusfrance",
+                        "title":"Avis Communauté"
                     },
                     {
                         "type": "postback",
@@ -156,9 +156,9 @@ exports.onBoard5 = response => {
                 "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JOEpjd0wxRTllZUpaNnJWWnpfNTQ2S2gxbHc0',
                 "buttons": [
                     {
-                        "type": "postback",
-                        "title": "Avis Communauté",
-                        "payload": "link_postback"
+                        "type":"web_url",
+                        "url":"https://www.facebook.com/cumulusfrance",
+                        "title":"Avis Communauté"
                     },
                     {
                         "type": "postback",
@@ -306,19 +306,6 @@ exports.formatAppointment = response => {
     ];
 
     console.log('options: ', options);
-
-    
-    /*
-    return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elements
-            }
-        }
-    };
-    */
     return {
         "attachment": {
             "type": "template",
@@ -341,6 +328,27 @@ exports.formatAppointment = response => {
                         "title": options[2],
                         "payload": "confirm_visit," + options[2]
                     }]
+            }
+        }
+    };
+};
+
+exports.imageShow = response => {
+
+    let elements = [];
+        elements.push(  
+            {
+                title: 'Image',
+                "image_url": 'https://drive.google.com/uc?export=view&id=0B0pvkweqoy0fOVJoUm9RM1NhUkE'
+            }
+        );
+
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
             }
         }
     };
