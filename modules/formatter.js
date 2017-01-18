@@ -296,7 +296,7 @@ exports.onBoard10 = response => {
     };
 };
 
-exports.formatAppointment = respomnse => {
+exports.formatAppointment = response => {
     var options = [
         moment().add(1, 'days').format('ddd MMM Do') + ' at 10am',
         moment().add(2, 'days').format('ddd MMM Do') + ' at 9am',
@@ -304,6 +304,8 @@ exports.formatAppointment = respomnse => {
         moment().add(3, 'days').format('ddd MMM Do') + ' at 1pm',
         moment().add(3, 'days').format('ddd MMM Do') + ' at 6pm',
     ];
+
+    console.log('options: ', options);
     return {
         "attachment": {
             "type": "template",
