@@ -6,7 +6,9 @@ let salesforce = require('./salesforce'),
 
 exports.schedule_visit = () => {
 	console.log('schedule_visit');
-    messenger.send(formatter.formatAppointment('sender'));
+	messenger.getUserInfo(sender).then(response => {
+    	messenger.send(formatter.formatAppointment(response), sender);
+    });
 };
 
 exports.confirm_visit = (values) => {
