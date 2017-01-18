@@ -113,18 +113,18 @@ exports.onBoard5 = response => {
                 "buttons": [
                     {
                         "type": "postback",
-                        "title": "Détails",
-                        "payload": "button14"
+                        "title": "Avis Communauté",
+                        "payload": "link_postback"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Rdv conseiller",
+                        "payload": "schedule_visit"
                     },
                     {
                         "type": "postback",
                         "title": "Souscrire",
-                        "payload": "button15"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Mon conseiller",
-                        "payload": "button16"
+                        "payload": "image_postback"
                     }
                 ]
             },
@@ -135,18 +135,18 @@ exports.onBoard5 = response => {
                 "buttons": [
                     {
                         "type": "postback",
-                        "title": "Détails",
-                        "payload": "button14"
+                        "title": "Avis Communauté",
+                        "payload": "link_postback"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Rdv conseiller",
+                        "payload": "schedule_visit"
                     },
                     {
                         "type": "postback",
                         "title": "Souscrire",
-                        "payload": "button15"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Mon conseiller",
-                        "payload": "button16"
+                        "payload": "image_postback"
                     }
                 ]
             },
@@ -157,18 +157,18 @@ exports.onBoard5 = response => {
                 "buttons": [
                     {
                         "type": "postback",
-                        "title": "Détails",
-                        "payload": "button14"
+                        "title": "Avis Communauté",
+                        "payload": "link_postback"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Rdv conseiller",
+                        "payload": "schedule_visit"
                     },
                     {
                         "type": "postback",
                         "title": "Souscrire",
-                        "payload": "button15"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Mon conseiller",
-                        "payload": "button16"
+                        "payload": "image_postback"
                     }
                 ]
             }
@@ -291,6 +291,41 @@ exports.onBoard10 = response => {
             "payload": {
                 "template_type": "generic",
                 "elements": elements
+            }
+        }
+    };
+};
+
+exports.formatAppointment = respomnse => {
+    var options = [
+        moment().add(1, 'days').format('ddd MMM Do') + ' at 10am',
+        moment().add(2, 'days').format('ddd MMM Do') + ' at 9am',
+        moment().add(2, 'days').format('ddd MMM Do') + ' at 5pm',
+        moment().add(3, 'days').format('ddd MMM Do') + ' at 1pm',
+        moment().add(3, 'days').format('ddd MMM Do') + ' at 6pm',
+    ];
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": `Select one of the available appointments below.`,
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": options[0],
+                        "payload": "confirm_visit," + options[0]
+                    },
+                    {
+                        "type": "postback",
+                        "title": options[1],
+                        "payload": "confirm_visit," + options[1]
+                    },
+                    {
+                        "type": "postback",
+                        "title": options[2],
+                        "payload": "confirm_visit," + options[2]
+                    }]
             }
         }
     };
