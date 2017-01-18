@@ -4,7 +4,7 @@ let salesforce = require('./salesforce'),
     messenger = require('./messenger'),
     formatter = require('./formatter');
 
-exports.schedule_visit = () => {
+exports.schedule_visit = (sender) => {
 	console.log('schedule_visit');
 	messenger.getUserInfo(sender).then(response => {
     	messenger.send(formatter.formatAppointment(response), sender);
