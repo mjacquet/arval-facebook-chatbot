@@ -339,7 +339,7 @@ exports.imageShow = response => {
         elements.push(  
             {
                 title: 'Image',
-                "image_url": 'https://drive.google.com/uc?export=view&id=0B0pvkweqoy0fOVJoUm9RM1NhUkE'
+                "image_url": 'https://www.dropbox.com/s/575mqq3jhzvxkxm/gfacebook.png?raw=1'
             }
         );
 
