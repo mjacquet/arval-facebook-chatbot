@@ -13,7 +13,11 @@ exports.test = (sender) => {
     });
 };
 */
-
+exports.sample = (sender) => {
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send({text: `Please send location`}, sender);
+    });
+};
 exports.test = (sender) => {
     messenger.getSuggestion(sender).then(response => {
         messenger.send({text: `${response.service_plan}`}, sender);
