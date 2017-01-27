@@ -3,7 +3,14 @@
 let messenger = require('./messenger'),
     formatter = require('./formatter'),
     salesforce = require('./salesforce'),
-    visionService = require('./vision-service-mock');
+    visionService = require('./vision-service-mock'),
+    nodeGeocoder = require('node-geocoder');
+
+var options = {
+      provider: 'google'
+};
+
+var geocoder = NodeGeocoder(options);
 
 exports.processUpload = (sender, attachments) => {
     if (attachments.length > 0) {
@@ -20,6 +27,16 @@ exports.processUpload = (sender, attachments) => {
                 })
                 .then(properties => messenger.send(formatter.formatProperties(properties), sender))
                 */
+        }else if (attachment.type === "location") {
+            console.log('location attachment');
+            
+            geocoder.reverse({lat: attachment.payload.lat, lon: attachment.payload.long}).then(function(res) {
+                console.log(res);
+            }).catch(function(err) {
+                console.log(err);
+            });
+
+
         } else {
             messenger.send({text: 'This type of attachment is not supported'}, sender);
         }
