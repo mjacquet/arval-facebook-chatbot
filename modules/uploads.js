@@ -10,7 +10,7 @@ var options = {
       provider: 'google'
 };
 
-//var geocoder = NodeGeocoder(options);
+var geocoder = NodeGeocoder(options);
 
 exports.processUpload = (sender, attachments) => {
     if (attachments.length > 0) {
@@ -28,7 +28,10 @@ exports.processUpload = (sender, attachments) => {
                 .then(properties => messenger.send(formatter.formatProperties(properties), sender))
                 */
         }else if (attachment.type === "location") {
-            console.log('location attachment');
+            console.log('attachment.payload.lat: ', attachment.payload.lat);
+            console.log('attachment.payload.long: ', attachment.payload.long);
+
+
             /*
             geocoder.reverse({lat: attachment.payload.lat, lon: attachment.payload.long}).then(function(res) {
                 console.log(res);
