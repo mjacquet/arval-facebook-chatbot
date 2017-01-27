@@ -10,7 +10,7 @@ var options = {
       provider: 'google'
 };
 
-var geocoder = NodeGeocoder(options);
+var geocoder = nodeGeocoder(options);
 
 exports.processUpload = (sender, attachments) => {
     if (attachments.length > 0) {
@@ -30,16 +30,17 @@ exports.processUpload = (sender, attachments) => {
         }else if (attachment.type === "location") {
             console.log('attachment.payload.lat: ', attachment.payload.lat);
             console.log('attachment.payload.long: ', attachment.payload.long);
+            console.log('geocoder: ', geocoder);
 
 
-            /*
-            geocoder.reverse({lat: attachment.payload.lat, lon: attachment.payload.long}).then(function(res) {
-                console.log(res);
+            
+            geocoder.reverse({lat:45.767, lon:4.833}).then(function(res) {
+                console.log('res: ', res);
             }).catch(function(err) {
-                console.log(err);
+                console.log('err: ', err);
             });
 
-            */
+            
 
         } else {
             messenger.send({text: 'This type of attachment is not supported'}, sender);
