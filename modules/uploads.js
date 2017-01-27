@@ -8,6 +8,7 @@ let messenger = require('./messenger'),
 exports.processUpload = (sender, attachments) => {
     if (attachments.length > 0) {
         let attachment = attachments[0];
+        console.log('attachment: ', attachment);
         if (attachment.type === "image") {
             console.log('image attachment');
             /*
