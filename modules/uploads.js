@@ -36,7 +36,7 @@ exports.processUpload = (sender, attachments) => {
             
             geocoder.reverse({lat: attachment.payload.coordinates.lat, lon: attachment.payload.coordinates.long}).then(function(res) {
                 console.log('result: ', res);
-                console.log('ZIPCODE!: ', res.zipcode);
+                console.log('ZIPCODE!: ', res[0].zipcode);
             }).catch(function(err) {
                 console.log('err: ', err);
             });
