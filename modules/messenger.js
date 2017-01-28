@@ -50,7 +50,7 @@ exports.getUserInfo = (userId) => {
 exports.getSuggestion = (zip) => {
 
     console.log('zip 0: ', zip);
-    zip = zip.substring(1);
+    zip = zip.substring(2);
     console.log('zip 1: ', zip);
     zip = parseInt(zip, 10);
     console.log('zip 2: ', zip);
