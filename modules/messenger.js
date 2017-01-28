@@ -55,9 +55,9 @@ exports.getSuggestion = (zip) => {
             url: `https://pio-octave-engine.herokuapp.com/queries.json`,
             method: 'POST',
             json : { 
-                voice_usage: 3,
-                data_usage: 3,
-                text_usage: 3
+                voice_usage: 1,
+                data_usage: 0,
+                text_usage: 0
             }
         }, (error, response) => {
             if (error) {
@@ -66,6 +66,7 @@ exports.getSuggestion = (zip) => {
             } else if (response.body.error) {
                 console.log('Error: ', response.body.error);
             } else {
+                console.log('zip: ', zip);
                 console.log('No Error: ', response.body);
                 var theResponse = JSON.stringify(response.body);
                 console.log('theResponse: ', theResponse);
