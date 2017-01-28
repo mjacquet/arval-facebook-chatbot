@@ -19,7 +19,7 @@ exports.sample = (sender) => {
     });
 };
 exports.test = (sender) => {
-    messenger.getSuggestion(sender).then(response => {
+    messenger.getSuggestion('75001').then(response => {
         messenger.send({text: `${response.service_plan}`}, sender);
     });
 };

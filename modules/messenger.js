@@ -47,7 +47,7 @@ exports.getUserInfo = (userId) => {
     });
 };
 
-exports.getSuggestion = (suggestion) => {
+exports.getSuggestion = (zip) => {
 
     return new Promise((resolve, reject) => {
 
