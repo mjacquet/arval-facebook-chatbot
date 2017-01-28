@@ -49,6 +49,12 @@ exports.getUserInfo = (userId) => {
 
 exports.getSuggestion = (zip) => {
 
+    console.log('zip 0: ', zip);
+    zip = zip.substring(1);
+    console.log('zip 1: ', zip);
+    zip = parseInt(zip, 10);
+    console.log('zip 2: ', zip);
+
     return new Promise((resolve, reject) => {
 
         request({
@@ -66,7 +72,7 @@ exports.getSuggestion = (zip) => {
             } else if (response.body.error) {
                 console.log('Error: ', response.body.error);
             } else {
-                console.log('zip: ', zip);
+                console.log('zip 3: ', zip);
                 console.log('No Error: ', response.body);
                 var theResponse = JSON.stringify(response.body);
                 console.log('theResponse: ', theResponse);
