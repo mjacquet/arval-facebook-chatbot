@@ -47,7 +47,7 @@ exports.getUserInfo = (userId) => {
     });
 };
 
-exports.getSuggestion = (zip) => {
+exports.getSuggestion = (zip,rooms) => {
 
     console.log('zip 0: ', zip);
     zip = zip.substring(2);
@@ -61,7 +61,7 @@ exports.getSuggestion = (zip) => {
             url: `https://pio-octave-engine.herokuapp.com/queries.json`,
             method: 'POST',
             json : { 
-                voice_usage: 1,
+                voice_usage: zip,
                 data_usage: 0,
                 text_usage: 0
             }

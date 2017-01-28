@@ -38,7 +38,7 @@ exports.processUpload = (sender, attachments) => {
                 console.log('result: ', res);
                 console.log('ZIPCODE!: ', res[0].zipcode);
 
-                messenger.getSuggestion(res[0].zipcode).then(response => {
+                messenger.getSuggestion(res[0].zipcode, '2').then(response => {
                     messenger.send({text: `${response.service_plan}`}, sender);
                 });
 
