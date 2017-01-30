@@ -163,6 +163,28 @@ let updateCase = (params, sender) => {
     }
 };
 
+let getRecommendation = (params, sender) => {
+    console.log('inside getRecommendation');
+    if(params){
+        return new Promise((resolve, reject) => {
+
+            console.log("params: ", params);
+
+            var q = 'SELECT Id FROM Case ORDER BY CreatedDate DESC LIMIT 1';
+
+            org.query({ query: q }, function(err, resp){
+
+                if(!err && resp.records) {
+
+                    var theRecommend = resp.records[0];
+                    console.log('theRecommend', theRecommend);
+                    resolve(theRecommend);
+                }
+            });
+        });
+    }
+};
+
 login();
 
 exports.org = org;
@@ -170,3 +192,4 @@ exports.createLead = createLead;
 exports.updateLead = updateLead;
 exports.createCase = createCase;
 exports.updateCase = updateCase;
+exports.getRecommendation = getRecommendation;
