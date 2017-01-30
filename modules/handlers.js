@@ -110,7 +110,8 @@ exports.button9 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         //messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
         //messenger.send(formatter.onBoard5(response), sender);
-        messenger.send({text: `Où est situé votre logement?`}, sender);
+        messenger.send(formatter.sendLocation(response), sender);
+        //messenger.send({text: `Où est situé votre logement?`}, sender);
         salesforce.updateLead({q4: `Pas d'assureur`}, sender).then(() => {});
     });
 };
@@ -120,7 +121,8 @@ exports.button10 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         //messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
         //messenger.send(formatter.onBoard5(response), sender);
-        messenger.send({text: `Où est situé votre logement?`}, sender);
+        messenger.send(formatter.sendLocation(response), sender);
+        //messenger.send({text: `Où est situé votre logement?`}, sender);
         salesforce.updateLead({q4: `AXA`}, sender).then(() => {});
     });
 };
@@ -130,7 +132,8 @@ exports.button11 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         //messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
         //messenger.send(formatter.onBoard5(response), sender);
-        messenger.send({text: `Où est situé votre logement?`}, sender);
+        messenger.send(formatter.sendLocation(response), sender);
+        //messenger.send({text: `Où est situé votre logement?`}, sender);
         salesforce.updateLead({q4: `MAIF`}, sender).then(() => {});
     });
 };  
@@ -140,7 +143,8 @@ exports.button12 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         //messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
         //messenger.send(formatter.onBoard5(response), sender);
-        messenger.send({text: `Où est situé votre logement?`}, sender);
+        messenger.send(formatter.sendLocation(response), sender);
+        //messenger.send({text: `Où est situé votre logement?`}, sender);
         salesforce.updateLead({q4: `CNP Assurances`}, sender).then(() => {});
     });
 };  
@@ -150,7 +154,8 @@ exports.button13 = (sender) => {
     messenger.getUserInfo(sender).then(response => {
         //messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
         //messenger.send(formatter.onBoard5(response), sender);
-        messenger.send({text: `Où est situé votre logement?`}, sender);
+        messenger.send(formatter.sendLocation(response), sender);
+        //messenger.send({text: `Où est situé votre logement?`}, sender);
         salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
     });
 };

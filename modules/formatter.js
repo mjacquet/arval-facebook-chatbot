@@ -470,5 +470,14 @@ exports.formatRecommendation = rec => {
     };
 };
 
-
+exports.sendLocation = response => {
+    return {
+        "text":"Où est situé votre logement?",
+        "quick_replies":[
+          {
+            "content_type":"location"
+          }
+        ]
+    }
+};
  
