@@ -237,3 +237,38 @@ exports.button23 = (sender) => {
         salesforce.updateCase({r4: `Plus de 10 000 €`}, sender).then(() => {});
     });
 };
+
+exports.room1 = (sender) => {
+    console.log('room1 called');
+    messenger.getZip().then(response => {
+        messenger.send({text: `${response}`}, sender);
+    });
+};
+
+exports.room2 = (sender) => {
+    console.log('room2 called');
+    messenger.getZip().then(response => {
+        messenger.send({text: `${response}`}, sender);
+    });
+};
+
+exports.room3 = (sender) => {
+    console.log('room3 called');
+    messenger.getZip().then(response => {
+        messenger.send({text: `${response}`}, sender);
+    });
+};
+
+exports.room4 = (sender) => {
+    console.log('room4 called');
+    messenger.getZip().then(response => {
+        messenger.send({text: `${response}`}, sender);
+    });
+};
+
+exports.room5 = (sender) => {
+    console.log('room5 called');
+    messenger.getZip().then(response => {
+        messenger.send({text: `${response}`}, sender);
+    });
+};

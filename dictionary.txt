@@ -24,3 +24,8 @@ button20 Non
 button21 moins de 1 000€
 button22 1 000 - 10 000 €
 button23 Plus de 10 000 €
+room1 1
+room2 2
+room3 3
+room4 4
+room5 5+

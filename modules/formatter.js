@@ -360,18 +360,28 @@ exports.renderRooms = response => {
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"1 Room",
+            "title":"1",
             "payload":"1Room"
           },
           {
             "content_type":"text",
-            "title":"2 Rooms",
+            "title":"2",
             "payload":"2Room"
           },
           {
             "content_type":"text",
-            "title":"3 Rooms",
+            "title":"3",
             "payload":"3Room"
+          },
+          {
+            "content_type":"text",
+            "title":"4",
+            "payload":"4Room"
+          },
+          {
+            "content_type":"text",
+            "title":"5+",
+            "payload":"5+Room"
           }
         ]
     }

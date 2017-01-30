@@ -3,6 +3,7 @@
 let request = require('request'),
     FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN;
 let util = require('util')
+let theZip = '';
 
 exports.send = (message, recipient) => {
     request({
@@ -21,6 +22,19 @@ exports.send = (message, recipient) => {
         } else{
             console.log('Send: ', response.body);
         }
+    });
+};
+
+exports.setZip = (zip) =>{
+    console.log('inside setZip');
+    theZip = zip;
+};
+
+exports.getZip = () =>{
+    console.log('inside getZip');
+    return new Promise((resolve, reject) => {
+        //theZip = zip;
+        resolve(theZip);
     });
 };
 
