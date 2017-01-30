@@ -165,25 +165,34 @@ let updateCase = (params, sender) => {
 
 let getRecommendation = (params, sender) => {
     console.log('inside getRecommendation');
-    if(params){
-        return new Promise((resolve, reject) => {
-
-            console.log("params: ", params);
-
-            var q = 'SELECT Id FROM Case ORDER BY CreatedDate DESC LIMIT 1';
-
-            org.query({ query: q }, function(err, resp){
-
-                if(!err && resp.records) {
-
-                    var theRecommend = resp.records[0];
-                    console.log('theRecommend', theRecommend);
-                    resolve(theRecommend);
-                }
-            });
-        });
+    let where = "";
+    if (params) {
+        let parts = [];
+        console.log('params.suggestion.service_plan: ', params.suggestion.service_plan);
+        if (params.suggestion.service_plan) parts.push(`recommendId__c=${params.suggestion.service_plan}`);
+        if (parts.length>0) {
+            where = "WHERE " + parts.join(' AND ');
+        }
     }
+    return new Promise((resolve, reject) => {
+
+        console.log("params: ", params);
+        console.log("where: ", where);
+
+        var q = 'SELECT Id, image__c, recommendId__c, subtitle__c FROM Recommendation__c ${where} LIMIT 1';
+
+        org.query({ query: q }, function(err, resp){
+
+            if(!err && resp.records) {
+
+                var theRecommend = resp.records[0];
+                console.log('theRecommend', theRecommend);
+                resolve(theRecommend);
+            }
+        });
+    });
 };
+
 
 login();
 
