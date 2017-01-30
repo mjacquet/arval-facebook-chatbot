@@ -241,24 +241,20 @@ exports.button23 = (sender) => {
 exports.room1 = (sender) => {
     console.log('room1 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.getZip(null).then(zipResponse => {
-            /*
+        messenger.getZip().then(zipResponse => {
             messenger.getSuggestion(zipResponse, '1').then(suggestResponse => {
-                
                 salesforce.getRecommendation({suggestion: suggestResponse}, sender).then((recommendationResponse) => {
                     messenger.send({text: `getRecomendation`}, sender);
                 });
-                
             });
-            */
         });
-    }
+    });
 };
 
 exports.room2 = (sender) => {
     console.log('room2 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.getZip(null).then(zipResponse => {
+        messenger.getZip().then(zipResponse => {
             /*
             messenger.getSuggestion(zipResponse, '1').then(suggestResponse => {
                 
@@ -269,13 +265,13 @@ exports.room2 = (sender) => {
             });
             */
         });
-    }
+    });
 };
 
 exports.room3 = (sender) => {
     console.log('room3 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.getZip(null).then(zipResponse => {
+        messenger.getZip().then(zipResponse => {
             /*
             messenger.getSuggestion(zipResponse, '1').then(suggestResponse => {
                 
@@ -286,13 +282,13 @@ exports.room3 = (sender) => {
             });
             */
         });
-    }
+    });
 };
 
 exports.room4 = (sender) => {
     console.log('room4 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.getZip(null).then(zipResponse => {
+        messenger.getZip().then(zipResponse => {
             /*
             messenger.getSuggestion(zipResponse, '1').then(suggestResponse => {
                 
@@ -303,13 +299,13 @@ exports.room4 = (sender) => {
             });
             */
         });
-    }
+    });
 };
 
 exports.room5 = (sender) => {
     console.log('room5 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.getZip(null).then(zipResponse => {
+        messenger.getZip().then(zipResponse => {
             /*
             messenger.getSuggestion(zipResponse, '1').then(suggestResponse => {
                 
@@ -320,5 +316,5 @@ exports.room5 = (sender) => {
             });
             */
         });
-    }
+    });
 };
