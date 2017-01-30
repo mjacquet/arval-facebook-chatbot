@@ -169,7 +169,7 @@ let getRecommendation = (params, sender) => {
     if (params) {
         let parts = [];
         console.log('params.suggestion.service_plan: ', params.suggestion.service_plan);
-        if (params.suggestion.service_plan) parts.push(`recommendId__c=${params.suggestion.service_plan}`);
+        if (params.suggestion.service_plan) parts.push(`recommendId__c = ${params.suggestion.service_plan}`);
         if (parts.length>0) {
             where = "WHERE " + parts.join(' AND ');
         }
@@ -181,6 +181,8 @@ let getRecommendation = (params, sender) => {
 
         var q = 'SELECT Id, image__c, recommendId__c, subtitle__c FROM Recommendation__c ${where} LIMIT 1';
 
+        console.log('q: ',q);
+
         org.query({ query: q }, function(err, resp){
 
             if(!err && resp.records) {
@@ -188,6 +190,9 @@ let getRecommendation = (params, sender) => {
                 var theRecommend = resp.records[0];
                 console.log('theRecommend', theRecommend);
                 resolve(theRecommend);
+            }
+            else{
+                console.log('err: ', err);
             }
         });
     });
