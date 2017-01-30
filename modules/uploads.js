@@ -28,12 +28,15 @@ exports.processUpload = (sender, attachments) => {
                 .then(properties => messenger.send(formatter.formatProperties(properties), sender))
                 */
         }else if (attachment.type === "location") {
+
+            messenger.getUserInfo(sender).then(response => {
+                messenger.send(formatter.renderRooms(response), sender);
+            });
+
             console.log('attachment.payload.coordinates.lat: ', attachment.payload.coordinates.lat);
             console.log('attachment.payload.coordinates.long: ', attachment.payload.coordinates.long);
             console.log('geocoder: ', geocoder);
 
-
-            
             geocoder.reverse({lat: attachment.payload.coordinates.lat, lon: attachment.payload.coordinates.long}).then(function(res) {
                 console.log('result: ', res);
                 console.log('ZIPCODE!: ', res[0].zipcode);

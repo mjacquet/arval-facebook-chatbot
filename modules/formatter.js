@@ -70,7 +70,7 @@ exports.onBoard3 = response => {
 
 exports.onBoard4 = response => {
     return {
-        "text":"Et pour finir : quel est l'assureur actuel de votre logement?",
+        "text":"Quel est l'assureur actuel de votre logement?",
         "quick_replies":[
           {
             "content_type":"text",
@@ -352,6 +352,29 @@ exports.imageShow = response => {
             }
         }
     };
+};
+
+exports.renderRooms = response => {
+    return {
+        "text":"Et pour finir, combien de pièces comporte votre logement?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"1 Room",
+            "payload":"1Room"
+          },
+          {
+            "content_type":"text",
+            "title":"2 Rooms",
+            "payload":"2Room"
+          },
+          {
+            "content_type":"text",
+            "title":"3 Rooms",
+            "payload":"3Room"
+          }
+        ]
+    }
 };
 
 

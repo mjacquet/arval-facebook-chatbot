@@ -117,8 +117,9 @@ exports.button9 = (sender) => {
 exports.button10 = (sender) => {
     console.log('button10 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
-        messenger.send(formatter.onBoard5(response), sender);
+        //messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
+        //messenger.send(formatter.onBoard5(response), sender);
+        messenger.send({text: `Où est situé votre logement?`}, sender);
         salesforce.updateLead({q4: `AXA`}, sender).then(() => {});
     });
 };
@@ -126,8 +127,9 @@ exports.button10 = (sender) => {
 exports.button11 = (sender) => {
     console.log('button11 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
-        messenger.send(formatter.onBoard5(response), sender);
+        //messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
+        //messenger.send(formatter.onBoard5(response), sender);
+        messenger.send({text: `Où est situé votre logement?`}, sender);
         salesforce.updateLead({q4: `MAIF`}, sender).then(() => {});
     });
 };  
@@ -135,8 +137,9 @@ exports.button11 = (sender) => {
 exports.button12 = (sender) => {
     console.log('button12 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
-        messenger.send(formatter.onBoard5(response), sender);
+        //messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
+        //messenger.send(formatter.onBoard5(response), sender);
+        messenger.send({text: `Où est situé votre logement?`}, sender);
         salesforce.updateLead({q4: `CNP Assurances`}, sender).then(() => {});
     });
 };  
@@ -144,8 +147,9 @@ exports.button12 = (sender) => {
 exports.button13 = (sender) => {
     console.log('button13 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
-        messenger.send(formatter.onBoard5(response), sender);
+        //messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
+        //messenger.send(formatter.onBoard5(response), sender);
+        messenger.send({text: `Où est situé votre logement?`}, sender);
         salesforce.updateLead({q4: `Autre`}, sender).then(() => {});
     });
 };
