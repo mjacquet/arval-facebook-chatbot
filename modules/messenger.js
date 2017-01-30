@@ -28,6 +28,7 @@ exports.send = (message, recipient) => {
 exports.setZip = (zip) =>{
     console.log('inside setZip');
     theZip = zip;
+    resolve();
 };
 
 exports.getZip = () =>{
