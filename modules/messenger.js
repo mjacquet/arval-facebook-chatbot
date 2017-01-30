@@ -77,7 +77,7 @@ exports.getSuggestion = (zip,rooms) => {
             method: 'POST',
             json : { 
                 voice_usage: zip,
-                data_usage: 0,
+                data_usage: rooms,
                 text_usage: 0
             }
         }, (error, response) => {
