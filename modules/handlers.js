@@ -108,8 +108,9 @@ exports.button8 = (sender) => {
 exports.button9 = (sender) => {
     console.log('button9 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
-        messenger.send(formatter.onBoard5(response), sender);
+        //messenger.send({text: `Très bien, voici nos offres recommandées`}, sender);
+        //messenger.send(formatter.onBoard5(response), sender);
+        messenger.send({text: `Où est situé votre logement?`}, sender);
         salesforce.updateLead({q4: `Pas d'assureur`}, sender).then(() => {});
     });
 };
