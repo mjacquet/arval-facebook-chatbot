@@ -179,7 +179,7 @@ let getRecommendation = (params, sender) => {
         console.log("params: ", params);
         console.log("where: ", where);
 
-        let q = `SELECT Id, image__c, recommendId__c, subtitle__c FROM Recommendation__c ${where} LIMIT 1`;
+        let q = `SELECT Id, Name, image__c, recommendId__c, subtitle__c FROM Recommendation__c ${where} LIMIT 1`;
 
         console.log('q: ',q);
 

@@ -244,7 +244,7 @@ exports.room1 = (sender) => {
         messenger.getZip().then(zipResponse => {
             messenger.getSuggestion(zipResponse, '1').then(suggestResponse => {
                 salesforce.getRecommendation({suggestion: suggestResponse}, sender).then((recommendationResponse) => {
-                    messenger.send({text: `getRecomendation`}, sender);
+                    messenger.send(formatter.formatRecommendation(recommendationResponse), sender);
                 });
             });
         });
@@ -257,7 +257,7 @@ exports.room2 = (sender) => {
         messenger.getZip().then(zipResponse => {
             messenger.getSuggestion(zipResponse, '2').then(suggestResponse => {
                 salesforce.getRecommendation({suggestion: suggestResponse}, sender).then((recommendationResponse) => {
-                    messenger.send({text: `getRecomendation`}, sender);
+                    messenger.send(formatter.formatRecommendation(recommendationResponse), sender);
                 });
             });
             
@@ -271,7 +271,7 @@ exports.room3 = (sender) => {
         messenger.getZip().then(zipResponse => {
             messenger.getSuggestion(zipResponse, '3').then(suggestResponse => {
                 salesforce.getRecommendation({suggestion: suggestResponse}, sender).then((recommendationResponse) => {
-                    messenger.send({text: `getRecomendation`}, sender);
+                    messenger.send(formatter.formatRecommendation(recommendationResponse), sender);
                 });
             });
         });
@@ -284,7 +284,7 @@ exports.room4 = (sender) => {
         messenger.getZip().then(zipResponse => {
             messenger.getSuggestion(zipResponse, '4').then(suggestResponse => {
                 salesforce.getRecommendation({suggestion: suggestResponse}, sender).then((recommendationResponse) => {
-                    messenger.send({text: `getRecomendation`}, sender);
+                    messenger.send(formatter.formatRecommendation(recommendationResponse), sender);
                 });
             });
         });
@@ -297,7 +297,7 @@ exports.room5 = (sender) => {
         messenger.getZip().then(zipResponse => {
             messenger.getSuggestion(zipResponse, '5').then(suggestResponse => {
                 salesforce.getRecommendation({suggestion: suggestResponse}, sender).then((recommendationResponse) => {
-                    messenger.send({text: `getRecomendation`}, sender);
+                    messenger.send(formatter.formatRecommendation(recommendationResponse), sender);
                 });
             });
         });
