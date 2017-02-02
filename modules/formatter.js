@@ -38,7 +38,7 @@ exports.onBoard2 = response => {
           },
           {
             "content_type":"text",
-            "title":"Proprietaire",
+            "title":"Propriétaire",
             "payload":"p3"
           }
         ]
