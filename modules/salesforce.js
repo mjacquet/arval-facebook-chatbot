@@ -15,6 +15,16 @@ let org = nforce.createConnection({
     autoRefresh: true
 });
 
+let theLeadId = '';
+
+let getLeadId = () =>{
+    console.log('inside getLeadId');
+    return new Promise((resolve, reject) => {
+        //theZip = zip;
+        resolve(theLeadId);
+    });
+};
+
 let login = () => {
     org.authenticate({username: SF_USER_NAME, password: SF_PASSWORD}, err => {
         if (err) {
@@ -39,7 +49,7 @@ let createLead = (customerFName, customerLName, customerId) => {
 
             org.insert({ sobject: l }, function(err, resp){
                 if(!err){
-                    console.log('It worked!');
+                    console.log('It worked!: ', l);
                     resolve(l);
                 }
                 else{
