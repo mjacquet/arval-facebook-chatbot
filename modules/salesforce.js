@@ -50,6 +50,8 @@ let createLead = (customerFName, customerLName, customerId) => {
             org.insert({ sobject: l }, function(err, resp){
                 if(!err){
                     console.log('It worked!: ', l);
+                    theLeadId = l._fields.id;
+                    console.log('It worked!: ', theLeadId);
                     resolve(l);
                 }
                 else{
