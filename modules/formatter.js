@@ -300,11 +300,11 @@ exports.formatAppointment = response => {
     moment.lang('fr');
     
     var options = [
-        moment().add(1, 'days').format('ddd MMM Do') + ' à 10am',
-        moment().add(2, 'days').format('ddd MMM Do') + ' à 9am',
-        moment().add(2, 'days').format('ddd MMM Do') + ' à 5pm',
-        moment().add(3, 'days').format('ddd MMM Do') + ' à 1pm',
-        moment().add(3, 'days').format('ddd MMM Do') + ' à 6pm',
+        moment().add(1, 'days').format('ddd D MMM') + ' à 10am',
+        moment().add(2, 'days').format('ddd D MMM') + ' à 9am',
+        moment().add(2, 'days').format('ddd D MMM') + ' à 5pm',
+        moment().add(3, 'days').format('ddd D MMM') + ' à 1pm',
+        moment().add(3, 'days').format('ddd D MMM') + ' à 6pm',
     ];
 
     console.log('options: ', options);
