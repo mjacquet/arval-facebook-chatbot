@@ -60,7 +60,7 @@ exports.button3 = (sender) => {
     console.log('button3 called');
     messenger.getUserInfo(sender).then(response => {
         salesforce.updateLead({q2: `Locataire`}, sender).then(() => {
-            messenger.send(formatter.onBoard3(response), sender);
+            messenger.send(formatter.onBoard4(response), sender);
         });
     });
 };
@@ -68,7 +68,7 @@ exports.button3 = (sender) => {
 exports.button4 = (sender) => {
     console.log('button4 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.onBoard3(response), sender);
+        messenger.send(formatter.onBoard4(response), sender);
         salesforce.updateLead({q2: `Colocataire`}, sender).then(() => {});
     });
 };
@@ -76,7 +76,7 @@ exports.button4 = (sender) => {
 exports.button5 = (sender) => {
     console.log('button5 called');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.onBoard3(response), sender);
+        messenger.send(formatter.onBoard4(response), sender);
         salesforce.updateLead({q2: `Propriétaire`}, sender).then(() => {});
     });
 };

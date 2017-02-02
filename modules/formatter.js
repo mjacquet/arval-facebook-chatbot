@@ -298,11 +298,11 @@ exports.onBoard10 = response => {
 
 exports.formatAppointment = response => {
     var options = [
-        moment().add(1, 'days').format('ddd MMM Do') + ' at 10am',
-        moment().add(2, 'days').format('ddd MMM Do') + ' at 9am',
-        moment().add(2, 'days').format('ddd MMM Do') + ' at 5pm',
-        moment().add(3, 'days').format('ddd MMM Do') + ' at 1pm',
-        moment().add(3, 'days').format('ddd MMM Do') + ' at 6pm',
+        moment().add(1, 'days').format('ddd MMM Do') + ' à 10am',
+        moment().add(2, 'days').format('ddd MMM Do') + ' à 9am',
+        moment().add(2, 'days').format('ddd MMM Do') + ' à 5pm',
+        moment().add(3, 'days').format('ddd MMM Do') + ' à 1pm',
+        moment().add(3, 'days').format('ddd MMM Do') + ' à 6pm',
     ];
 
     console.log('options: ', options);
