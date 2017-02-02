@@ -200,8 +200,22 @@ let getRecommendation = (params, sender) => {
             if(!err && resp.records) {
 
                 var theRecommend = resp.records[0];
-                console.log('theRecommend', theRecommend);
-                resolve(theRecommend);
+                console.log('theRecommend: ', theRecommend);
+
+                console.log('theLeadId: ', theLeadId);
+
+                theRecommend.set('Lead__c', theLeadId);
+                //resolve(theRecommend);
+                org.update({ sobject: theRecommend }, function(err, resp){
+                    if(!err){
+                        console.log('It worked!');
+                        resolve(theRecommend);
+                    }
+                    else{
+                        reject("Error updating the Lead");
+                    }
+                });
+
             }
             else{
                 console.log('err: ', err);
