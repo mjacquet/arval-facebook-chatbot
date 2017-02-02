@@ -297,8 +297,9 @@ exports.onBoard10 = response => {
 };
 
 exports.formatAppointment = response => {
+    moment.lang('fr');
+    
     var options = [
-        moment().lang('fr');
         moment().add(1, 'days').format('ddd MMM Do') + ' à 10am',
         moment().add(2, 'days').format('ddd MMM Do') + ' à 9am',
         moment().add(2, 'days').format('ddd MMM Do') + ' à 5pm',
