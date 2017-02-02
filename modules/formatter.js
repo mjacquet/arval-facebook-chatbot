@@ -311,7 +311,7 @@ exports.formatAppointment = response => {
             "type": "template",
             "payload": {
                 "template_type": "button",
-                "text": `Select one of the available appointments below.`,
+                "text": `Choisissez un créneau horaire pour rencontrer votre agent Cumulus.`,
                 "buttons": [
                     {
                         "type": "postback",

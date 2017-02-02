@@ -13,7 +13,7 @@ exports.schedule_visit = (sender) => {
 
 exports.confirm_visit = (sender, values) => {
 	console.log('values: ', values);
-    messenger.send({text: `OK, your appointment is confirmed for ${values[1]}`}, sender);
+    messenger.send({text: `Votre rendez-vous est confirmé pour le ${values[1]}`}, sender);
 };
 /*
 exports.link_postback = (sender, values) => {
