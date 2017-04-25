@@ -6,6 +6,7 @@ var express = require('express'),
     handlers = require('./modules/handlers'),
     postbacks = require('./modules/postbacks'),
     uploads = require('./modules/uploads'),
+    quickreplies = require('./modules/quickreplies'),
     FB_VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN,
     app = express();
 
@@ -25,10 +26,24 @@ app.post('/webhook', (req, res) => {
     let events = req.body.entry[0].messaging;
     for (let i = 0; i < events.length; i++) {
         let event = events[i];
+        console.log('event: ', event);
         let sender = event.sender.id;
         if (process.env.MAINTENANCE_MODE && ((event.message && event.message.text) || event.postback)) {
             sendMessage({text: `Sorry I'm taking a break right now.`}, sender);
+        } else if(event.message && event.message.quick_reply){
+            console.log('inside quickreply');
+            let payload = event.message.quick_reply.payload.split(",");
+            console.log('payload: ', payload);
+            let quickreply = quickreplies[payload[0]];
+            console.log('quickreply: ', quickreply);
+            if (quickreply && typeof quickreply === "function") {
+                quickreply(sender, payload);
+            } else {
+                console.log("Quickreply " + quickreply + " is not defined");
+            }
+
         } else if (event.message && event.message.text) {
+            console.log('message');
             let result = processor.match(event.message.text);
             if (result) {
                 let handler = handlers[result.handler];
@@ -39,6 +54,7 @@ app.post('/webhook', (req, res) => {
                 }
             }
         } else if (event.postback) {
+            console.log('postback');
             let payload = event.postback.payload.split(",");
             let postback = postbacks[payload[0]];
             if (postback && typeof postback === "function") {

@@ -5,7 +5,7 @@ let moment = require("moment"),
 
 exports.onBoard1 = response => {
     return {
-        "text":"Bonjour " + response.first_name + " et bienvenue chez Cumulus Assurance. Que puis-je faire pour vous?",
+        "text":"Bonjour " + response.first_name + " et bienvenue chez Peugeot. Que puis-je faire pour vous? ",
         "quick_replies":[
           {
             "content_type":"text",
@@ -21,48 +21,20 @@ exports.onBoard1 = response => {
     }
 };
 
-exports.onBoard2 = response => {
-    console.log('onBoard2');
+exports.question1 = response => {
+    console.log('question1');
     return {
-        "text":"Etes vous locataire ou proprietaire?",
+        "text":"Voila une bonne nouvelle ;) "+response.first_name+" Vous le savez peut-être déjà : TGV Max est un programme conçu pour les voyageurs de 16 à 27 ans. Vous êtes bien dans cette tranche d'âge?",
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Locataire",
-            "payload":"p1"
+            "title":"Qui",
+            "payload":"q1"
           },
           {
             "content_type":"text",
-            "title":"Colocataire",
-            "payload":"p2"
-          },
-          {
-            "content_type":"text",
-            "title":"Propriétaire",
-            "payload":"p3"
-          }
-        ]
-    }
-};
-
-exports.onBoard3 = response => {
-    return {
-        "text":"Votre logement est-il équipé des dispositifs suivants:",
-        "quick_replies":[
-          {
-            "content_type":"text",
-            "title":"Alarme incendie",
-            "payload":"button6"
-          },
-          {
-            "content_type":"text",
-            "title":"Objets connectés",
-            "payload":"button7"
-          },
-          {
-            "content_type":"text",
-            "title":"Alarme effraction",
-            "payload":"button8"
+            "title":"Non",
+            "payload":"q1"
           }
         ]
     }
@@ -70,121 +42,31 @@ exports.onBoard3 = response => {
 
 exports.onBoard4 = response => {
     return {
-        "text":"Quel est l'assureur actuel de votre logement?",
+        "text":"Quel type de véhicule recherchez-vous?",
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Pas d'assureur",
-            "payload":"button9"
+            "title":"Berlines et Breaks",
+            "payload":"q2, Berlines et Breaks"
           },
           {
             "content_type":"text",
-            "title":"AXA",
-            "payload":"button10"
+            "title":"SUV",
+            "payload":"q2, SUV"
           },
           {
             "content_type":"text",
-            "title":"MAIF",
-            "payload":"button11"
+            "title":"Citadines",
+            "payload":"q2, Citadines"
           },
           {
             "content_type":"text",
-            "title":"CNP Assurances",
-            "payload":"button12"
-          },
-          {
-            "content_type":"text",
-            "title":"Autre",
-            "payload":"button13"
+            "title":"Sportives",
+            "payload":"q2, Sportives"
           }
 
         ]
     }
-};
-
-exports.onBoard5 = response => {
-
-    let elements = [];
-        elements.push(  
-            {
-                title: 'Cumulus Confort',
-                subtitle: `17,99€ par mois`,
-                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JWHdVeWM2dVc5Q2o0dzZVMUJVVGE5NGg3MF84',
-                "buttons": [
-                    {
-                        "type":"web_url",
-                        "url":"https://www.facebook.com/cumulusfrance",
-                        "title":"Avis Communauté"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Rdv conseiller",
-                        "payload": "schedule_visit"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Souscrire",
-                        "payload": "image_postback"
-                    }
-                ]
-            },
-            {
-                title: 'Cumulus Confort Plus',
-                subtitle: `20,99€ par mois`,
-                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JLWRiUjBPejFHREh3dnFZMjNRbzh2U2hyOE9V',
-                "buttons": [
-                    {
-                        "type":"web_url",
-                        "url":"https://www.facebook.com/cumulusfrance",
-                        "title":"Avis Communauté"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Rdv conseiller",
-                        "payload": "schedule_visit"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Souscrire",
-                        "payload": "image_postback"
-                    }
-                ]
-            },
-            {
-                title: 'Offre maison connectée',
-                subtitle: `17,99€ par mois`,
-                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JOEpjd0wxRTllZUpaNnJWWnpfNTQ2S2gxbHc0',
-                "buttons": [
-                    {
-                        "type":"web_url",
-                        "url":"https://www.facebook.com/cumulusfrance",
-                        "title":"Avis Communauté"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Rdv conseiller",
-                        "payload": "schedule_visit"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Souscrire",
-                        "payload": "image_postback"
-                    }
-                ]
-            }
-
-
-        );
-
-    return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elements
-            }
-        }
-    };
 };
 
 exports.onBoard6 = response => {
@@ -193,13 +75,13 @@ exports.onBoard6 = response => {
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Déclarer un sinistre",
-            "payload":"theStart"
+            "title":"Demander une assistance",
+            "payload":"services"
           },
           {
             "content_type":"text",
-            "title":"Découvrir les services Cumulus",
-            "payload":"theStartTwo"
+            "title":"Découvrir les services",
+            "payload":"blank"
           }
         ]
     }
@@ -207,22 +89,22 @@ exports.onBoard6 = response => {
 
 exports.onBoard7 = response => {
     return {
-        "text":"Quel type d'incident aimeriez-vous constater?",
+        "text":"De quelle assistance avez-vous besoin?",
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Dégât des eaux",
-            "payload":"theStart"
+            "title":"Panne de véhicule",
+            "payload":"q4, Panne de véhicule"
           },
           {
             "content_type":"text",
             "title":"Vol",
-            "payload":"theStartTwo"
+            "payload":"q4, Vol"
           },
           {
             "content_type":"text",
-            "title":"Incendie",
-            "payload":"theStartTwo2"
+            "title":"Pneu crevé",
+            "payload":"q4, Pneu crevé"
           }
         ]
     }
@@ -230,40 +112,17 @@ exports.onBoard7 = response => {
 
 exports.onBoard8 = response => {
     return {
-        "text":"Y-a-t-il des blessés dans le dégât?",
+        "text":"Y-a-t-il des blessés?",
         "quick_replies":[
           {
             "content_type":"text",
             "title":"Oui",
-            "payload":"theStart"
+            "payload":"q5,true"
           },
           {
             "content_type":"text",
             "title":"Non",
-            "payload":"theStartTwo"
-          }
-        ]
-    }
-};
-
-exports.onBoard9 = response => {
-    return {
-        "text":"A combien estimez-vous les dommages matériels suite à l'incident?",
-        "quick_replies":[
-          {
-            "content_type":"text",
-            "title":"moins de 1 000€",
-            "payload":"theStart"
-          },
-          {
-            "content_type":"text",
-            "title":"1 000 - 10 000 €",
-            "payload":"theStartTwo"
-          },
-          {
-            "content_type":"text",
-            "title":"Plus de 10 000 €",
-            "payload":"theStartTwo"
+            "payload":"q5,false"
           }
         ]
     }
@@ -279,7 +138,7 @@ exports.onBoard10 = response => {
                     {
                         "type": "postback",
                         "title": "Contactez-moi",
-                        "payload": "button"
+                        "payload": "contactagent"
                     }
                 ]
             }
@@ -313,7 +172,7 @@ exports.formatAppointment = response => {
             "type": "template",
             "payload": {
                 "template_type": "button",
-                "text": `Choisissez un créneau horaire pour rencontrer votre agent Cumulus.`,
+                "text": `Choisissez un créneau horaire pour venir essayer votre prochain véhicule.`,
                 "buttons": [
                     {
                         "type": "postback",
@@ -335,55 +194,19 @@ exports.formatAppointment = response => {
     };
 };
 
-exports.imageShow = response => {
-
-    let elements = [];
-        elements.push(  
-            {
-                title: 'Image',
-                "image_url": 'https://www.dropbox.com/s/575mqq3jhzvxkxm/gfacebook.png?raw=1'
-            }
-        );
-
-    return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "generic",
-                "elements": elements
-            }
-        }
-    };
-};
-
 exports.renderRooms = response => {
     return {
-        "text":"Et pour finir, combien de pièces comporte votre logement?",
+        "text":"Et pour finir, souhaitez-vous que nous étudions avec vous une solution de financement?",
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"1",
-            "payload":"1Room"
+            "title":"Qui",
+            "payload":"q3,true"
           },
           {
             "content_type":"text",
-            "title":"2",
-            "payload":"2Room"
-          },
-          {
-            "content_type":"text",
-            "title":"3",
-            "payload":"3Room"
-          },
-          {
-            "content_type":"text",
-            "title":"4",
-            "payload":"4Room"
-          },
-          {
-            "content_type":"text",
-            "title":"5+",
-            "payload":"5+Room"
+            "title":"Non",
+            "payload":"q3,false"
           }
         ]
     }
@@ -394,68 +217,68 @@ exports.formatRecommendation = rec => {
     let elements = [];
         elements.push(  
             {
-                title: rec.get("Name"),
-                subtitle: `${rec.get("subtitle__c")}`,
-                "image_url": rec.get("image__c"),
+                title: 'SUV 2008',
+                subtitle: `A partir de 16 050€ TTC. Ou 189 €/mois après un premier loyer de 4.031 €`,
+                "image_url": 'https://www.dropbox.com/s/s5vk994jyufnwhy/2008.png?raw=1',
                 "buttons": [
                     {
                         "type":"web_url",
-                        "url":"https://www.facebook.com/cumulusfrance",
+                        "url":"https://www.facebook.com/PSA-Peugeot-Citroen-ChatBot-1840047882950140/",
                         "title":"Avis Communauté"
                     },
                     {
                         "type": "postback",
-                        "title": "Rdv conseiller",
+                        "title": "Demande d’essai route",
                         "payload": "schedule_visit"
                     },
                     {
                         "type": "postback",
-                        "title": "Souscrire",
-                        "payload": "image_postback"
+                        "title": "Demande d’offre",
+                        "payload": "blank"
                     }
                 ]
             },
             {
-                title: 'Cumulus Confort',
-                subtitle: `17,99€ par mois`,
-                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JWHdVeWM2dVc5Q2o0dzZVMUJVVGE5NGg3MF84',
+                title: 'SUV 3008',
+                subtitle: `A partir de 25 900€ TTC. Ou 313 €/mois après un premier loyer de 6.494 €`,
+                "image_url": 'https://www.dropbox.com/s/eaki20wfacq678w/3008.png?raw=1',
                 "buttons": [
                     {
                         "type":"web_url",
-                        "url":"https://www.facebook.com/cumulusfrance",
+                        "url":"https://www.facebook.com/PSA-Peugeot-Citroen-ChatBot-1840047882950140/",
                         "title":"Avis Communauté"
                     },
                     {
                         "type": "postback",
-                        "title": "Rdv conseiller",
+                        "title": "Demande d’essai route",
                         "payload": "schedule_visit"
                     },
                     {
                         "type": "postback",
-                        "title": "Souscrire",
-                        "payload": "image_postback"
+                        "title": "Demande d’offre",
+                        "payload": "blank"
                     }
                 ]
             },
             {
-                title: 'Cumulus Confort Plus',
-                subtitle: `20,99€ par mois`,
-                "image_url": 'https://drive.google.com/uc?export=view&id=0BxwASYlURQ-JLWRiUjBPejFHREh3dnFZMjNRbzh2U2hyOE9V',
+                title: 'SUV 5008',
+                subtitle: `A partir de 26 400€ TTC. Ou 313 €/mois après un premier loyer de 6.618 €`,
+                "image_url": 'https://www.dropbox.com/s/vtznsub4xf6bq2i/5008.png?raw=1',
                 "buttons": [
                     {
                         "type":"web_url",
-                        "url":"https://www.facebook.com/cumulusfrance",
+                        "url":"https://www.facebook.com/PSA-Peugeot-Citroen-ChatBot-1840047882950140/",
                         "title":"Avis Communauté"
                     },
                     {
                         "type": "postback",
-                        "title": "Rdv conseiller",
+                        "title": "Demande d’essai route",
                         "payload": "schedule_visit"
                     },
                     {
                         "type": "postback",
-                        "title": "Souscrire",
-                        "payload": "image_postback"
+                        "title": "Demande d’offre",
+                        "payload": "blank"
                     }
                 ]
             }
@@ -474,7 +297,7 @@ exports.formatRecommendation = rec => {
 
 exports.sendLocation = response => {
     return {
-        "text":"Où est situé votre logement?",
+        "text":"Où êtes-vous situé?",
         "quick_replies":[
           {
             "content_type":"location"

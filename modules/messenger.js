@@ -3,7 +3,6 @@
 let request = require('request'),
     FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN;
 let util = require('util')
-let theZip = '';
 
 exports.send = (message, recipient) => {
     request({
@@ -25,20 +24,6 @@ exports.send = (message, recipient) => {
     });
 };
 
-exports.setZip = (zip) =>{
-    console.log('inside setZip');
-    theZip = zip;
-    return;
-};
-
-exports.getZip = () =>{
-    console.log('inside getZip');
-    return new Promise((resolve, reject) => {
-        //theZip = zip;
-        resolve(theZip);
-    });
-};
-
 exports.getUserInfo = (userId) => {
 
     return new Promise((resolve, reject) => {
@@ -56,42 +41,6 @@ exports.getUserInfo = (userId) => {
             } else {
                 console.log('getUserInfo: ', response.body);
                 resolve(JSON.parse(response.body));
-            }
-        });
-
-    });
-};
-
-exports.getSuggestion = (zip,rooms) => {
-
-    console.log('zip 0: ', zip);
-    zip = zip.substring(2);
-    console.log('zip 1: ', zip);
-    zip = parseInt(zip, 10);
-    console.log('zip 2: ', zip);
-
-    return new Promise((resolve, reject) => {
-
-        request({
-            url: `https://pio-octave-engine.herokuapp.com/queries.json`,
-            method: 'POST',
-            json : { 
-                voice_usage: zip,
-                data_usage: rooms,
-                text_usage: 0
-            }
-        }, (error, response) => {
-            if (error) {
-                console.log('Error sending message: ', error);
-                reject(error);
-            } else if (response.body.error) {
-                console.log('Error: ', response.body.error);
-            } else {
-                console.log('zip 3: ', zip);
-                console.log('No Error: ', response.body);
-                var theResponse = JSON.stringify(response.body);
-                console.log('theResponse: ', theResponse);
-                resolve(JSON.parse(theResponse));
             }
         });
 

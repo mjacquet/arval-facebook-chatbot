@@ -15,15 +15,20 @@ let org = nforce.createConnection({
     autoRefresh: true
 });
 
-let theLeadId = '';
+let theLead = nforce.createSObject('Lead');
+theLead.set('Company', `Facebook Customer`);
+theLead.set('Status', 'New');
+theLead.set('FirstName', `Test`);
+theLead.set('LastName', `TestLast`);
+theLead.set('Lead_Score_Value__c', 52);
 
-let getLeadId = () =>{
-    console.log('inside getLeadId');
-    return new Promise((resolve, reject) => {
-        //theZip = zip;
-        resolve(theLeadId);
-    });
-};
+
+let theCase = nforce.createSObject('Case');
+theCase.set('Subject', `Facebook Customer`);
+theCase.set('Description', 'Case from Facebook Bot');
+theCase.set('Origin', `Facebook Bot`);
+theCase.set('Status', `New`);
+
 
 let login = () => {
     org.authenticate({username: SF_USER_NAME, password: SF_PASSWORD}, err => {
@@ -36,30 +41,19 @@ let login = () => {
     });
 };
 
-let createLead = (customerFName, customerLName, customerId) => {
-    if(customerFName){
-        return new Promise((resolve,reject) => {
-            var l = nforce.createSObject('Lead');
-            l.set('Company', `Facebook Customer`);
-            l.set('FirstName', `${customerFName}`);
-            l.set('LastName', `${customerLName}`);
-            l.set('Description', "Facebook id: " + customerId);
-            l.set('Status', 'New');
-            l.set('Lead_Score__c', 50);
+let createLead = (params) => {
+    return new Promise((resolve,reject) => {
 
-            org.insert({ sobject: l }, function(err, resp){
-                if(!err){
-                    console.log('It worked!: ', l);
-                    theLeadId = l._fields.id;
-                    console.log('It worked!: ', theLeadId);
-                    resolve(l);
-                }
-                else{
-                    reject("An error occurred while creating a lead");
-                }
-            });
+        org.insert({ sobject: theLead }, function(err, resp){
+            if(!err){
+                console.log('It worked!: ', theLead);
+                resolve(theLead);
+            }
+            else{
+                reject("An error occurred while creating a lead");
+            }
         });
-    }
+    });
 };
 
 let updateLead = (params, sender) => {
@@ -69,30 +63,46 @@ let updateLead = (params, sender) => {
 
             console.log("params: ", params);
 
-            var q = 'SELECT Id, CreatedDate, Statut_locatif__c, Equipement__c, Assureur_actuel__c FROM Lead ORDER BY CreatedDate DESC LIMIT 1';
+            var q = 'SELECT Id, CreatedDate FROM Lead ORDER BY CreatedDate DESC LIMIT 1';
 
             org.query({ query: q }, function(err, resp){
 
                 if(!err && resp.records) {
 
-                    var theLead = resp.records[0];
+                    var theLead2 = resp.records[0];
+                    if(params.fname){
+                        console.log('inside fname');
+                        theLead2.set('FirstName', params.fname);
+                    }
+                    if(params.lname){
+                        console.log('inside lname');
+                        theLead2.set('LastName', params.lname);
+                    }
+                    if(params.q1){
+                        console.log('inside q1');
+                        theLead2.set('Situation__c', params.q1);
+                    }
                     if(params.q2){
-                        theLead.set('Statut_locatif__c', params.q2);
-                        theLead.set('Lead_Score__c', 60);
+                        console.log('inside q2');
+                        theLead2.set('Type_V_hicule__c', params.q2);
+                    }
+                    if(params.zip){
+                        console.log('inside zip');
+                        theLead2.set('Zip__c', params.zip);
                     }
                     if(params.q3){
-                        theLead.set('Equipement__c', params.q3);
-                        theLead.set('Lead_Score__c', 75);
+                        console.log('inside q3');
+                        if(params.q3 == 'true'){
+                            theLead2.set('D_sire_un_financement__c', true);
+                        } else{
+                            theLead2.set('D_sire_un_financement__c', false);
+                        }
                     }
-                    if(params.q4){
-                        theLead.set('Assureur_actuel__c', params.q4);
-                        theLead.set('Lead_Score__c', 90);
-                    }
-                    console.log("theLead: ", theLead);
-                    org.update({ sobject: theLead }, function(err, resp){
+                    console.log("theLead: ", theLead2);
+                    org.update({ sobject: theLead2 }, function(err, resp){
                         if(!err){
                             console.log('It worked!');
-                            resolve(theLead);
+                            resolve(theLead2);
                         }
                         else{
                             reject("Error updating the Lead");
@@ -104,66 +114,57 @@ let updateLead = (params, sender) => {
     }
 };
 
-let createCase = (customerFName, customerLName, customerId) => {
 
-    return new Promise((resolve, reject) => {
-        console.log('inside createCase');
-        var c = nforce.createSObject('Case');
-        console.log("BURSHT 1");
-        c.set('subject', `Contact Pierre Martin (Facebook Customer)`);
-        console.log("BURSHT 2");
-        c.set('description', "Facebook id: " + customerId);
-        console.log("BURSHT 3");
-        c.set('origin', 'Facebook Bot');
-        console.log("BURSHT 4");
-        c.set('status', 'New');
+let createCase = (params) => {
+    return new Promise((resolve,reject) => {
 
-        console.log('c: ' , c);
-
-        org.insert({sobject: c}, function(err, resp){
-            if (err) {
-                console.error(err);
-                console.log('error: ',err);
-                reject("An error occurred while creating a case");
-            } else {
-                console.log('resolve case');
-                resolve(c);
+        org.insert({ sobject: theCase }, function(err, resp){
+            if(!err){
+                console.log('It worked!: ', theCase);
+                resolve(theCase);
+            }
+            else{
+                reject("An error occurred while creating a lead");
             }
         });
     });
-
 };
 
 let updateCase = (params, sender) => {
-    console.log('how is this getting called Case');
-    if(params){
-        return new Promise((resolve, reject) => {
-
+    return new Promise((resolve, reject) => {
+        if(params){
             console.log("params: ", params);
-
-            var q = 'SELECT Id, Incident__c, Injuries__c, Material_Damage__c FROM Case ORDER BY CreatedDate DESC LIMIT 1';
+            var q = 'SELECT Id FROM Case ORDER BY CreatedDate DESC LIMIT 1';
 
             org.query({ query: q }, function(err, resp){
 
                 if(!err && resp.records) {
 
-                    var theCase = resp.records[0];
-                    console.log('theCase', theCase);
+                    var theCase2 = resp.records[0];
 
-                    if(params.r2){
-                        theCase.set('Incident__c', params.r2);
+                    if(params.fname && params.lname){
+                        console.log('inside fname');
+                        theCase2.set('Subject', `Facebook Customer: ${params.fname} ${params.lname}`);
                     }
-                    if(params.r3){
-                        theCase.set('Injuries__c', params.r3);
+                    if(params.q4){
+                        console.log('inside q4');
+                        theCase2.set('Type_Assistance__c', params.q4);
                     }
-                    if(params.r4){
-                        theCase.set('Material_Damage__c', params.r4);
+                    if(params.q5){
+                        console.log('inside q5');
+                        if(params.q5 == 'true'){
+                            theCase2.set('Personne_bless_e__c', true);
+                        } else{
+                            theCase2.set('Personne_bless_e__c', false);
+                        }
+                        
                     }
-                    console.log("theCase: ", theCase);
-                    org.update({ sobject: theCase }, function(err, resp){
+                    console.log("theCase: ", theCase2);
+                    
+                    org.update({ sobject: theCase2 }, function(err, resp){
                         if(!err){
                             console.log('It worked!');
-                            resolve(theCase);
+                            resolve(theCase2);
                         }
                         else{
                             reject("Error updating the Lead");
@@ -171,59 +172,10 @@ let updateCase = (params, sender) => {
                     });
                 }
             });
-        });
-    }
-};
-
-let getRecommendation = (params, sender) => {
-    console.log('inside getRecommendation');
-    let where = "";
-    if (params) {
-        let parts = [];
-        console.log('params.suggestion.service_plan: ', params.suggestion.service_plan);
-        if (params.suggestion.service_plan) parts.push(`recommendId__c = ${params.suggestion.service_plan}`);
-        if (parts.length>0) {
-            where = "WHERE " + parts.join(' AND ');
+                
         }
-    }
-    return new Promise((resolve, reject) => {
-
-        console.log("params: ", params);
-        console.log("where: ", where);
-
-        let q = `SELECT Id, Name, image__c, recommendId__c, subtitle__c FROM Recommendation__c ${where} LIMIT 1`;
-
-        console.log('q: ',q);
-
-        org.query({ query: q }, function(err, resp){
-
-            if(!err && resp.records) {
-
-                var theRecommend = resp.records[0];
-                console.log('theRecommend: ', theRecommend);
-
-                console.log('theLeadId: ', theLeadId);
-
-                theRecommend.set('Lead__c', theLeadId);
-                //resolve(theRecommend);
-                org.update({ sobject: theRecommend }, function(err, resp){
-                    if(!err){
-                        console.log('It worked!');
-                        resolve(theRecommend);
-                    }
-                    else{
-                        reject("Error updating the Lead");
-                    }
-                });
-
-            }
-            else{
-                console.log('err: ', err);
-            }
-        });
     });
 };
-
 
 login();
 
@@ -232,4 +184,3 @@ exports.createLead = createLead;
 exports.updateLead = updateLead;
 exports.createCase = createCase;
 exports.updateCase = updateCase;
-exports.getRecommendation = getRecommendation;
