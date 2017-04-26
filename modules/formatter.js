@@ -28,7 +28,7 @@ exports.question1 = response => {
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Qui",
+            "title":"Oui",
             "payload":"q1"
           },
           {
@@ -111,7 +111,7 @@ exports.question3 = response => {
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Qui",
+            "title":"Oui",
             "payload":"q3"
           },
           {
@@ -130,7 +130,7 @@ exports.question6 = response => {
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Qui",
+            "title":"Oui",
             "payload":"q6"
           },
           {
@@ -146,8 +146,8 @@ exports.question65 = response => {
     let elements = [];
         elements.push(  
             {
-                title: 'Agent',
-                "image_url": 'http://www.marbellafamilyfun.com/images/wanted-customer-support-agent-21854988.jpg'
+                title: 'Profile Image',
+                "image_url": response.profile_pic
             }
         );
 
@@ -198,7 +198,7 @@ exports.question8 = response => {
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Qui",
+            "title":"Oui",
             "payload":"q8"
           },
           {
@@ -370,7 +370,7 @@ exports.renderRooms = response => {
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Qui",
+            "title":"Oui",
             "payload":"q3,true"
           },
           {
