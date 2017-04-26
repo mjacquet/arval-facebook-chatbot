@@ -42,9 +42,9 @@ exports.q1 = (sender, values) => {
 	console.log('q1');
 	console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.updateLead({q1: values[1]}, sender).then(() => {
-            messenger.send(formatter.onBoard4(response), sender);
-        });
+        //salesforce.updateLead({q1: values[1]}, sender).then(() => {
+            messenger.send(formatter.question2(response), sender);
+        //});
     });
     
 };

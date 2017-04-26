@@ -40,6 +40,75 @@ exports.question1 = response => {
     }
 };
 
+exports.question2 = response => {
+    console.log('question2');
+    return {
+        "text":"C'est parfait. Des places TGV Max sont disponibles sur un grand nombre de trains Vérifions ensemble que votre parcours préféré fait partie du programme si vous voulez bien.",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Paris-Brest",
+            "payload":"q2"
+          },
+          {
+            "content_type":"text",
+            "title":"Paris-Grenoble",
+            "payload":"q2"
+          },
+          {
+            "content_type":"text",
+            "title":"Paris-Le Mans",
+            "payload":"q2"
+          },
+          {
+            "content_type":"text",
+            "title":"Paris-Lille",
+            "payload":"q2"
+          },
+          {
+            "content_type":"text",
+            "title":"Paris-Lyon",
+            "payload":"q2"
+          },
+          {
+            "content_type":"text",
+            "title":"Paris-Marseille",
+            "payload":"q2"
+          },
+          {
+            "content_type":"text",
+            "title":"Paris-Montpeiller",
+            "payload":"q2"
+          },
+          {
+            "content_type":"text",
+            "title":"Paris-Nantes",
+            "payload":"q2"
+          },
+          {
+            "content_type":"text",
+            "title":"Paris-Perpignan",
+            "payload":"q2"
+          },
+          {
+            "content_type":"text",
+            "title":"Paris-Poitiers",
+            "payload":"q2"
+          },
+          {
+            "content_type":"text",
+            "title":"Paris-Rennes",
+            "payload":"q2"
+          },
+          {
+            "content_type":"text",
+            "title":"Mon parcours n'est pas dans cette liste",
+            "payload":"q2"
+          }
+        ]
+    }
+};
+
 exports.onBoard4 = response => {
     return {
         "text":"Quel type de véhicule recherchez-vous?",
