@@ -18,6 +18,13 @@ exports.processUpload = (sender, attachments) => {
         console.log('attachment: ', attachment);
         if (attachment.type === "image") {
             console.log('image attachment');
+
+            messenger.getUserInfo(sender).then(response => {
+                //salesforce.updateLead({zip: res[0].zipcode}, sender).then(() => {
+                    messenger.send(formatter.question65(response), sender);
+                    messenger.send(formatter.question6(response), sender);
+                //});
+            });
         } else if (attachment.type === "location") {
 
             console.log('attachment.payload.coordinates.lat: ', attachment.payload.coordinates.lat);

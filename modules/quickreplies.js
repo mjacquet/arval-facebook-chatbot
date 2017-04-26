@@ -53,17 +53,22 @@ exports.q2 = (sender, values) => {
 	console.log('q2');
 	console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.sendLocation(response), sender);
-        salesforce.updateLead({q2: values[1]}, sender).then(() => {});
+        messenger.send(formatter.question3(response), sender);
+        //salesforce.updateLead({q2: values[1]}, sender).then(() => {});
     });
 };
 
 exports.q3 = (sender, values) => {
-	console.log('q3');
-	console.log('values: ', values);
+    console.log('q3');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.formatRecommendation(), sender);
-        salesforce.updateLead({q3: values[1]}, sender).then(() => {});
+        messenger.send({text: `Please upload now.`}, sender);
+    });
+};
+
+exports.q6 = (sender, values) => {
+    console.log('q6');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.question7(response), sender);
     });
 };
 
@@ -85,5 +90,19 @@ exports.q5 = (sender, values) => {
 	    	messenger.send({text: `Merci, votre déclaration a été transmise à Sarah, agent Peugeot. Elle vous contacte dans les plus bref délais.`}, sender);
 	        messenger.send(formatter.onBoard10(response), sender);
 	    });
+    });
+};
+
+exports.q7 = (sender, values) => {
+    console.log('q7');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.question8(response), sender);
+    });
+};
+
+exports.q8 = (sender, values) => {
+    console.log('q8');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send({text: 'Très bien. Je reste bien sûr à votre service à tout moment. A bientôt!'}, sender);
     });
 };

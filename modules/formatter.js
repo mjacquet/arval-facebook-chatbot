@@ -104,6 +104,112 @@ exports.question2 = response => {
     }
 };
 
+exports.question3 = response => {
+    console.log('question3');
+    return {
+        "text":"Il me faut une copie de votre pièce d'identitité. Etes-vous en mesure d'en prendre une photo maintenant?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Qui",
+            "payload":"q3"
+          },
+          {
+            "content_type":"text",
+            "title":"Non",
+            "payload":"q3"
+          }
+        ]
+    }
+};
+
+exports.question6 = response => {
+    console.log('question3');
+    return {
+        "text":"Il me faut aussi une photo de vous pour votre dossier TGV Max. Puis-je utiliser celle de voitre profil facebook?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Qui",
+            "payload":"q6"
+          },
+          {
+            "content_type":"text",
+            "title":"Non",
+            "payload":"q6"
+          }
+        ]
+    }
+};
+
+exports.question65 = response => {
+    let elements = [];
+        elements.push(  
+            {
+                title: 'Agent',
+                "image_url": 'http://www.marbellafamilyfun.com/images/wanted-customer-support-agent-21854988.jpg'
+            }
+        );
+
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
+exports.question7 = response => {
+    console.log('question7');
+    return {
+        "text":"C'est parfait, merci. Il ne nous reste plus qu'à enregistrer votre moyen de règlement mensuel de votre abonnement TGV Max. Quel moyen préférez-vous utiliser?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Virement bancaire",
+            "payload":"q7"
+          },
+          {
+            "content_type":"text",
+            "title":"PayPal",
+            "payload":"q7"
+          },
+          {
+            "content_type":"text",
+            "title":"Apple Pay",
+            "payload":"q7"
+          },
+          {
+            "content_type":"text",
+            "title":"Carte bancaire",
+            "payload":"q7"
+          }
+        ]
+    }
+};
+
+exports.question8 = response => {
+    console.log('question8');
+    return {
+        "text":"Merci beaucoup Yann et bienvenue dans la communauté TGV Max. Vous allez très vite recevoir un e-mail de confirmation et une demande de confirmation de PayPal. Puis-je faire autre chose pour vous aujourd'hui?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Qui",
+            "payload":"q8"
+          },
+          {
+            "content_type":"text",
+            "title":"Non",
+            "payload":"q8"
+          }
+        ]
+    }
+};
+
 exports.onBoard4 = response => {
     return {
         "text":"Quel type de véhicule recherchez-vous?",
