@@ -147,7 +147,7 @@ exports.question65 = response => {
         elements.push(  
             {
                 title: 'Profile Image',
-                "image_url": response.profile_pic
+                "image_url": "https://sncf-facebook-bot.herokuapp.com/images?face.png"
             }
         );
 
