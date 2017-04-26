@@ -8,11 +8,28 @@ var express = require('express'),
     uploads = require('./modules/uploads'),
     quickreplies = require('./modules/quickreplies'),
     FB_VERIFY_TOKEN = process.env.FB_VERIFY_TOKEN,
+    fs = require('fs'),
+    http = require('http'),
+    url = require('url'),
     app = express();
+
+app.use(express.static(__dirname + '/images'));
 
 app.set('port', process.env.PORT || 5000);
 
 app.use(bodyParser.json());
+
+app.get('/images', (req, res) => {
+    console.log('req.originalUrl: ', req.originalUrl);
+    var urlParts = req.originalUrl.split("?");
+    console.log('urlParts: ', urlParts);
+    
+    var theList = urlParts[1].split(".");
+    console.log('theList: ', theList);
+    var img = fs.readFileSync('./images/'+urlParts[1]);
+    res.writeHead(200, {'Content-Type': 'image/'+theList[1] });
+    res.end(img, 'binary');
+});
 
 app.get('/webhook', (req, res) => {
     if (req.query['hub.verify_token'] === FB_VERIFY_TOKEN) {

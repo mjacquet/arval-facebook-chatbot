@@ -61,7 +61,7 @@ exports.q2 = (sender, values) => {
 exports.q3 = (sender, values) => {
     console.log('q3');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Please upload now.`}, sender);
+        messenger.send({text: `Allez-y : j'attends la photo.`}, sender);
     });
 };
 
