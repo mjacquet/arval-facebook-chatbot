@@ -24,7 +24,7 @@ exports.onBoard1 = response => {
 exports.question1 = response => {
     console.log('question1');
     return {
-        "text":"Voila une bonne nouvelle ;) Yann, Vous le savez peut-être déjà : TGV Max est un programme conçu pour les voyageurs de 16 à 27 ans. Vous êtes bien dans cette tranche d'âge?",
+        "text":"Voila une bonne nouvelle ;) " + response.first_name + ", Vous le savez peut-être déjà : TGV Max est un programme conçu pour les voyageurs de 16 à 27 ans. Vous êtes bien dans cette tranche d'âge?",
         "quick_replies":[
           {
             "content_type":"text",
@@ -126,7 +126,7 @@ exports.question3 = response => {
 exports.question6 = response => {
     console.log('question3');
     return {
-        "text":"Il me faut aussi une photo de vous pour votre dossier TGV Max. Puis-je utiliser celle de voitre profil facebook?",
+        "text":"Il me faut aussi une photo de vous pour votre dossier TGV Max. Puis-je utiliser celle-ci qui vient de votre profil Facebook?",
         "quick_replies":[
           {
             "content_type":"text",
