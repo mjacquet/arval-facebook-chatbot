@@ -22,7 +22,9 @@ exports.processUpload = (sender, attachments) => {
             messenger.getUserInfo(sender).then(response => {
                 //salesforce.updateLead({zip: res[0].zipcode}, sender).then(() => {
                     messenger.send(formatter.question65(response), sender);
-                    messenger.send(formatter.question6(response), sender);
+                    setTimeout(function(){
+                        messenger.send(formatter.question6(response), sender);
+                    }, 1000);
                 //});
             });
         } else if (attachment.type === "location") {
