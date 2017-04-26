@@ -24,7 +24,7 @@ exports.onBoard1 = response => {
 exports.question1 = response => {
     console.log('question1');
     return {
-        "text":"Voila une bonne nouvelle ;) "+response.first_name+" Vous le savez peut-être déjà : TGV Max est un programme conçu pour les voyageurs de 16 à 27 ans. Vous êtes bien dans cette tranche d'âge?",
+        "text":"Voila une bonne nouvelle ;) Yann, Vous le savez peut-être déjà : TGV Max est un programme conçu pour les voyageurs de 16 à 27 ans. Vous êtes bien dans cette tranche d'âge?",
         "quick_replies":[
           {
             "content_type":"text",
