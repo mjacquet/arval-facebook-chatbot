@@ -87,11 +87,6 @@ exports.question2 = response => {
           },
           {
             "content_type":"text",
-            "title":"Paris-Perpignan",
-            "payload":"q2"
-          },
-          {
-            "content_type":"text",
             "title":"Paris-Poitiers",
             "payload":"q2"
           },
