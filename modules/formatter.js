@@ -24,7 +24,7 @@ exports.onBoard1 = response => {
 exports.question1 = response => {
     console.log('question1');
     return {
-        "text":"Voila une bonne nouvelle ;) " + response.first_name + ", Vous le savez peut-être déjà : TGV Max est un programme conçu pour les voyageurs de 16 à 27 ans. Vous êtes bien dans cette tranche d'âge?",
+        "text":"Voila une bonne nouvelle ;) " + response.first_name + ", Vous le savez peut-être déjà : TGV max est un programme conçu pour les voyageurs de 16 à 27 ans. Vous êtes bien dans cette tranche d'âge?",
         "quick_replies":[
           {
             "content_type":"text",
@@ -43,7 +43,7 @@ exports.question1 = response => {
 exports.question2 = response => {
     console.log('question2');
     return {
-        "text":"C'est parfait. Des places TGV Max sont disponibles sur un grand nombre de trains Vérifions ensemble que votre parcours préféré fait partie du programme si vous voulez bien.",
+        "text":"C'est parfait. Des places TGV max sont disponibles sur un grand nombre de trains Vérifions ensemble que votre parcours préféré fait partie du programme si vous voulez bien.",
         "quick_replies":[
           {
             "content_type":"text",
@@ -107,7 +107,7 @@ exports.question2 = response => {
 exports.question3 = response => {
     console.log('question3');
     return {
-        "text":"Il me faut une copie de votre pièce d'identitité. Etes-vous en mesure d'en prendre une photo maintenant?",
+        "text":"Il me faut une copie de votre pièce d'identité. Etes-vous en mesure d'en prendre une photo maintenant?",
         "quick_replies":[
           {
             "content_type":"text",
@@ -126,7 +126,7 @@ exports.question3 = response => {
 exports.question6 = response => {
     console.log('question3');
     return {
-        "text":"Il me faut aussi une photo de vous pour votre dossier TGV Max. Puis-je utiliser celle-ci qui vient de votre profil Facebook?",
+        "text":"Merci. Il me faut aussi une photo de vous pour votre dossier TGV max. Puis-je utiliser celle-ci qui vient de votre profil Facebook?",
         "quick_replies":[
           {
             "content_type":"text",
@@ -165,7 +165,7 @@ exports.question65 = response => {
 exports.question7 = response => {
     console.log('question7');
     return {
-        "text":"C'est parfait, merci. Il ne nous reste plus qu'à enregistrer votre moyen de règlement mensuel de votre abonnement TGV Max. Quel moyen préférez-vous utiliser?",
+        "text":"C'est parfait, merci. Il ne nous reste plus qu'à enregistrer votre moyen de règlement mensuel de votre abonnement TGV max. Quel moyen préférez-vous utiliser?",
         "quick_replies":[
           {
             "content_type":"text",
@@ -194,7 +194,7 @@ exports.question7 = response => {
 exports.question8 = response => {
     console.log('question8');
     return {
-        "text":"Merci beaucoup Yann et bienvenue dans la communauté TGV Max. Vous allez très vite recevoir un e-mail de confirmation et une demande de confirmation de PayPal. Puis-je faire autre chose pour vous aujourd'hui?",
+        "text":"Merci beaucoup " + response.first_name + " et bienvenue dans la communauté TGV max. Vous allez très vite recevoir un e-mail de confirmation et une demande de confirmation de PayPal. Puis-je faire autre chose pour vous aujourd'hui?",
         "quick_replies":[
           {
             "content_type":"text",
