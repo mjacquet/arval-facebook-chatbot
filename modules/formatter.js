@@ -38,14 +38,14 @@ exports.question2 = response => {
 };
 
 exports.question3 = response => {
-    moment.lang('fr');
+    //moment.lang('de');
     
     var options = [
-        moment().add(1, 'days').format('ddd D MMM') + ' à 10am',
-        moment().add(2, 'days').format('ddd D MMM') + ' à 9am',
-        moment().add(2, 'days').format('ddd D MMM') + ' à 5pm',
-        moment().add(3, 'days').format('ddd D MMM') + ' à 1pm',
-        moment().add(3, 'days').format('ddd D MMM') + ' à 6pm',
+        moment().add(1, 'days').format('ddd Do MMM') + ' at 10am',
+        moment().add(2, 'days').format('ddd Do MMM') + ' at 9am',
+        moment().add(2, 'days').format('ddd Do MMM') + ' at 5pm',
+        moment().add(3, 'days').format('ddd Do MMM') + ' at 1pm',
+        moment().add(3, 'days').format('ddd Do MMM') + ' at 6pm',
     ];
 
     console.log('options: ', options);

@@ -37,7 +37,6 @@ let login = () => {
             console.error(err);
         } else {
             console.log("Authentication successful");
-            
         }
     });
 };
