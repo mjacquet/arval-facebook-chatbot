@@ -86,7 +86,6 @@ exports.q4 = (sender, values) => {
         setTimeout(function(){
             messenger.send({text: `Are you interested in any of those items? If yes, just click on the item to put it into the shopping cart`}, sender);
         },1500);
-        
     	//salesforce.updateCase({q4: values[1], fname: response.first_name, lname: response.last_name}, sender).then(() => {
         //});
     });
