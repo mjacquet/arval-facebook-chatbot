@@ -3,7 +3,7 @@
 let salesforce = require('./salesforce'),
     messenger = require('./messenger'),
     formatter = require('./formatter');
-
+/*
 exports.theStart = (sender) => {
 	console.log('theStart');
     messenger.send({text: `Je vais me charger de trouver les modèles vous correspondant le mieux. Cela prendra seulement quelques minutes.`}, sender);
@@ -48,7 +48,7 @@ exports.q1 = (sender, values) => {
     });
     
 };
-
+*/
 exports.q2 = (sender, values) => {
 	console.log('q2');
 	console.log('values: ', values);
@@ -57,7 +57,7 @@ exports.q2 = (sender, values) => {
         //salesforce.updateLead({q2: values[1]}, sender).then(() => {});
     });
 };
-
+/*
 exports.q3 = (sender, values) => {
     console.log('q3');
     messenger.getUserInfo(sender).then(response => {
@@ -71,17 +71,26 @@ exports.q6 = (sender, values) => {
         messenger.send(formatter.question7(response), sender);
     });
 };
-
+*/
 exports.q4 = (sender, values) => {
 	console.log('q4');
 	console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-    	salesforce.updateCase({q4: values[1], fname: response.first_name, lname: response.last_name}, sender).then(() => {
-            messenger.send(formatter.onBoard8(response), sender);
-        });
+        messenger.send({text: `Hang on for a sec, be right back with you...`}, sender);
+        setTimeout(function(){
+            messenger.send({text: `OK ${response.first_name}, here is some nice gear for your run. I checked your profile and they are all available in your size`}, sender);
+        },500);
+        setTimeout(function(){
+            messenger.send(formatter.question5(response), sender);
+        },1000);
+        setTimeout(function(){
+            messenger.send({text: `Are you interested in any of those items? If yes, just click on the item to put it into the shopping cart`}, sender);
+        },1500);
+    	//salesforce.updateCase({q4: values[1], fname: response.first_name, lname: response.last_name}, sender).then(() => {
+        //});
     });
 };
-
+/*
 exports.q5 = (sender, values) => {
 	console.log('q5');
 	console.log('values: ', values);
@@ -106,3 +115,4 @@ exports.q8 = (sender, values) => {
         messenger.send({text: 'Très bien. Je reste bien sûr à votre service à tout moment. A bientôt!'}, sender);
     });
 };
+*/
