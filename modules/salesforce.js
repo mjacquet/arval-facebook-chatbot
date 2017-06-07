@@ -145,7 +145,7 @@ let getUserDetails = (response) => {
     console.log('getUserDetails');
     return new Promise((resolve, reject) => {
 
-        var q = "SELECT Id, FirstName, LastName FROM Account WHERE FirstName = ${response.first_name} AND LastName = ${response.last_name} ORDER BY CreatedDate DESC LIMIT 1";
+        var q = `SELECT Id, FirstName, LastName FROM Account WHERE FirstName = ${response.first_name} AND LastName = ${response.last_name} ORDER BY CreatedDate DESC LIMIT 1`;
 
         org.query({ query: q }, function(err, resp){
 
