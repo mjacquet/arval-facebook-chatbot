@@ -7,7 +7,9 @@ let salesforce = require('./salesforce'),
 exports.confirm_visit = (sender, values) => {
 	console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.question4(response), sender);
+        messenger.setWeather(values).then(weatherResponse => {
+            messenger.send(formatter.question4(response), sender);
+        });
     });
 };
 exports.addToCart = (sender, values) => {

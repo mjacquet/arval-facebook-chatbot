@@ -8,7 +8,11 @@ let weather = {};
 
 exports.setWeather = (params) => {
     return new Promise((resolve, reject) => {
-        console.log("setWeather: ", params);
+        console.log("params: ", params);
+        if(params[0] == "q2"){
+            weather.location = params[1];
+        }
+        console.log("setWeather: ", weather);
         resolve("setWeather");
     });
 };
