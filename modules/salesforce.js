@@ -15,21 +15,6 @@ let org = nforce.createConnection({
     autoRefresh: true
 });
 
-let theLead = nforce.createSObject('Lead');
-theLead.set('Company', `Facebook Customer`);
-theLead.set('Status', 'New');
-theLead.set('FirstName', `Test`);
-theLead.set('LastName', `TestLast`);
-theLead.set('Lead_Score_Value__c', 52);
-
-
-let theCase = nforce.createSObject('Case');
-theCase.set('Subject', `Facebook Customer`);
-theCase.set('Description', 'Case from Facebook Bot');
-theCase.set('Origin', `Facebook Bot`);
-theCase.set('Status', `New`);
-
-
 let login = () => {
     org.authenticate({username: SF_USER_NAME, password: SF_PASSWORD}, err => {
         if (err) {
@@ -43,6 +28,12 @@ let login = () => {
 
 let createLead = (params) => {
     return new Promise((resolve,reject) => {
+
+        let theLead = nforce.createSObject('Lead');
+        theLead.set('Company', `Facebook Customer`);
+        theLead.set('Status', 'New');
+        theLead.set('FirstName', `Test`);
+        theLead.set('LastName', `TestLast`);
 
         org.insert({ sobject: theLead }, function(err, resp){
             if(!err){
@@ -69,40 +60,20 @@ let updateLead = (params, sender) => {
 
                 if(!err && resp.records) {
 
-                    var theLead2 = resp.records[0];
+                    var theLead = resp.records[0];
                     if(params.fname){
                         console.log('inside fname');
-                        theLead2.set('FirstName', params.fname);
+                        theLead.set('FirstName', params.fname);
                     }
                     if(params.lname){
                         console.log('inside lname');
-                        theLead2.set('LastName', params.lname);
+                        theLead.set('LastName', params.lname);
                     }
-                    if(params.q1){
-                        console.log('inside q1');
-                        theLead2.set('Situation__c', params.q1);
-                    }
-                    if(params.q2){
-                        console.log('inside q2');
-                        theLead2.set('Type_V_hicule__c', params.q2);
-                    }
-                    if(params.zip){
-                        console.log('inside zip');
-                        theLead2.set('Zip__c', params.zip);
-                    }
-                    if(params.q3){
-                        console.log('inside q3');
-                        if(params.q3 == 'true'){
-                            theLead2.set('D_sire_un_financement__c', true);
-                        } else{
-                            theLead2.set('D_sire_un_financement__c', false);
-                        }
-                    }
-                    console.log("theLead: ", theLead2);
-                    org.update({ sobject: theLead2 }, function(err, resp){
+                    console.log("theLead: ", theLead);
+                    org.update({ sobject: theLead }, function(err, resp){
                         if(!err){
                             console.log('It worked!');
-                            resolve(theLead2);
+                            resolve(theLead);
                         }
                         else{
                             reject("Error updating the Lead");
@@ -117,6 +88,12 @@ let updateLead = (params, sender) => {
 
 let createCase = (params) => {
     return new Promise((resolve,reject) => {
+
+        let theCase = nforce.createSObject('Case');
+        theCase.set('Subject', `Facebook Customer`);
+        theCase.set('Description', 'Case from Facebook Bot');
+        theCase.set('Origin', `Facebook Bot`);
+        theCase.set('Status', `New`);
 
         org.insert({ sobject: theCase }, function(err, resp){
             if(!err){
@@ -140,31 +117,18 @@ let updateCase = (params, sender) => {
 
                 if(!err && resp.records) {
 
-                    var theCase2 = resp.records[0];
+                    var theCase = resp.records[0];
 
                     if(params.fname && params.lname){
                         console.log('inside fname');
-                        theCase2.set('Subject', `Facebook Customer: ${params.fname} ${params.lname}`);
+                        theCase.set('Subject', `Facebook Customer: ${params.fname} ${params.lname}`);
                     }
-                    if(params.q4){
-                        console.log('inside q4');
-                        theCase2.set('Type_Assistance__c', params.q4);
-                    }
-                    if(params.q5){
-                        console.log('inside q5');
-                        if(params.q5 == 'true'){
-                            theCase2.set('Personne_bless_e__c', true);
-                        } else{
-                            theCase2.set('Personne_bless_e__c', false);
-                        }
-                        
-                    }
-                    console.log("theCase: ", theCase2);
+                    console.log("theCase: ", theCase);
                     
-                    org.update({ sobject: theCase2 }, function(err, resp){
+                    org.update({ sobject: theCase }, function(err, resp){
                         if(!err){
                             console.log('It worked!');
-                            resolve(theCase2);
+                            resolve(theCase);
                         }
                         else{
                             reject("Error updating the Lead");
@@ -177,6 +141,30 @@ let updateCase = (params, sender) => {
     });
 };
 
+let getUserDetails = (response) => {
+    console.log('getUserDetails');
+    return new Promise((resolve, reject) => {
+
+        var q = "SELECT Id, FirstName, LastName FROM Account WHERE FirstName = 'Manuela' AND LastName = 'Meier' ORDER BY CreatedDate DESC LIMIT 1";
+
+        org.query({ query: q }, function(err, resp){
+
+            if(!err && resp.records) {
+
+                var theAccount = resp.records[0];
+
+                console.log("theAccount: ", theAccount);
+
+                resolve(theAccount);
+            }
+            else{
+                reject(err);
+            }
+        });
+    });
+};
+
+
 login();
 
 exports.org = org;
@@ -184,3 +172,4 @@ exports.createLead = createLead;
 exports.updateLead = updateLead;
 exports.createCase = createCase;
 exports.updateCase = updateCase;
+exports.getUserDetails = getUserDetails;

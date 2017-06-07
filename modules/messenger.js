@@ -48,16 +48,7 @@ exports.getUserInfo = (userId) => {
 };
 
 exports.getSuggestion = (zip,rooms) => {
-
-    console.log('zip 0: ', zip);
-    zip = zip.substring(2);
-    console.log('zip 1: ', zip);
-    zip = parseInt(zip, 10);
-    console.log('zip 2: ', zip);
-
-    zip = 13;
-    rooms = 4;
-
+    
     return new Promise((resolve, reject) => {
 
         request({

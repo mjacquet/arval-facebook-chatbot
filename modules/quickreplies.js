@@ -21,7 +21,12 @@ exports.q4 = (sender, values) => {
             messenger.send({text: `OK ${response.first_name}, here is some nice gear for your run. I checked your profile and they are all available in your size`}, sender);
         },500);
         setTimeout(function(){
-            messenger.send(formatter.question5(response), sender);
+            salesforce.getUserDetails(response).then(userDetails => {
+                messenger.send(formatter.question5(response), sender);
+            });
+            //getDetails from salesforce
+            //make callout to PIO
+            
         },1000);
         setTimeout(function(){
             messenger.send({text: `Are you interested in any of those items? If yes, just click on the item to put it into the shopping cart`}, sender);
