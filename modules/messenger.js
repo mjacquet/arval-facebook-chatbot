@@ -104,12 +104,14 @@ exports.getSuggestion = (account) => {
     return new Promise((resolve, reject) => {
 
         var theResult = {};
+
         if(account.get("gender__c") == "Male"){
             theResult.gender = 1;
         }
         else if(account.get("gender__c") == "Female"){
             theResult.gender = 2;
         }
+
         if(account.get("Average_Speed_Overall__c") >= 12.5){
             theResult.speed = 3;
         }
@@ -120,6 +122,23 @@ exports.getSuggestion = (account) => {
             theResult.speed = 1;
         }
 
+        if(weather.rain_chance >= 50){
+            theResult.rain_proof = 1
+        }
+        else if(weather.rain_chance < 50){
+            theResult.rain_proof = 0;
+        }
+
+        if(weather.temperature < 10){
+            theResult.temperature = 1;
+        }
+        else if(weather.temperature < 17){
+            theResult.temperature = 2;
+        }
+        else if(weather.temperature > 25){
+            theResult.temperature = 3;
+        }
+
         console.log("theResult: ", theResult);
         console.log("theWeather: ", weather);
 
@@ -127,10 +146,10 @@ exports.getSuggestion = (account) => {
             url: `https://pio-test-adidas-engine.herokuapp.com/queries.json`,
             method: 'POST',
             json : { 
-                gender: 1,
-                temperature: 2,
-                rain_proof: 1,
-                speed: 3
+                gender: theResult.gender,
+                temperature: theResult.temperature,
+                rain_proof: theResult.rain_proof,
+                speed: theResult.speed
             }
         }, (error, response) => {
             if (error) {
