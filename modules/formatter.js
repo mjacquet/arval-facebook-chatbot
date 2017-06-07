@@ -96,12 +96,13 @@ exports.question4 = response => {
 
 exports.question5 = response => {
     console.log('In question5: ', response);
+
     let elements = [];
-        elements.push(  
-            {
-                title: 'SUV 2008',
-                subtitle: `A partir de 16 050€ TTC. Ou 189 €/mois après un premier loyer de 4.031 €`,
-                "image_url": 'https://www.dropbox.com/s/s5vk994jyufnwhy/2008.png?raw=1',
+    response.forEach(rec => {
+            elements.push({
+                title: rec.get("Name"),
+                subtitle: rec.get("Description"),
+                "image_url": job.get("Image_URL__c"),
                 "buttons": [
                     {
                         "type": "postback",
@@ -109,32 +110,9 @@ exports.question5 = response => {
                         "payload": "addToCart"
                     }
                 ]
-            },
-            {
-                title: 'SUV 3008',
-                subtitle: `A partir de 25 900€ TTC. Ou 313 €/mois après un premier loyer de 6.494 €`,
-                "image_url": 'https://www.dropbox.com/s/eaki20wfacq678w/3008.png?raw=1',
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Add to Cart",
-                        "payload": "addToCart"
-                    }
-                ]
-            },
-            {
-                title: 'SUV 5008',
-                subtitle: `A partir de 26 400€ TTC. Ou 313 €/mois après un premier loyer de 6.618 €`,
-                "image_url": 'https://www.dropbox.com/s/vtznsub4xf6bq2i/5008.png?raw=1',
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Add to Cart",
-                        "payload": "addToCart"
-                    }
-                ]
-            }
-        );
+            })
+        }
+    );
 
     return {
         "attachment": {

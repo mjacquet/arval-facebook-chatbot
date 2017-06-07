@@ -25,9 +25,8 @@ exports.q4 = (sender, values) => {
         setTimeout(function(){
             salesforce.getUserDetails(response).then(userDetails => {
                 messenger.getSuggestion(userDetails).then(suggestionResult => {
-                    //messenger.send({text: `product1: ${suggestionResult.product1}, product2: ${suggestionResult.product2}, product3: ${suggestionResult.product3}`}, sender);
                     salesforce.getRecommendation(suggestionResult).then(recResult => {
-                        messenger.send(formatter.question5(response), sender);
+                        messenger.send(formatter.question5(recResult), sender);
                     });
                 });
             });

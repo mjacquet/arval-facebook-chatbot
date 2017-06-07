@@ -169,7 +169,7 @@ let getRecommendation = (response) =>{
 
     return new Promise((resolve, reject) => {
 
-        var q = `SELECT Id, Name, Description, Image_URL__c FROM Product2 WHERE ProductCode in ('${response.product1}','${response.product2}','${response.product3}')`;
+        var q = `SELECT Id, Name, Description, ProductCode, Image_URL__c FROM Product2 WHERE ProductCode in ('${response.product1}','${response.product2}','${response.product3}')`;
 
         org.query({ query: q }, function(err, resp){
 
