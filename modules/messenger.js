@@ -8,6 +8,8 @@ let weather = {};
 
 exports.setWeather = (params) => {
     console.log("setWeather: ", params);
+    
+    return "setWeather Success";
 };
 
 exports.send = (message, recipient) => {
