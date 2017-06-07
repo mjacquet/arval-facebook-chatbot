@@ -102,7 +102,7 @@ exports.question5 = response => {
             elements.push({
                 title: rec.get("Name"),
                 subtitle: rec.get("Description"),
-                "image_url": job.get("Image_URL__c"),
+                "image_url": rec.get("Image_URL__c"),
                 "buttons": [
                     {
                         "type": "postback",

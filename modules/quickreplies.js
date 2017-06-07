@@ -32,8 +32,10 @@ exports.q4 = (sender, values) => {
             });
             
         },600);
+        /*
         setTimeout(function(){
             messenger.send({text: `Are you interested in any of those items? If yes, just click on the item to put it into the shopping cart`}, sender);
         },2000);
+        */
     });
 };
