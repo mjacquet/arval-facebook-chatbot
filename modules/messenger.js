@@ -40,12 +40,14 @@ exports.setWeather = (params) => {
         else if(params[0] == "confirm_visit"){
             weather.datetime = params[1];
             weather.jsdate = moment(params[1], "ddd Do MMM [at] ha").format('YYYY-MM-DD[T]HH:MM:SS');
-            forecast.get([weather.latitude, weather.longitude, weather.jsdate], function(err, weather) {
+            forecast.get([weather.latitude, weather.longitude, weather.jsdate], function(err, weatherResult) {
                 if(err){
                     console.log(err);
                 }
                 else{
-                    console.log(weather);
+                    console.log(weatherResult);
+                    weather.rain_chance = weatherResult.currently.precipProbability;
+                    weather.temperature = weatherResult.currently.temperature;
                 }
             });
         }
@@ -119,6 +121,7 @@ exports.getSuggestion = (account) => {
         }
 
         console.log("theResult: ", theResult);
+        console.log("theWeather: ", weather);
 
         request({
             url: `https://pio-test-adidas-engine.herokuapp.com/queries.json`,
