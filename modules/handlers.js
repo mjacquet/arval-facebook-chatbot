@@ -22,7 +22,9 @@ exports.number2 = (sender) => {
     console.log('number2');
     messenger.getUserInfo(sender).then(response => {
         messenger.send({text: `Sure ${response.first_name}! Let me sort that out for you. I have a few questions for you.`}, sender);
-        messenger.send(formatter.question2(response), sender);
+        setTimeout(function(){
+            messenger.send(formatter.question2(response), sender);
+        },500);
     });
 };
 
