@@ -22,14 +22,16 @@ exports.q4 = (sender, values) => {
         },500);
         setTimeout(function(){
             salesforce.getUserDetails(response).then(userDetails => {
-                messenger.send(formatter.question5(response), sender);
+                messenger.getSuggestion(userDetails).then(suggestionResult => {
+                    messenger.send(formatter.question5(response), sender);
+                });
             });
             //getDetails from salesforce
             //make callout to PIO
             
-        },1000);
+        },600);
         setTimeout(function(){
             messenger.send({text: `Are you interested in any of those items? If yes, just click on the item to put it into the shopping cart`}, sender);
-        },1500);
+        },2000);
     });
 };

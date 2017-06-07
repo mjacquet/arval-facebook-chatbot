@@ -47,17 +47,18 @@ exports.getUserInfo = (userId) => {
     });
 };
 
-exports.getSuggestion = (zip,rooms) => {
-    
+exports.getSuggestion = (account) => {
+
     return new Promise((resolve, reject) => {
 
         request({
-            url: `https://pio-octave-engine.herokuapp.com/queries.json`,
+            url: `https://pio-test-adidas-engine.herokuapp.com/queries.json`,
             method: 'POST',
             json : { 
-                voice_usage: zip,
-                data_usage: rooms,
-                text_usage: 0
+                gender: 1,
+                temperature: 2,
+                rain_proof: 1,
+                speed: 3
             }
         }, (error, response) => {
             if (error) {
@@ -66,7 +67,6 @@ exports.getSuggestion = (zip,rooms) => {
             } else if (response.body.error) {
                 console.log('Error: ', response.body.error);
             } else {
-                console.log('zip 3: ', zip);
                 console.log('No Error: ', response.body);
                 var theResponse = JSON.stringify(response.body);
                 console.log('theResponse: ', theResponse);
