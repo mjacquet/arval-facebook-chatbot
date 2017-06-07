@@ -31,8 +31,8 @@ exports.setWeather = (params) => {
             weather.location = params[1];
             geocoder.geocode(params[1]).then(function(res) {
                 console.log('result: ', res);
-                weather.latitude = res.latitude;
-                weather.longitude = res.longitude;
+                weather.latitude = res[0].latitude;
+                weather.longitude = res[0].longitude;
             }).catch(function(err) {
                 console.log('err: ', err);
             });
