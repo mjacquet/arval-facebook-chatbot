@@ -51,6 +51,25 @@ exports.getSuggestion = (account) => {
 
     return new Promise((resolve, reject) => {
 
+        var theResult = {};
+        if(account.get("gender__c") == "Male"){
+            theResult.gender = 1;
+        }
+        else if(account.get("gender__c") == "Female"){
+            theResult.gender = 2;
+        }
+        if(account.get("Average_Speed_Overall__c") >= 12.5){
+            theResult.speed = 3;
+        }
+        else if(account.get("Average_Speed_Overall__c") >= 7.5){
+            theResult.speed = 2;
+        }
+        else if(account.get("Average_Speed_Overall__c") < 7.5){
+            theResult.speed = 1;
+        }
+
+        console.log("theResult: ", theResult);
+
         request({
             url: `https://pio-test-adidas-engine.herokuapp.com/queries.json`,
             method: 'POST',
