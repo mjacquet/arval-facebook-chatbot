@@ -49,7 +49,6 @@ exports.setWeather = (params) => {
                 }
             });
         }
-
         console.log("setWeather: ", weather);
         resolve("setWeather");
     });
