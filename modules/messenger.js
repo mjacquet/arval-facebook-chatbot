@@ -3,17 +3,31 @@
 let request = require('request'),
     FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN,
     moment = require("moment"),
-    numeral = require("numeral");
-    
+    numeral = require("numeral"),
+    nodeGeocoder = require('node-geocoder');
+
 let util = require('util')
 
 let weather = {};
+
+var options = {
+      provider: 'google'
+};
+
+var geocoder = nodeGeocoder(options);
 
 exports.setWeather = (params) => {
     return new Promise((resolve, reject) => {
         console.log("params: ", params);
         if(params[0] == "q2"){
             weather.location = params[1];
+            geocoder.geocode(params[1]).then(function(res) {
+                console.log('result: ', res);
+                weather.latitude = res.latitude;
+                weather.longitude = res.longitude;
+            }).catch(function(err) {
+                console.log('err: ', err);
+            });
         }
         else if(params[0] == "confirm_visit"){
             weather.datetime = params[1];
