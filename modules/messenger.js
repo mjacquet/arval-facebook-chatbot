@@ -1,7 +1,10 @@
 "use strict";
 
 let request = require('request'),
-    FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN;
+    FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN,
+    moment = require("moment"),
+    numeral = require("numeral");
+    
 let util = require('util')
 
 let weather = {};
@@ -12,6 +15,11 @@ exports.setWeather = (params) => {
         if(params[0] == "q2"){
             weather.location = params[1];
         }
+        else if(params[0] == "confirm_visit"){
+            weather.datetime = params[1];
+            weather.jsdate = moment(params[1], "ddd Do MMM");
+        }
+
         console.log("setWeather: ", weather);
         resolve("setWeather");
     });
