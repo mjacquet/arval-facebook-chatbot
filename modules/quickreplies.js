@@ -8,7 +8,9 @@ exports.q2 = (sender, values) => {
 	console.log('q2');
 	console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.question3(response), sender);
+        messenger.setWeather(values).then(weatherResponse => {
+            messenger.send(formatter.question3(response), sender);
+        });
     });
 };
 

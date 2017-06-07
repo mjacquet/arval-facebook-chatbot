@@ -4,6 +4,12 @@ let request = require('request'),
     FB_PAGE_TOKEN = process.env.FB_PAGE_TOKEN;
 let util = require('util')
 
+let weather = {};
+
+exports.setWeather = (params) => {
+    console.log("setWeather: ", params);
+};
+
 exports.send = (message, recipient) => {
     request({
         url: 'https://graph.facebook.com/v2.6/me/messages',
