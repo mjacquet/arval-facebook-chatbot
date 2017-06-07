@@ -41,11 +41,11 @@ exports.question3 = response => {
     //moment.lang('de');
     
     var options = [
-        moment().add(1, 'days').format('ddd Do MMM'),
-        moment().add(2, 'days').format('ddd Do MMM'),
-        moment().add(2, 'days').format('ddd Do MMM'),
-        moment().add(3, 'days').format('ddd Do MMM'),
-        moment().add(3, 'days').format('ddd Do MMM'),
+        moment().add(1, 'days').format('ddd Do MMM [at] ha'),
+        moment().add(2, 'days').format('ddd Do MMM [at] ha'),
+        moment().add(2, 'days').format('ddd Do MMM [at] ha'),
+        moment().add(3, 'days').format('ddd Do MMM [at] ha'),
+        moment().add(3, 'days').format('ddd Do MMM [at] ha'),
     ];
 
     console.log('options: ', options);
@@ -59,17 +59,17 @@ exports.question3 = response => {
                     {
                         "type": "postback",
                         "title": options[0],
-                        "payload": "confirm_visit," + options[0] + " at 10am"
+                        "payload": "confirm_visit," + options[0]
                     },
                     {
                         "type": "postback",
                         "title": options[1],
-                        "payload": "confirm_visit," + options[1] + " at 9am"
+                        "payload": "confirm_visit," + options[1]
                     },
                     {
                         "type": "postback",
                         "title": options[2],
-                        "payload": "confirm_visit," + options[3] + " at 5pm"
+                        "payload": "confirm_visit," + options[3]
                     }]
             }
         }

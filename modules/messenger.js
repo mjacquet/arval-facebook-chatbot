@@ -17,7 +17,7 @@ exports.setWeather = (params) => {
         }
         else if(params[0] == "confirm_visit"){
             weather.datetime = params[1];
-            weather.jsdate = moment(params[1], "ddd Do MMM");
+            weather.jsdate = moment(params[1], "ddd Do MMM [at] ha");
         }
 
         console.log("setWeather: ", weather);
