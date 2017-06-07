@@ -164,6 +164,30 @@ let getUserDetails = (response) => {
     });
 };
 
+let getRecommendation = (response) =>{
+    console.log('getRecommendation');
+
+    return new Promise((resolve, reject) => {
+
+        var q = `SELECT Id, Name, Description, Image_URL__c FROM Product2 WHERE ProductCode in ('${response.product1}','${response.product2}','${response.product3}')`;
+
+        org.query({ query: q }, function(err, resp){
+
+            if(!err && resp.records) {
+
+                var theRecords = resp.records;
+
+                console.log("theRecords: ", theRecords);
+
+                resolve(theRecords);
+            }
+            else{
+                reject(err);
+            }
+        });
+    });   
+};
+
 
 login();
 
@@ -173,3 +197,4 @@ exports.updateLead = updateLead;
 exports.createCase = createCase;
 exports.updateCase = updateCase;
 exports.getUserDetails = getUserDetails;
+exports.getRecommendation = getRecommendation;

@@ -95,6 +95,7 @@ exports.question4 = response => {
 };
 
 exports.question5 = response => {
+    console.log('In question5: ', response);
     let elements = [];
         elements.push(  
             {
