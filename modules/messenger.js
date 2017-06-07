@@ -7,9 +7,10 @@ let util = require('util')
 let weather = {};
 
 exports.setWeather = (params) => {
-    console.log("setWeather: ", params);
-
-    return "setWeather Success".promise;
+    return new Promise((resolve, reject) => {
+        console.log("setWeather: ", params);
+        resolve("setWeather");
+    });
 };
 
 exports.send = (message, recipient) => {
