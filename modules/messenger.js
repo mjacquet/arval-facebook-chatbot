@@ -19,7 +19,8 @@ var forecast = new Forecast({
     }
 });
 var options = {
-      provider: 'google'
+      provider: 'google',
+      apiKey: 'AIzaSyBhSMlK5lCtcEP8Bo6XUf2WOw6gicKHKCY'
 };
 var geocoder = nodeGeocoder(options);
 let weather = {};
