@@ -39,8 +39,8 @@ exports.setWeather = (params) => {
         }
         else if(params[0] == "confirm_visit"){
             weather.datetime = params[1];
-            weather.jsdate = moment(params[1], "ddd Do MMM [at] ha");
-            forecast.get([weather.latitude, weather.longitude], function(err, weather) {
+            weather.jsdate = moment(params[1], "ddd Do MMM [at] ha").format('YYYY-MM-DD[T]HH:MM:SS');
+            forecast.get([weather.latitude, weather.longitude, weather.jsdate], function(err, weather) {
                 if(err){
                     console.log(err);
                 }
