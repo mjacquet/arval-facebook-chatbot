@@ -123,20 +123,17 @@ exports.getSuggestion = (account) => {
         }
 
         if(weather.rain_chance >= 50){
-            theResult.rain_proof = 1
+            theResult.rain_proof = 2
         }
         else if(weather.rain_chance < 50){
-            theResult.rain_proof = 0;
+            theResult.rain_proof = 1;
         }
 
         if(weather.temperature < 10){
             theResult.temperature = 1;
         }
-        else if(weather.temperature < 17){
+        else if(weather.temperature < 17.5){
             theResult.temperature = 2;
-        }
-        else if(weather.temperature > 25){
-            theResult.temperature = 3;
         }
 
         console.log("theResult: ", theResult);
