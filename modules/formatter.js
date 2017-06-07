@@ -41,11 +41,11 @@ exports.question3 = response => {
     //moment.lang('de');
     
     var options = [
-        moment().add(1, 'days').format('ddd Do MMM [at] ha'),
-        moment().add(2, 'days').format('ddd Do MMM [at] ha'),
-        moment().add(2, 'days').format('ddd Do MMM [at] ha'),
-        moment().add(3, 'days').format('ddd Do MMM [at] ha'),
-        moment().add(3, 'days').format('ddd Do MMM [at] ha'),
+        moment().add(1, 'days').add(1, 'hours').format('ddd Do MMM [at] ha'),
+        moment().add(2, 'days').add(2, 'hours').format('ddd Do MMM [at] ha'),
+        moment().add(3, 'days').add(3, 'hours').format('ddd Do MMM [at] ha'),
+        moment().add(4, 'days').add(4, 'hours').format('ddd Do MMM [at] ha'),
+        moment().add(5, 'days').add(5, 'hours').format('ddd Do MMM [at] ha'),
     ];
 
     console.log('options: ', options);
