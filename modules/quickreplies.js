@@ -29,8 +29,6 @@ exports.q4 = (sender, values) => {
                     messenger.send(formatter.question5(response), sender);
                 });
             });
-            //getDetails from salesforce
-            //make callout to PIO
             
         },600);
         setTimeout(function(){

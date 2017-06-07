@@ -129,10 +129,10 @@ exports.getSuggestion = (account) => {
             theResult.rain_proof = 1;
         }
 
-        if(weather.temperature < 10){
+        if(weather.temperature < 17.5){
             theResult.temperature = 1;
         }
-        else if(weather.temperature < 17.5){
+        else if(weather.temperature >= 17.5){
             theResult.temperature = 2;
         }
 
