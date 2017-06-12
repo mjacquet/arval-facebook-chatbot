@@ -49,11 +49,31 @@ exports.setWeather = (params) => {
                     console.log(weatherResult);
                     weather.rain_chance = weatherResult.currently.precipProbability;
                     weather.temperature = weatherResult.currently.temperature;
+                    weather.outlook2 = weatherResult.currently.summary;
+                    if(weather.temperature >= 17.5 && weather.rain_chance >= 50){
+                        weather.outlook = 'Good';
+                    }
+                    else if(weather.temperature < 17.5 && weather.rain_chance < 50){
+                        weather.outlook = 'Bad';
+                    }
+                    else{
+                        weather.outlook = 'Okay';
+                    }
+                    
                 }
             });
         }
         console.log("setWeather: ", weather);
-        resolve("setWeather");
+        resolve(weather);
+    });
+};
+
+exports.getWeather = (params) =>{
+    return new Promise((resolve, reject) => {
+        console.log("params: ", params);
+        
+        console.log("getWeather: ", weather);
+        resolve(weather);
     });
 };
 

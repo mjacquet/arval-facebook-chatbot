@@ -20,7 +20,9 @@ exports.q4 = (sender, values) => {
     messenger.getUserInfo(sender).then(response => {
         messenger.send({text: `Hang on for a sec, be right back with you...`}, sender);
         setTimeout(function(){
-            messenger.send({text: `OK ${response.first_name}, here is some nice gear for your run. I checked your profile and they are all available in your size`}, sender);
+            messenger.getWeather(response).then(getWeatherResponse =>{
+                messenger.send({text: `OK ${response.first_name}, here is some nice gear for your run. I checked your profile and they are all available in your size. It looks like it is going to be ${getWeatherResponse.outlook2} weather in ${getWeatherResponse.location} on the ${getWeatherResponse.datetime} so I filtered results accordingly for you.`}, sender);
+            });
         },500);
         setTimeout(function(){
             salesforce.getUserDetails(response).then(userDetails => {
