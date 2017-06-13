@@ -164,9 +164,9 @@ let getUserDetails = (response) => {
     });
 };
 
-let getRecommendation = (response) =>{
+let getRecommendation = (response, theUserDetails) =>{
     console.log('getRecommendation');
-
+    console.log('theUserDetails: ', theUserDetails);
     return new Promise((resolve, reject) => {
 
         var q = `SELECT Id, Name, Description, ProductCode, Image_URL__c FROM Product2 WHERE ProductCode in ('${response.product1}','${response.product2}','${response.product3}')`;
@@ -178,8 +178,23 @@ let getRecommendation = (response) =>{
                 var theRecords = resp.records;
 
                 console.log("theRecords: ", theRecords);
+                console.log("theRecords[0]: ", theRecords[0]);
 
-                resolve(theRecords);
+                let theProductReccomendation = nforce.createSObject('Product_Recommendation__c');
+                theProductReccomendation.set('Account__c', theUserDetails.get("Id"));
+                theProductReccomendation.set('Product1__c', theRecords[0].Id);
+                theProductReccomendation.set('Product2__c', theRecords[1].Id);
+                theProductReccomendation.set('Product3__c', theRecords[2].Id);
+
+                org.insert({ sobject: theProductReccomendation }, function(err, resp){
+                    if(!err){
+                        console.log('It worked!: ', resp.records);
+                        resolve(theRecords);
+                    }
+                    else{
+                        reject("An error occurred while creating a lead");
+                    }
+                });
             }
             else{
                 reject(err);

@@ -59,7 +59,6 @@ exports.setWeather = (params) => {
                     else{
                         weather.outlook = 'Okay';
                     }
-                    
                 }
             });
         }
