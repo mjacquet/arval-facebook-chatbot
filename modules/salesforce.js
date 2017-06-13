@@ -177,18 +177,17 @@ let getRecommendation = (response, theUserDetails) =>{
 
                 var theRecords = resp.records;
 
-                console.log("theRecords: ", theRecords);
-                console.log("theRecords[0]: ", theRecords[0]);
+                console.log("theRecords[0]: ", theRecords[0].get("Id"));
 
                 let theProductReccomendation = nforce.createSObject('Product_Recommendation__c');
                 theProductReccomendation.set('Account__c', theUserDetails.get("Id"));
-                theProductReccomendation.set('Product1__c', theRecords[0].Id);
-                theProductReccomendation.set('Product2__c', theRecords[1].Id);
-                theProductReccomendation.set('Product3__c', theRecords[2].Id);
+                theProductReccomendation.set('Product1__c', theRecords[0].get("Id"));
+                theProductReccomendation.set('Product2__c', theRecords[1].get("Id"));
+                theProductReccomendation.set('Product3__c', theRecords[2].get("Id"));
 
                 org.insert({ sobject: theProductReccomendation }, function(err, resp){
                     if(!err){
-                        console.log('It worked!: ', resp.records);
+                        console.log('It worked!: ', resp);
                         resolve(theRecords);
                     }
                     else{
