@@ -163,8 +163,8 @@ exports.getSuggestion = (account) => {
             url: `https://pio-test-adidas-engine.herokuapp.com/queries.json`,
             method: 'POST',
             json : { 
-                gender: theResult.gender,
                 temperature: theResult.temperature,
+                gender: theResult.gender,
                 rain_proof: theResult.rain_proof,
                 speed: theResult.speed
             }
