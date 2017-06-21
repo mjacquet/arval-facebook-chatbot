@@ -14,17 +14,14 @@ exports.test = (sender) => {
 exports.start = (sender) => {
     console.log('start');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Hello! How can I help you today, ${response.first_name}?`}, sender);
+        messenger.send({text: `Bonjour ${response.first_name} Comment puis-je vous aider aujourd'hui ?`}, sender);
     });
 };
 
-exports.number2 = (sender) => {
-    console.log('number2');
+exports.next1 = (sender) => {
+    console.log('next1');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Sure ${response.first_name}! Let me sort that out for you. I have a few questions for you.`}, sender);
-        setTimeout(function(){
-            messenger.send(formatter.question2(response), sender);
-        },500);
+        messenger.send(formatter.question2(response), sender);
     });
 };
 

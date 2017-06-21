@@ -113,6 +113,7 @@ let updateCase = (params, sender) => {
             console.log("params: ", params);
             var q = 'SELECT Id FROM Case ORDER BY CreatedDate DESC LIMIT 1';
 
+            /*
             org.query({ query: q }, function(err, resp){
 
                 if(!err && resp.records) {
@@ -136,6 +137,7 @@ let updateCase = (params, sender) => {
                     });
                 }
             });
+            */
                 
         }
     });

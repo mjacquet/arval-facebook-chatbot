@@ -6,37 +6,138 @@ let moment = require("moment"),
 exports.question2 = response => {
     console.log('question2');
     return {
-        "text":"Where will you run? Based on your location here are some popular spots near you:",
+        "text":"Une réclamation, d'accord, à propos :",
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Hamburg",
-            "payload":"q2,Hamburg"
+            "title":"Réservation passée",
+            "payload":"q2,Réservation passée"
           },
           {
             "content_type":"text",
-            "title":"Munich",
-            "payload":"q2,Munich"
+            "title":"Réservations en cours",
+            "payload":"q2,Réservations en cours"
           },
           {
             "content_type":"text",
-            "title":"Cologne",
-            "payload":"q2,Cologne"
-          },
-          {
-            "content_type":"text",
-            "title":"Berlin",
-            "payload":"q2,Berlin"
-          },
-          {
-            "content_type":"text",
-            "title":"Frankfurt",
-            "payload":"q2,Frankfurt"
+            "title":"Réservation future",
+            "payload":"q2,Réservation future"
           }
         ]
     }
 };
 
+exports.question3 = response => {
+    console.log('question3');
+    return {
+        "text":"Pouvez-vous préciser la réservation ?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Kyriad-02/04/2107",
+            "payload":"q3,Kyriad-02/04/2107"
+          },
+          {
+            "content_type":"text",
+            "title":"Campanile-12/05/2017",
+            "payload":"q3,Campanile-12/05/2017"
+          },
+          {
+            "content_type":"text",
+            "title":"Campanile-23/06/2017",
+            "payload":"q3,Campanile-23/06/2017"
+          }
+        ]
+    }
+};
+
+exports.question4 = response => {
+    console.log('question4');
+    return {
+        "text":"Pouvez-vous préciser la nature de la réclamation ?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Assistance",
+            "payload":"q4,Assistance"
+          },
+          {
+            "content_type":"text",
+            "title":"Réclamation",
+            "payload":"q4,Réclamation"
+          }
+        ]
+    }
+};
+
+
+exports.question5 = response => {
+    console.log('question5');
+    return {
+        "text":"Quel est le motif de votre réclamation ?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Paiement",
+            "payload":"q5,Paiement"
+          },
+          {
+            "content_type":"text",
+            "title":"Duplicata",
+            "payload":"q5,Duplicata"
+          }
+        ]
+    }
+};
+
+exports.question6 = response => {
+    console.log('question6');
+    return {
+        "text":"Comment souhaitez-vous etre recontacté ?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Phone",
+            "payload":"q6,Phone"
+          },
+          {
+            "content_type":"text",
+            "title":"Mail",
+            "payload":"q6,Mail"
+          },
+          {
+            "content_type":"text",
+            "title":"SMS",
+            "payload":"q6,SMS"
+          },
+          {
+            "content_type":"text",
+            "title":"Messenger",
+            "payload":"q6,Messenger"
+          }
+        ]
+    }
+};
+
+exports.question7 = response => {
+    console.log('question7');
+    return {
+        "text":"Souhaitez-vous être mise en relation avec un agent ?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Oui",
+            "payload":"q7,Oui"
+          },
+          {
+            "content_type":"text",
+            "title":"Non",
+            "payload":"q7,Non"
+          }
+        ]
+    }
+};
+/*
 exports.question3 = response => {
     //moment.lang('de');
     
@@ -124,3 +225,4 @@ exports.question5 = response => {
         }
     };
 };
+*/
