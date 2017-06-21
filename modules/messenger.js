@@ -163,7 +163,7 @@ exports.getSuggestion = (account) => {
             url: `https://pio-test-adidas-engine.herokuapp.com/queries.json`,
             method: 'POST',
             json : { 
-                temperature: theResult.temperature,
+                temperature: 1,//Because PIO dataset doesnt allow for anything more or less.
                 gender: theResult.gender,
                 rain_proof: theResult.rain_proof,
                 speed: theResult.speed
