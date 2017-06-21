@@ -112,7 +112,7 @@ let updateCase = (params, sender) => {
         if(params){
             console.log("params: ", params);
             var q = 'SELECT Id FROM Case ORDER BY CreatedDate DESC LIMIT 1';
-
+            resolve(q);
             /*
             org.query({ query: q }, function(err, resp){
 
