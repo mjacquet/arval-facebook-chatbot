@@ -100,7 +100,7 @@ let createCase = (params) => {
                 resolve(theCase);
             }
             else{
-                reject("An error occurred while creating a lead");
+                reject(err);
             }
         });
     });

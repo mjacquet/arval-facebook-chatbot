@@ -59,7 +59,7 @@ exports.q7 = (sender, values) => {
     console.log('q7');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.createCase().then(createdCase => {
+        salesforce.createCase(values).then(createdCase => {
             messenger.send({text: `OK, un agent va prendre votre requête`}, sender);
         });
     });
