@@ -40,7 +40,7 @@ exports.question3 = response => {
                     {
                         "type": "postback",
                         "title": "Selectionné",
-                        "payload": "q3,Kyriad-02/04/2107"
+                        "payload": "q3,Kyriad"
                     }
                 ]
             },
@@ -51,7 +51,7 @@ exports.question3 = response => {
                     {
                         "type": "postback",
                         "title": "Selectionné",
-                        "payload": "q3,Campanile-12/05/2017"
+                        "payload": "q3,Campanile"
                     }
                 ]
             },
@@ -62,7 +62,7 @@ exports.question3 = response => {
                     {
                         "type": "postback",
                         "title": "Selectionné",
-                        "payload": "q3,Campanile-23/06/2017"
+                        "payload": "q3,Campanile"
                     }
                 ]
             }

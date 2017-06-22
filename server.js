@@ -52,7 +52,7 @@ app.post('/webhook', (req, res) => {
             let payload = event.message.quick_reply.payload.split(",");
             console.log('payload: ', payload);
             let quickreply = quickreplies[payload[0]];
-            console.log('quickreply: ', quickreply);
+            //console.log('quickreply: ', quickreply);
             if (quickreply && typeof quickreply === "function") {
                 quickreply(sender, payload);
             } else {

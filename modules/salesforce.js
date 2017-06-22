@@ -17,6 +17,7 @@ let org = nforce.createConnection({
 
 let theCase = nforce.createSObject('Case');
 theCase.set('Subject', `Réclamation-Campanille-Duplicata`);
+theCase.set('RecordTypeId', `0126A000000r9Lv`);
 theCase.set('Origin', `Facebook`);
 
 let login = () => {
@@ -109,15 +110,36 @@ let updateCase = (params, sender) => {
     return new Promise((resolve, reject) => {
         if(params){
             console.log("params: ", params);
-
-            if(params.q7){
-                console.log('inside q7');
-                console.log('q7', params.q7);
-                //theCase.set('Subject', `Facebook Customer: ${params.fname} ${params.lname}`);
+            if(params.q2){
+                console.log('inside q2');
+                console.log('q2', params.q2);
+                theCase.set('Stay__c', `Post-Stay`);
             }
-            //console.log("theCase: ", theCase);
+            if(params.q3){
+                console.log('inside q3');
+                console.log('q3', params.q3);
+                theCase.set('Marques__c', `${params.q3}`);
+            }
+            if(params.q4){
+                console.log('inside q4');
+                console.log('q4', params.q4);
+                theCase.set('Famille__c', `${params.q4}`);
+            }
+            if(params.q5){
+                console.log('inside q5');
+                console.log('q5', params.q5);
+                theCase.set('SousFamille__c', `Demande de Duplicata`);
+                theCase.set('Motif__c', `Duplicata`);
+            }
+            if(params.q6){
+                console.log('inside q6');
+                console.log('q6', params.q6);
+                theCase.set('Type_Contact__c', `${params.q6}`);
+            }
 
-            resolve(params);
+            console.log("theCase: ", theCase);
+
+            resolve(theCase);
                 
         }
     });

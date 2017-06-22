@@ -9,7 +9,7 @@ exports.q2 = (sender, values) => {
 	console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
         messenger.send({text: `Pouvez-vous préciser la réservation ?`}, sender);
-        salesforce.updateCase(values).then(updatedCase => {
+        salesforce.updateCase({q2 : values[1]}).then(updatedCase => {
             messenger.send(formatter.question3(response), sender);
         });
     });
@@ -19,7 +19,7 @@ exports.q3 = (sender, values) => {
     console.log('q3');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.updateCase(values).then(updatedCase => {
+        salesforce.updateCase({q3 : values[1]}).then(updatedCase => {
             messenger.send(formatter.question4(response), sender);
         });
     });
@@ -29,7 +29,7 @@ exports.q4 = (sender, values) => {
     console.log('q4');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.updateCase(values).then(updatedCase => {
+        salesforce.updateCase({q4 : values[1]}).then(updatedCase => {
             messenger.send(formatter.question5(response), sender);
         });
     });
@@ -39,7 +39,7 @@ exports.q5 = (sender, values) => {
     console.log('q5');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.updateCase(values).then(updatedCase => {
+        salesforce.updateCase({q5 : values[1]}).then(updatedCase => {
             messenger.send(formatter.question6(response), sender);
         });
     });
@@ -49,7 +49,7 @@ exports.q6 = (sender, values) => {
     console.log('q6');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.updateCase(values).then(updatedCase => {
+        salesforce.updateCase({q6 : values[1]}).then(updatedCase => {
             messenger.send(formatter.question7(response), sender);
         });
     });
@@ -59,7 +59,7 @@ exports.q7 = (sender, values) => {
     console.log('q7');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.updateCase(values).then(updatedCase => {
+        salesforce.createCase().then(createdCase => {
             messenger.send({text: `OK, un agent va prendre votre requête`}, sender);
         });
     });
