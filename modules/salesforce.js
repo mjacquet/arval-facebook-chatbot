@@ -18,6 +18,7 @@ let org = nforce.createConnection({
 let theCase = nforce.createSObject('Case');
 theCase.set('Subject', `Réclamation-Campanille-Duplicata`);
 theCase.set('RecordTypeId', `0126A000000r9Lv`);
+theCase.set('ContactId', `0036A000009H4qR`);
 theCase.set('Origin', `Facebook`);
 
 let login = () => {
