@@ -1,5 +1,7 @@
 "use strict";
 
+//https://john-paul-facebook-bot-demo.herokuapp.com/images?location.jpg
+
 let moment = require("moment"),
     numeral = require("numeral");
 
@@ -29,26 +31,52 @@ exports.question2 = response => {
 
 exports.question3 = response => {
     console.log('question3');
+    let elements = [];
+        elements.push(  
+            {
+                title: 'Kyriad-02/04/2107',
+                "image_url": 'https://louvre-hotels-chatbot.herokuapp.com/images?hotelcampanile.jpeg',
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Selectionné",
+                        "payload": "q3,Kyriad-02/04/2107"
+                    }
+                ]
+            },
+            {
+                title: 'Campanile-12/05/2017',
+                "image_url": 'https://louvre-hotels-chatbot.herokuapp.com/images?CampanileChatBot.jpeg',
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Selectionné",
+                        "payload": "q3,Campanile-12/05/2017"
+                    }
+                ]
+            },
+            {
+                title: 'Campanile-23/06/2017',
+                "image_url": 'https://louvre-hotels-chatbot.herokuapp.com/images?CampanileChatBot2.jpeg',
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Selectionné",
+                        "payload": "q3,Campanile-23/06/2017"
+                    }
+                ]
+            }
+        );
+
     return {
-        "text":"Pouvez-vous préciser la réservation ?",
-        "quick_replies":[
-          {
-            "content_type":"text",
-            "title":"Kyriad-02/04/2107",
-            "payload":"q3,Kyriad-02/04/2107"
-          },
-          {
-            "content_type":"text",
-            "title":"Campanile-12/05/2017",
-            "payload":"q3,Campanile-12/05/2017"
-          },
-          {
-            "content_type":"text",
-            "title":"Campanile-23/06/2017",
-            "payload":"q3,Campanile-23/06/2017"
-          }
-        ]
-    }
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
 };
 
 exports.question4 = response => {

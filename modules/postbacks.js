@@ -21,3 +21,13 @@ exports.addToCart = (sender, values) => {
         },500);
     });
 };
+
+exports.q3 = (sender, values) => {
+    console.log('q3');
+    console.log('values: ', values);
+    messenger.getUserInfo(sender).then(response => {
+        salesforce.updateCase(values).then(updatedCase => {
+            messenger.send(formatter.question4(response), sender);
+        });
+    });
+};

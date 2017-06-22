@@ -8,6 +8,7 @@ exports.q2 = (sender, values) => {
 	console.log('q2');
 	console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
+        messenger.send({text: `Pouvez-vous préciser la réservation ?`}, sender);
         salesforce.updateCase(values).then(updatedCase => {
             messenger.send(formatter.question3(response), sender);
         });
