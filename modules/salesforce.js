@@ -15,6 +15,10 @@ let org = nforce.createConnection({
     autoRefresh: true
 });
 
+let theCase = nforce.createSObject('Case');
+theCase.set('Subject', `Réclamation-Campanille-Duplicata`);
+theCase.set('Origin', `Facebook`);
+
 let login = () => {
     org.authenticate({username: SF_USER_NAME, password: SF_PASSWORD}, err => {
         if (err) {
@@ -89,12 +93,6 @@ let updateLead = (params, sender) => {
 let createCase = (params) => {
     return new Promise((resolve,reject) => {
 
-        let theCase = nforce.createSObject('Case');
-        theCase.set('Subject', `Facebook Customer`);
-        theCase.set('Description', 'Case from Facebook Bot');
-        theCase.set('Origin', `Facebook Bot`);
-        theCase.set('Status', `New`);
-
         org.insert({ sobject: theCase }, function(err, resp){
             if(!err){
                 console.log('It worked!: ', theCase);
@@ -111,33 +109,15 @@ let updateCase = (params, sender) => {
     return new Promise((resolve, reject) => {
         if(params){
             console.log("params: ", params);
-            var q = 'SELECT Id FROM Case ORDER BY CreatedDate DESC LIMIT 1';
-            resolve(q);
-            /*
-            org.query({ query: q }, function(err, resp){
 
-                if(!err && resp.records) {
+            if(params.q7){
+                console.log('inside q7');
+                console.log('q7', params.q7);
+                //theCase.set('Subject', `Facebook Customer: ${params.fname} ${params.lname}`);
+            }
+            //console.log("theCase: ", theCase);
 
-                    var theCase = resp.records[0];
-
-                    if(params.fname && params.lname){
-                        console.log('inside fname');
-                        theCase.set('Subject', `Facebook Customer: ${params.fname} ${params.lname}`);
-                    }
-                    console.log("theCase: ", theCase);
-                    
-                    org.update({ sobject: theCase }, function(err, resp){
-                        if(!err){
-                            console.log('It worked!');
-                            resolve(theCase);
-                        }
-                        else{
-                            reject("Error updating the Lead");
-                        }
-                    });
-                }
-            });
-            */
+            resolve(params);
                 
         }
     });
