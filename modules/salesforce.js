@@ -128,7 +128,7 @@ let updateCase = (params, sender) => {
             if(params.q5){
                 console.log('inside q5');
                 console.log('q5', params.q5);
-                theCase.set('SousFamille__c', `Demande de Duplicata`);
+                theCase.set('Sous_Famille__c', `Demande de Duplicata`);
                 theCase.set('Motif__c', `Duplicata`);
             }
             if(params.q6){
