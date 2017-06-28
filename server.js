@@ -71,20 +71,11 @@ app.post('/webhook', (req, res) => {
                 }
             }
         } else if (event.postback) {
-            console.log('postback', event.postback.payload);
-            if(event.postback.payload.indexOf(',') >= 0){
-                console.log('found comma ,', event.postback.payload.indexOf(','));
-                let payload = event.postback.payload.split(",");
-                let postback = postbacks[payload[0]];
-            }
-            else{
-                let postback = postbacks[event.postback.payload];
-                console.log('No comma ,', postback);
-            }
-            if (postback && typeof postback === "function" && event.postback.payload.indexOf(',') >= 0) {
+            console.log('postback');
+            let payload = event.postback.payload.split(",");
+            let postback = postbacks[payload[0]];
+            if (postback && typeof postback === "function") {
                 postback(sender, payload);
-            } else if(postback && typeof postback === "function"){
-                postback(sender);
             } else {
                 console.log("Postback " + postback + " is not defined");
             }
