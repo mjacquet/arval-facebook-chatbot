@@ -365,6 +365,142 @@ exports.question7 = response => {
         }
     };
 };
+
+exports.picture8 = response => {
+    console.log('picture8');
+    let elements = [];
+        elements.push(  
+            {
+                title: 'Heron Tower, London',
+                subtitle: '110 Bishopsgate, Bishopsgate, London',
+                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?location.png'
+            }
+        );
+
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
+exports.question8 = response => {
+    console.log('question8');
+    let elements = [];
+        elements.push(  
+            {
+                title: 'CALAIS JACQUARD CC DES 4B',
+                subtitle: "Ctre Cial Coeur De Vie 62100 Calais",
+                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?Yr-1.jpg',
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Itinéraire",
+                        "payload": "blank"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Appeler",
+                        "payload": "blank"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Prendre rendez-vous",
+                        "payload": "blank"
+                    }
+                ]
+            },
+            {
+                title: 'COQUELLES-CC CITÉ EUROPE',
+                subtitle: "Ctre Cial Cité Europe 1001 Boulevard Du Kent 62231 Coquelles",
+                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?Yr-2.jpg',
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Itinéraire",
+                        "payload": "blank"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Appeler",
+                        "payload": "blank"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Prendre rendez-vous",
+                        "payload": "lastQuestion"
+                    }
+                ]
+            }
+        );
+
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
+exports.question9 = response => {
+    console.log('question9');
+    return {
+        "text":"Sélectionnez votre créneau horaire",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Samedi 1 - 13h30",
+            "payload":"q9,Samedi 1 - 13h30"
+          },
+          {
+            "content_type":"text",
+            "title":"Samedi 1 - 13h45",
+            "payload":"q9,Samedi 1 - 13h45"
+          },
+          {
+            "content_type":"text",
+            "title":"Lundi 3 - 11h15",
+            "payload":"q9,Lundi 3 - 11h15"
+          },
+          {
+            "content_type":"text",
+            "title":"Lundi 3 - 15h30",
+            "payload":"q9,Lundi 3 - 15h30"
+          },
+          {
+            "content_type":"text",
+            "title":"Lundi 3 - 16h00",
+            "payload":"q9,Lundi 3 - 16h00"
+          }
+        ]
+    }
+};
+
+exports.question10 = response => {
+    console.log('question10');
+    return {
+        "text":"Comment pouvons-vous continuer à vous aider ?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Continuer mes achats depuis le site marchant Yves Rocher",
+            "payload":"q10,Continuer mes achats depuis le site marchant Yves Rocher"
+          },
+          {
+            "content_type":"text",
+            "title":"Être mis en contact avec un conseiller Yves Rocher",
+            "payload":"q10,Être mis en contact avec un conseiller Yves Rocher"
+          }
+        ]
+    }
+};
 /*
 exports.question4 = response => {
     console.log('question4');

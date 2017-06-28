@@ -24,10 +24,11 @@ exports.q3 = (sender, values) => {
     console.log('q3');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.picture4(response), sender);
-        setTimeout(function(){
-            messenger.send(formatter.question4(response), sender);
-        }, 750);
+        //messenger.send(formatter.picture4(response), sender);
+        messenger.send(formatter.question4(response), sender);
+        // setTimeout(function(){
+        //     messenger.send(formatter.question4(response), sender);
+        // }, 750);
     });
 };
 
@@ -35,10 +36,11 @@ exports.q4 = (sender, values) => {
     console.log('q4');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.picture5(response), sender);
-        setTimeout(function(){
-            messenger.send(formatter.question5(response), sender);
-        }, 750);
+        //messenger.send(formatter.picture5(response), sender);
+        messenger.send(formatter.question5(response), sender);
+        // setTimeout(function(){
+        //     messenger.send(formatter.question5(response), sender);
+        // }, 750);
     });
 };
 
@@ -60,6 +62,16 @@ exports.q6 = (sender, values) => {
     });
 };
 
+exports.q9 = (sender, values) => {
+    console.log('q9');
+    console.log('values: ', values);
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send({text: `Merci ${response.first_name}, votre rendez-vous est confirmé ! Vous recevrez un SMS de rappel la veille de votre rendez-vous. Toute l'équipe Yves Rocher vous souhaite une excellente journée !`}, sender);
+        setTimeout(function(){
+            messenger.send(formatter.question10(response), sender);
+        }, 750);
+    });
+};
 /*
 exports.q7 = (sender, values) => {
     console.log('q7');
