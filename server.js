@@ -71,7 +71,7 @@ app.post('/webhook', (req, res) => {
                 }
             }
         } else if (event.postback) {
-            console.log('postback');
+            console.log('postback', event.postback.payload);
             if(event.postback.payload.indexOf(',') >= 0){
                 let payload = event.postback.payload.split(",");
                 let postback = postbacks[payload[0]];
