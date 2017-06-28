@@ -72,8 +72,13 @@ app.post('/webhook', (req, res) => {
             }
         } else if (event.postback) {
             console.log('postback');
-            let payload = event.postback.payload.split(",");
-            let postback = postbacks[payload[0]];
+            if(event.postback.payload.indexOf(',') >= 0){
+                let payload = event.postback.payload.split(",");
+                let postback = postbacks[payload[0]];
+            }
+            else{
+                let postback = postbacks[event.postback.payload];
+            }
             if (postback && typeof postback === "function") {
                 postback(sender, payload);
             } else {
