@@ -5,25 +5,64 @@
 let moment = require("moment"),
     numeral = require("numeral");
 
-exports.question2 = response => {
-    console.log('question2');
+exports.question1 = response => {
+    console.log('question1');
     return {
-        "text":"Une réclamation, d'accord, à propos :",
+        "text":"Bonjour " + response.first_name + " et bienvenue chez Yves Rocher. Que puis-je faire pour vous ?",
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Réservation passée",
-            "payload":"q2,Réservation passée"
+            "title":"Découvrir nos produits",
+            "payload":"q1,Découvrir nos produits"
           },
           {
             "content_type":"text",
-            "title":"Réservations en cours",
-            "payload":"q2,Réservations en cours"
+            "title":"Découvrir nos soins",
+            "payload":"q1,Découvrir nos soins"
           },
           {
             "content_type":"text",
-            "title":"Réservation future",
-            "payload":"q2,Réservation future"
+            "title":"Découvrir la fondation Yves Rocher",
+            "payload":"q1,Découvrir la fondation Yves Rocher"
+          },
+          {
+            "content_type":"text",
+            "title":"Trouver votre magasin le plus proche",
+            "payload":"q1,Trouver votre magasin le plus proche"
+          }
+        ]
+    }
+};
+
+exports.question2 = response => {
+    console.log('question2');
+    return {
+        "text":"Très bien ! Dites-moi ce qui vous intéresse.",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Soin visage",
+            "payload":"q2,Soin visage"
+          },
+          {
+            "content_type":"text",
+            "title":"Maquillage",
+            "payload":"q2,Maquillage"
+          },
+          {
+            "content_type":"text",
+            "title":"Parfum",
+            "payload":"q2,Parfum"
+          },
+          {
+            "content_type":"text",
+            "title":"Corps & douche",
+            "payload":"q2,Corps & douche"
+          },
+          {
+            "content_type":"text",
+            "title":"Cheveux",
+            "payload":"q2,Cheveux"
           }
         ]
     }
@@ -31,38 +70,286 @@ exports.question2 = response => {
 
 exports.question3 = response => {
     console.log('question3');
+    return {
+        "text":"D'accord ! Cherchons ensemble les soins qui vous conviennent le mieux. Que souhaitez-vous améliorer ?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Le confort de ma peau",
+            "payload":"q3,Le confort de ma peau"
+          },
+          {
+            "content_type":"text",
+            "title":"Mes zones de brillance",
+            "payload":"q3,Mes zones de brillance"
+          },
+          {
+            "content_type":"text",
+            "title":"Les rougeurs et échauffement",
+            "payload":"q3,Les rougeurs et échauffement"
+          },
+          {
+            "content_type":"text",
+            "title":"Les rides qui marquent",
+            "payload":"q3,Les rides qui marquent"
+          },
+          {
+            "content_type":"text",
+            "title":"Les tâches pigmentaires",
+            "payload":"q3,Les tâches pigmentaires"
+          },
+          {
+            "content_type":"text",
+            "title":"La fermeté de ma peau",
+            "payload":"q3,La fermeté de ma peau"
+          }
+        ]
+    }
+};
+
+exports.picture4 = response => {
+    console.log('question4');
     let elements = [];
         elements.push(  
             {
-                title: 'Kyriad-02/04/2107',
-                "image_url": 'https://louvre-hotels-chatbot.herokuapp.com/images?hotelcampanile.jpeg',
+                title: 'Image',
+                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?slide1.png'
+            }
+        );
+
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
+exports.question4 = response => {
+    console.log('question4');
+    return {
+        "text":"Dites moi, votre peau est plutôt...",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Grasse",
+            "payload":"q4,Grasse"
+          },
+          {
+            "content_type":"text",
+            "title":"Normale à mixte",
+            "payload":"q4,Normale à mixte"
+          },
+          {
+            "content_type":"text",
+            "title":"Normale",
+            "payload":"q4,Normale"
+          },
+          {
+            "content_type":"text",
+            "title":"Normale à sèche",
+            "payload":"q4,Normale à sèche"
+          },
+          {
+            "content_type":"text",
+            "title":"Sèche à très sèche",
+            "payload":"q4,Sèche à très sèche"
+          }
+        ]
+    }
+};
+
+exports.picture5 = response => {
+    console.log('picture5');
+    let elements = [];
+        elements.push(  
+            {
+                title: 'Image',
+                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?slide2.png'
+            }
+        );
+
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "generic",
+                "elements": elements
+            }
+        }
+    };
+};
+
+exports.question5 = response => {
+    console.log('question5');
+    return {
+        "text":"Et face aux agressions votre peau...",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"N'est pas particulièrement sensible",
+            "payload":"q5,N'est pas particulièrement sensible"
+          },
+          {
+            "content_type":"text",
+            "title":"Est sensible et elle tiraille",
+            "payload":"q5,Est sensible et elle tiraille"
+          },
+          {
+            "content_type":"text",
+            "title":"Est réactive et elle rougit",
+            "payload":"q5,Est réactive et elle rougit"
+          }
+        ]
+    }
+};
+
+exports.question6 = response => {
+    console.log('question6');
+    return {
+        "text":"D'accord ! Dernière question, quels sont les produits que vous utilisez régulièrement ?",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Gel nettoyant",
+            "payload":"q6,Gel nettoyant"
+          },
+          {
+            "content_type":"text",
+            "title":"Crème de nuit",
+            "payload":"q6,Crème de nuit"
+          },
+          {
+            "content_type":"text",
+            "title":"Sérum",
+            "payload":"q6,Sérum"
+          },
+          {
+            "content_type":"text",
+            "title":"Compléments alimentaires",
+            "payload":"q6,Compléments alimentaires"
+          },
+          {
+            "content_type":"text",
+            "title":"Crème de jour",
+            "payload":"q6,Crème de jour"
+          },
+          {
+            "content_type":"text",
+            "title":"Gommage",
+            "payload":"q6,Gommage"
+          },
+          {
+            "content_type":"text",
+            "title":"Masque",
+            "payload":"q6,Masque"
+          },
+          {
+            "content_type":"text",
+            "title":"Démaquillant non rincé",
+            "payload":"q6,Démaquillant non rincé"
+          },
+          {
+            "content_type":"text",
+            "title":"Contour des yeux",
+            "payload":"q6,Contour des yeux"
+          }
+        ]
+    }
+};
+
+exports.question7 = response => {
+    console.log('question7');
+    let elements = [];
+        elements.push(  
+            {
+                title: 'Sérum Ultra Lissant - RIDES & ECLAT',
+                subtitle: "L'éclat en concentré - 20,80 €",
+                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?Yr1.jpg',
                 "buttons": [
                     {
                         "type": "postback",
-                        "title": "Selectionné",
-                        "payload": "q3,Kyriad"
+                        "title": "Avis de la Communauté",
+                        "payload": "blank"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Ajouter à mon panier",
+                        "payload": "blank"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Contacter un conseiller",
+                        "payload": "blank"
                     }
                 ]
             },
             {
-                title: 'Campanile-12/05/2017',
-                "image_url": 'https://louvre-hotels-chatbot.herokuapp.com/images?CampanileChatBot.jpeg',
+                title: 'Soin Lissant Jour Tous types de peaux - RIDES & ECLAT',
+                subtitle: "Lisse et ravive l'éclat de la peau - 20,80 €",
+                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?Yr2.jpg',
                 "buttons": [
                     {
                         "type": "postback",
-                        "title": "Selectionné",
-                        "payload": "q3,Campanile"
+                        "title": "Avis de la Communauté",
+                        "payload": "blank"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Ajouter à mon panier",
+                        "payload": "blank"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Contacter un conseiller",
+                        "payload": "blank"
                     }
                 ]
             },
             {
-                title: 'Campanile-23/06/2017',
-                "image_url": 'https://louvre-hotels-chatbot.herokuapp.com/images?CampanileChatBot2.jpeg',
+                title: 'Soin Lissant Nuit Tous types de peaux - RIDES & ECLAT',
+                subtitle: "Au réveil, la peau est comme rénovée, l’éclat ravivé - 20,80 €",
+                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?Yr3.jpg',
                 "buttons": [
                     {
                         "type": "postback",
-                        "title": "Selectionné",
-                        "payload": "q3,Campanile"
+                        "title": "Avis de la Communauté",
+                        "payload": "blank"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Ajouter à mon panier",
+                        "payload": "blank"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Contacter un conseiller",
+                        "payload": "blank"
+                    }
+                ]
+            },
+            {
+                title: 'Soin Institut Lissant - Soin à la Ficoïde Glaciale',
+                subtitle: "Lissez vos rides et tonifiez votre peau - 1h15 - 70 €",
+                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?Yr4.jpg',
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": "Avis de la Communauté",
+                        "payload": "blank"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Prendre rendez-vous",
+                        "payload": "blank"
+                    },
+                    {
+                        "type": "postback",
+                        "title": "Localiser l'institut le plus proche",
+                        "payload": "findPin"
                     }
                 ]
             }
@@ -78,7 +365,7 @@ exports.question3 = response => {
         }
     };
 };
-
+/*
 exports.question4 = response => {
     console.log('question4');
     return {
@@ -165,7 +452,7 @@ exports.question7 = response => {
         ]
     }
 };
-/*
+
 exports.question3 = response => {
     //moment.lang('de');
     

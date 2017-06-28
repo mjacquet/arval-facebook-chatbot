@@ -14,7 +14,7 @@ exports.test = (sender) => {
 exports.start = (sender) => {
     console.log('start');
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Bonjour ${response.first_name} Comment puis-je vous aider aujourd'hui ?`}, sender);
+        messenger.send(formatter.question1(response), sender);
     });
 };
 

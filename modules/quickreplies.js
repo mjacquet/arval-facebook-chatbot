@@ -4,14 +4,19 @@ let salesforce = require('./salesforce'),
     messenger = require('./messenger'),
     formatter = require('./formatter');
 
+exports.q1 = (sender, values) => {
+    console.log('q1');
+    console.log('values: ', values);
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.question2(response), sender);
+    });
+};
+
 exports.q2 = (sender, values) => {
 	console.log('q2');
 	console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `Pouvez-vous préciser la réservation ?`}, sender);
-        salesforce.updateCase({q2 : values[1]}).then(updatedCase => {
-            messenger.send(formatter.question3(response), sender);
-        });
+        messenger.send(formatter.question3(response), sender);
     });
 };
 
@@ -19,9 +24,10 @@ exports.q3 = (sender, values) => {
     console.log('q3');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.updateCase({q3 : values[1]}).then(updatedCase => {
+        messenger.send(formatter.picture4(response), sender);
+        setTimeout(function(){
             messenger.send(formatter.question4(response), sender);
-        });
+        }, 750);
     });
 };
 
@@ -29,9 +35,10 @@ exports.q4 = (sender, values) => {
     console.log('q4');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.updateCase({q4 : values[1]}).then(updatedCase => {
+        messenger.send(formatter.picture5(response), sender);
+        setTimeout(function(){
             messenger.send(formatter.question5(response), sender);
-        });
+        }, 750);
     });
 };
 
@@ -39,22 +46,20 @@ exports.q5 = (sender, values) => {
     console.log('q5');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.updateCase({q5 : values[1]}).then(updatedCase => {
-            messenger.send(formatter.question6(response), sender);
-        });
-    });
+        messenger.send(formatter.question6(response), sender);    });
 };
 
 exports.q6 = (sender, values) => {
     console.log('q6');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.updateCase({q6 : values[1]}).then(updatedCase => {
+        messenger.send({text: `Maintenant donnez-moi quelques secondes ! Je prépare votre rituel de soin sur-mesure. Voici les produits que je vous recommande d'utiliser quotidiennement`}, sender);
+        setTimeout(function(){
             messenger.send(formatter.question7(response), sender);
-        });
+        }, 750);
     });
 };
-
+/*
 exports.q7 = (sender, values) => {
     console.log('q7');
     console.log('values: ', values);
@@ -64,7 +69,7 @@ exports.q7 = (sender, values) => {
         });
     });
 };
-/*
+
 exports.q4 = (sender, values) => {
 	console.log('q4');
 	console.log('values: ', values);
