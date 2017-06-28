@@ -81,8 +81,10 @@ app.post('/webhook', (req, res) => {
                 let postback = postbacks[event.postback.payload];
                 console.log('No comma ,', postback);
             }
-            if (postback && typeof postback === "function") {
+            if (postback && typeof postback === "function" && event.postback.payload.indexOf(',') >= 0) {
                 postback(sender, payload);
+            } else if(postback && typeof postback === "function"){
+                postback(sender);
             } else {
                 console.log("Postback " + postback + " is not defined");
             }
