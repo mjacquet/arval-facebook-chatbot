@@ -59,6 +59,7 @@ exports.q6 = (sender, values) => {
         }, 750);
     });
 };
+
 /*
 exports.q7 = (sender, values) => {
     console.log('q7');
