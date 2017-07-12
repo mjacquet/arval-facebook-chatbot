@@ -645,23 +645,15 @@ exports.question4 = response => {
         ]
     }
 };
-
-exports.question5 = response => {
-    console.log('In question5: ', response);
+*/
+exports.formatServiceContract = response => {
+    console.log('In formatServiceContract: ', response);
 
     let elements = [];
     response.forEach(rec => {
             elements.push({
-                title: rec.get("Name"),
-                subtitle: rec.get("Description"),
-                "image_url": rec.get("Image_URL__c"),
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": "Add to Cart",
-                        "payload": "addToCart"
-                    }
-                ]
+                title: rec.get("FirstName"),
+                subtitle: rec.get("FirstName"),
             })
         }
     );
@@ -676,4 +668,3 @@ exports.question5 = response => {
         }
     };
 };
-*/

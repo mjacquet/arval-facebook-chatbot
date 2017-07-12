@@ -6,7 +6,7 @@ let nforce = require('nforce'),
     SF_CLIENT_SECRET = process.env.SF_CLIENT_SECRET,
     SF_USER_NAME = process.env.SF_USER_NAME,
     SF_PASSWORD = process.env.SF_PASSWORD;
-/*
+
 let org = nforce.createConnection({
     clientId: SF_CLIENT_ID,
     clientSecret: SF_CLIENT_SECRET,
@@ -32,6 +32,7 @@ let login = () => {
     });
 };
 
+/*
 let createLead = (params) => {
     return new Promise((resolve,reject) => {
 
@@ -145,22 +146,22 @@ let updateCase = (params, sender) => {
         }
     });
 };
-
-let getUserDetails = (response) => {
-    console.log('getUserDetails');
+*/
+let getServiceContract = (response) => {
+    console.log('getServiceContract');
     return new Promise((resolve, reject) => {
 
-        var q = `SELECT Id, FirstName, LastName, Average_Speed_Overall__c, Gender__c FROM Account WHERE FirstName = '${response.first_name}' AND LastName = '${response.last_name}' ORDER BY CreatedDate DESC LIMIT 1`;
+        var q = `SELECT Id, FirstName, LastName FROM Contact WHERE FirstName = '${response.first_name}' AND LastName = '${response.last_name}' ORDER BY CreatedDate DESC LIMIT 1`;
 
         org.query({ query: q }, function(err, resp){
 
             if(!err && resp.records) {
 
-                var theAccount = resp.records[0];
+                var theContact = resp.records[0];
 
-                console.log("theAccount: ", theAccount);
+                console.log("theContact: ", theContact);
 
-                resolve(theAccount);
+                resolve(theContact);
             }
             else{
                 reject(err);
@@ -168,7 +169,7 @@ let getUserDetails = (response) => {
         });
     });
 };
-
+/*
 let getRecommendation = (response, theUserDetails) =>{
     console.log('getRecommendation');
     console.log('theUserDetails: ', theUserDetails);
@@ -207,14 +208,9 @@ let getRecommendation = (response, theUserDetails) =>{
     });   
 };
 
-
+*/
 login();
 
-exports.org = org;
-exports.createLead = createLead;
-exports.updateLead = updateLead;
-exports.createCase = createCase;
-exports.updateCase = updateCase;
-exports.getUserDetails = getUserDetails;
-exports.getRecommendation = getRecommendation;
-*/
+
+
+exports.getServiceContract = getServiceContract;
