@@ -161,7 +161,21 @@ let getServiceContract = (response) => {
 
                 console.log("theContact: ", theContact);
 
-                resolve(theContact);
+                var z = `SELECT Id, Name, ContactId FROM ServiceContract WHERE ContactId = '${theContact.Id}' ORDER BY CreatedDate`;
+                org.query({ query: z }, function(err2, resp2){
+
+                    if(!err2 && resp2.records) {
+
+                        var theServiceContract = resp2.records[0];
+
+                        console.log("theServiceContract: ", theServiceContract);
+
+                        resolve(theServiceContract);
+                    }
+                    else{
+                        reject(err2);
+                    }
+                });
             }
             else{
                 reject(err);
