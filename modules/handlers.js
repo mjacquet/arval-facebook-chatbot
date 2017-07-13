@@ -22,10 +22,15 @@ exports.next1 = (sender) => {
     console.log('next1');
     messenger.getUserInfo(sender).then(response => {
         messenger.send({text: `Sure, here is your contract summary:`}, sender);
-        salesforce.getServiceContract(response).then(recResult => {
-            messenger.send(formatter.formatServiceContract(recResult), sender);
-        });
-        messenger.send({text: `Do you a have any questions about your current contract or would you like to proceed to look at additional services?`}, sender);
+        setTimeout(function(){
+            salesforce.getServiceContract(response).then(recResult => {
+                messenger.send(formatter.formatServiceContract(recResult), sender);
+            });
+        }, 500);
+        setTimeout(function(){
+            messenger.send({text: `Do you a have any questions about your current contract or would you like to proceed to look at additional services?`}, sender);
+        }, 1500);
+        
     });
 };
 
