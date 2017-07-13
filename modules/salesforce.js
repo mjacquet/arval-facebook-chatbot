@@ -160,8 +160,10 @@ let getServiceContract = (response) => {
                 var theContact = resp.records[0];
 
                 console.log("theContact: ", theContact);
+                var theId = theContact.get('id');
+                console.log("theId: ", theId);
 
-                var z = `SELECT Id, Name, ContactId FROM ServiceContract WHERE ContactId = '${theContact.id}' ORDER BY CreatedDate`;
+                var z = `SELECT Id, Name, ContactId FROM ServiceContract WHERE ContactId = '${theId}' ORDER BY CreatedDate`;
                 org.query({ query: z }, function(err2, resp2){
 
                     if(!err2 && resp2.records) {
