@@ -648,15 +648,12 @@ exports.question4 = response => {
 */
 exports.formatServiceContract = response => {
     console.log('In formatServiceContract: ', response);
-    /*
+    
     let elements = [];
-    response.forEach(rec => {
-            elements.push({
-                title: rec.get("name"),
-                subtitle: rec.get("name"),
-            })
-        }
-    );
+    elements.push({
+        title: response.get("name"),
+        subtitle: response.get("name"),
+    })
 
     return {
         "attachment": {
@@ -666,9 +663,10 @@ exports.formatServiceContract = response => {
                 "elements": elements
             }
         }
-    };*/
+    };
     //moment.lang('de');
     
+    /*
     var options = [
         moment().add(1, 'days').add(1, 'hours').format('ddd Do MMM [at] ha'),
         moment().add(2, 'days').add(2, 'hours').format('ddd Do MMM [at] ha'),
@@ -703,4 +701,5 @@ exports.formatServiceContract = response => {
             }
         }
     };
+    */
 };
