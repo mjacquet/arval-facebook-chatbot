@@ -648,7 +648,7 @@ exports.question4 = response => {
 */
 exports.formatServiceContract = response => {
     console.log('In formatServiceContract: ', response);
-
+    /*
     let elements = [];
     response.forEach(rec => {
             elements.push({
@@ -664,6 +664,42 @@ exports.formatServiceContract = response => {
             "payload": {
                 "template_type": "generic",
                 "elements": elements
+            }
+        }
+    };*/
+    //moment.lang('de');
+    
+    var options = [
+        moment().add(1, 'days').add(1, 'hours').format('ddd Do MMM [at] ha'),
+        moment().add(2, 'days').add(2, 'hours').format('ddd Do MMM [at] ha'),
+        moment().add(3, 'days').add(3, 'hours').format('ddd Do MMM [at] ha'),
+        moment().add(4, 'days').add(4, 'hours').format('ddd Do MMM [at] ha'),
+        moment().add(5, 'days').add(5, 'hours').format('ddd Do MMM [at] ha'),
+    ];
+
+    console.log('options: ', options);
+    return {
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": `When will you run?`,
+                "buttons": [
+                    {
+                        "type": "postback",
+                        "title": options[0],
+                        "payload": "confirm_visit," + options[0]
+                    },
+                    {
+                        "type": "postback",
+                        "title": options[1],
+                        "payload": "confirm_visit," + options[1]
+                    },
+                    {
+                        "type": "postback",
+                        "title": options[2],
+                        "payload": "confirm_visit," + options[3]
+                    }]
             }
         }
     };
