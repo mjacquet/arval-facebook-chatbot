@@ -36,15 +36,11 @@ exports.q3 = (sender, values) => {
 exports.q4 = (sender, values) => {
     console.log('q4');
     console.log('values: ', values);
-    /*
+    
     messenger.getUserInfo(sender).then(response => {
-        //messenger.send(formatter.picture5(response), sender);
-        messenger.send(formatter.question5(response), sender);
-        // setTimeout(function(){
-        //     messenger.send(formatter.question5(response), sender);
-        // }, 750);
+        messenger.send({text: `To talk to a Live Agent please just type 'help'`}, sender);
     });
-    */
+    
 };
 
 exports.q5 = (sender, values) => {
