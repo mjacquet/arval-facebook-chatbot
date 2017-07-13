@@ -36,6 +36,7 @@ exports.q3 = (sender, values) => {
 exports.q4 = (sender, values) => {
     console.log('q4');
     console.log('values: ', values);
+    /*
     messenger.getUserInfo(sender).then(response => {
         //messenger.send(formatter.picture5(response), sender);
         messenger.send(formatter.question5(response), sender);
@@ -43,6 +44,7 @@ exports.q4 = (sender, values) => {
         //     messenger.send(formatter.question5(response), sender);
         // }, 750);
     });
+    */
 };
 
 exports.q5 = (sender, values) => {

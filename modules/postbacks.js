@@ -47,6 +47,6 @@ exports.q2 = (sender, values) => {
     console.log('q2');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        messenger.send(formatter.question4(response), sender);
+        messenger.send(formatter.question3(response), sender);
     });
 };
