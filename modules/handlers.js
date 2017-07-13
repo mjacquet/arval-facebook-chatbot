@@ -34,3 +34,17 @@ exports.next1 = (sender) => {
     });
 };
 
+exports.next2 = (sender) => {
+    console.log('next2');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.formatInsurance(), sender);
+    });
+};
+
+exports.next3 = (sender) => {
+    console.log('next3');
+    messenger.getUserInfo(sender).then(response => {
+        messenger.send(formatter.formatLiveAgent(), sender);
+    });
+};
+

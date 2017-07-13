@@ -25,7 +25,8 @@ exports.q3 = (sender, values) => {
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
         //messenger.send(formatter.picture4(response), sender);
-        messenger.send(formatter.question4(response), sender);
+        messenger.send({text:'Thank you. Would you like to look at other additional services?'}, sender);
+        
         // setTimeout(function(){
         //     messenger.send(formatter.question4(response), sender);
         // }, 750);

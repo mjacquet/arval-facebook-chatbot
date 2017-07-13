@@ -43,12 +43,10 @@ exports.findPin = (sender, values) => {
     });
 };
 
-exports.q3 = (sender, values) => {
-    console.log('q3');
+exports.q2 = (sender, values) => {
+    console.log('q2');
     console.log('values: ', values);
     messenger.getUserInfo(sender).then(response => {
-        salesforce.updateCase({q3 : values[1]}).then(updatedCase => {
-            messenger.send(formatter.question4(response), sender);
-        });
+        messenger.send(formatter.question4(response), sender);
     });
 };

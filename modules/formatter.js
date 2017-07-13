@@ -71,37 +71,22 @@ exports.question2 = response => {
 exports.question3 = response => {
     console.log('question3');
     return {
-        "text":"D'accord ! Cherchons ensemble les soins qui vous conviennent le mieux. Que souhaitez-vous améliorer ?",
+        "text":"What kind of maintenance contract would you like to purchase?",
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Le confort de ma peau",
-            "payload":"q3,Le confort de ma peau"
+            "title":"Full 247 Maintenance",
+            "payload":"q3,Full 247 Maintenance"
           },
           {
             "content_type":"text",
-            "title":"Mes zones de brillance",
-            "payload":"q3,Mes zones de brillance"
+            "title":"3 Times Per Year Maintenance",
+            "payload":"q3,3 Times Per Year Maintenance"
           },
           {
             "content_type":"text",
-            "title":"Les rougeurs et échauffement",
-            "payload":"q3,Les rougeurs et échauffement"
-          },
-          {
-            "content_type":"text",
-            "title":"Les rides qui marquent",
-            "payload":"q3,Les rides qui marquent"
-          },
-          {
-            "content_type":"text",
-            "title":"Les tâches pigmentaires",
-            "payload":"q3,Les tâches pigmentaires"
-          },
-          {
-            "content_type":"text",
-            "title":"La fermeté de ma peau",
-            "payload":"q3,La fermeté de ma peau"
+            "title":"Custom Maintenance",
+            "payload":"q3,Custom Maintenance"
           }
         ]
     }
@@ -128,35 +113,20 @@ exports.picture4 = response => {
     };
 };
 
-exports.question4 = response => {
-    console.log('question4');
+exports.formatLiveAgent = response => {
+    console.log('formatLiveAgent');
     return {
-        "text":"Dites moi, votre peau est plutôt...",
+        "text":"Sounds good. Would you like to follow up with one of our agents to finalise the purchase? You may also proceed to purchase right away. ",
         "quick_replies":[
           {
             "content_type":"text",
-            "title":"Grasse",
-            "payload":"q4,Grasse"
+            "title":"Talk to a Live Agent",
+            "payload":"q4,Talk to a Live Agent"
           },
           {
             "content_type":"text",
-            "title":"Normale à mixte",
-            "payload":"q4,Normale à mixte"
-          },
-          {
-            "content_type":"text",
-            "title":"Normale",
-            "payload":"q4,Normale"
-          },
-          {
-            "content_type":"text",
-            "title":"Normale à sèche",
-            "payload":"q4,Normale à sèche"
-          },
-          {
-            "content_type":"text",
-            "title":"Sèche à très sèche",
-            "payload":"q4,Sèche à très sèche"
+            "title":"Self Service Payment",
+            "payload":"q4,Self Service Payment"
           }
         ]
     }
@@ -261,95 +231,51 @@ exports.question6 = response => {
     }
 };
 
-exports.question7 = response => {
-    console.log('question7');
+exports.formatInsurance = response => {
+    console.log('formatInsurance');
     let elements = [];
         elements.push(  
             {
-                title: 'Sérum Ultra Lissant - RIDES & ECLAT',
-                subtitle: "L'éclat en concentré - 20,80 €",
-                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?Yr1.jpg',
+                title: 'INSURANCE',
+                "image_url": 'http://www.cbronline.com/wp-content/uploads/2017/05/insurance2.jpg',
                 "buttons": [
                     {
                         "type": "postback",
-                        "title": "Avis de la Communauté",
-                        "payload": "blank"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Ajouter à mon panier",
-                        "payload": "blank"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Contacter un conseiller",
-                        "payload": "blank"
+                        "title": "Select",
+                        "payload": "q2,insurance"
                     }
                 ]
             },
             {
-                title: 'Soin Lissant Jour Tous types de peaux - RIDES & ECLAT',
-                subtitle: "Lisse et ravive l'éclat de la peau - 20,80 €",
-                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?Yr2.jpg',
+                title: 'MAINTENANCE',
+                "image_url": 'https://mindtouch.com/engineering-our-success/wp-content/uploads/sites/8/2017/01/wordpress-website-maintenance-service.jpg',
                 "buttons": [
                     {
                         "type": "postback",
-                        "title": "Avis de la Communauté",
-                        "payload": "blank"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Ajouter à mon panier",
-                        "payload": "blank"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Contacter un conseiller",
-                        "payload": "blank"
+                        "title": "Select",
+                        "payload": "q2,maintenance"
                     }
                 ]
             },
             {
-                title: 'Soin Lissant Nuit Tous types de peaux - RIDES & ECLAT',
-                subtitle: "Au réveil, la peau est comme rénovée, l’éclat ravivé - 20,80 €",
-                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?Yr3.jpg',
+                title: 'PREMIUM',
+                "image_url": 'https://premium.co.nz/graphics/premiumlogo-trans-black.png',
                 "buttons": [
                     {
                         "type": "postback",
-                        "title": "Avis de la Communauté",
-                        "payload": "blank"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Ajouter à mon panier",
-                        "payload": "blank"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Contacter un conseiller",
-                        "payload": "blank"
+                        "title": "Select",
+                        "payload": "q2,premium"
                     }
                 ]
             },
             {
-                title: 'Soin Institut Lissant - Soin à la Ficoïde Glaciale',
-                subtitle: "Lissez vos rides et tonifiez votre peau - 1h15 - 70 €",
-                "image_url": 'https://yves-rocher-chatbot.herokuapp.com/images?Yr4.jpg',
+                title: 'OTHER',
+                "image_url": 'https://iamother.com/wp-content/uploads/2017/05/other-1.png',
                 "buttons": [
                     {
                         "type": "postback",
-                        "title": "Avis de la Communauté",
-                        "payload": "blank"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Prendre rendez-vous",
-                        "payload": "blank"
-                    },
-                    {
-                        "type": "postback",
-                        "title": "Localiser l'institut le plus proche",
-                        "payload": "findPin"
+                        "title": "Select",
+                        "payload": "q2,other"
                     }
                 ]
             }
@@ -646,6 +572,7 @@ exports.question4 = response => {
     }
 };
 */
+
 exports.formatServiceContract = response => {
     console.log('In formatServiceContract: ', response);
     
@@ -664,42 +591,4 @@ exports.formatServiceContract = response => {
             }
         }
     };
-    //moment.lang('de');
-    
-    /*
-    var options = [
-        moment().add(1, 'days').add(1, 'hours').format('ddd Do MMM [at] ha'),
-        moment().add(2, 'days').add(2, 'hours').format('ddd Do MMM [at] ha'),
-        moment().add(3, 'days').add(3, 'hours').format('ddd Do MMM [at] ha'),
-        moment().add(4, 'days').add(4, 'hours').format('ddd Do MMM [at] ha'),
-        moment().add(5, 'days').add(5, 'hours').format('ddd Do MMM [at] ha'),
-    ];
-
-    console.log('options: ', options);
-    return {
-        "attachment": {
-            "type": "template",
-            "payload": {
-                "template_type": "button",
-                "text": `When will you run?`,
-                "buttons": [
-                    {
-                        "type": "postback",
-                        "title": options[0],
-                        "payload": "confirm_visit," + options[0]
-                    },
-                    {
-                        "type": "postback",
-                        "title": options[1],
-                        "payload": "confirm_visit," + options[1]
-                    },
-                    {
-                        "type": "postback",
-                        "title": options[2],
-                        "payload": "confirm_visit," + options[3]
-                    }]
-            }
-        }
-    };
-    */
 };
