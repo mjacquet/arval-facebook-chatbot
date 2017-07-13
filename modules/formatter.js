@@ -652,8 +652,8 @@ exports.formatServiceContract = response => {
     let elements = [];
     response.forEach(rec => {
             elements.push({
-                title: rec.get("FirstName"),
-                subtitle: rec.get("FirstName"),
+                title: rec.get("name"),
+                subtitle: rec.get("name"),
             })
         }
     );
