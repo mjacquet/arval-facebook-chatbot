@@ -1,6 +1,5 @@
 start hello
-next1 new
-next1 services
+next1 new services
 next2 proceed
 next2 additional
 next3 no
