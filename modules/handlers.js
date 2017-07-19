@@ -29,7 +29,7 @@ exports.next1 = (sender) => {
             });
         }, 500);
         setTimeout(function(){
-            messenger.send({text: `Do you a have any questions about your current contract or would you like to proceed to look at additional services?`}, sender);
+            messenger.send({text: `Do you have any questions about your current contract or would you like to proceed to look at additional services?`}, sender);
         }, 2500);
 
     });

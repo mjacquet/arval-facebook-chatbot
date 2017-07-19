@@ -26,7 +26,7 @@ exports.q3 = (sender, values) => {
     messenger.getUserInfo(sender).then(response => {
         //messenger.send(formatter.picture4(response), sender);
         messenger.send({text:'Thank you. Would you like to look at other additional services?'}, sender);
-        
+
         // setTimeout(function(){
         //     messenger.send(formatter.question4(response), sender);
         // }, 750);
@@ -36,11 +36,11 @@ exports.q3 = (sender, values) => {
 exports.q4 = (sender, values) => {
     console.log('q4');
     console.log('values: ', values);
-    
+
     messenger.getUserInfo(sender).then(response => {
-        messenger.send({text: `To talk to a Live Agent please just type 'help'`}, sender);
+        messenger.send({text: `To talk to a Live Agent please just type 'Help'`}, sender);
     });
-    
+
 };
 
 exports.q5 = (sender, values) => {
@@ -104,7 +104,7 @@ exports.q4 = (sender, values) => {
         setTimeout(function(){
             messenger.send({text: `Are you interested in any of those items? If yes, just click on the item to put it into the shopping cart`}, sender);
         },3000);
-        
+
     });
 };
 */
