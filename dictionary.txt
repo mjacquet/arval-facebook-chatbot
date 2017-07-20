@@ -20,8 +20,7 @@ getAddress paris
 getAddress Rueil
 getAddress rueil
 getEmail @
+getRevenue €
 getPhone 06
 getPhone 07
 getPhone 01
-getRevenue €
-getRevenue $
