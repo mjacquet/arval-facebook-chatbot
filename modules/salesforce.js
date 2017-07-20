@@ -15,11 +15,11 @@ let org = nforce.createConnection({
     autoRefresh: true
 });
 
-let theCase = nforce.createSObject('Case');
+/*let theCase = nforce.createSObject('Case');
 theCase.set('Subject', `Réclamation-Campanille-Duplicata`);
 theCase.set('RecordTypeId', `0126A000000r9Lv`);
 theCase.set('ContactId', `0036A000009H4qR`);
-theCase.set('Origin', `Facebook`);
+theCase.set('Origin', `Facebook`);*/
 
 let login = () => {
     org.authenticate({username: SF_USER_NAME, password: SF_PASSWORD}, err => {
@@ -32,6 +32,23 @@ let login = () => {
     });
 };
 
+let updateMaxBot = (field,text) => {
+    return new Promise((resolve, reject) => {
+   let maxBot = nforce.createSObject('maxBot__c');
+   maxBot.set('Id','a4y0Y000000Gs7c');
+   maxBot.set(field,text);
+   org.update({ sobject: maxBot }, function(err, resp){
+       if(!err){
+           console.log('It worked!');
+           resolve(maxBot);
+       }
+       else{
+         console.log(maxBot);
+           reject("Error updating the maxBot");
+       }
+   });
+});
+};
 /*
 let createLead = (params) => {
     return new Promise((resolve,reject) => {
@@ -142,7 +159,7 @@ let updateCase = (params, sender) => {
             console.log("theCase: ", theCase);
 
             resolve(theCase);
-                
+
         }
     });
 };
@@ -221,7 +238,7 @@ let getRecommendation = (response, theUserDetails) =>{
                 reject(err);
             }
         });
-    });   
+    });
 };
 
 */
@@ -230,3 +247,4 @@ login();
 
 
 exports.getServiceContract = getServiceContract;
+exports.updateMaxBot = updateMaxBot;

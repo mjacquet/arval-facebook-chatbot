@@ -48,3 +48,17 @@ exports.next3 = (sender) => {
         messenger.send(formatter.formatLiveAgent(), sender);
     });
 };
+
+exports.getLease = (sender) => {
+    console.log('getLease');
+    messenger.send({text: `Sure. I will need some information from you. First, what is your First and Lastname`}, sender);
+};
+
+exports.getName = (sender,text) => {
+    console.log('getLease '+text);
+
+      salesforce.updateMaxBot('LastName__c',text).then(recResult => {
+        messenger.send({text: `Thanks. What is your birthdate?`}, sender);
+  });
+
+};

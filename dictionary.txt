@@ -5,3 +5,13 @@ next2 additional
 next3 no
 next3 nope
 test the test on the test
+getLease lease
+getLease leasing
+getLease offer
+getLease quote
+getName Cédric
+getName Cedric
+getName Toupet
+getName cédric
+getName Cedric
+getName toupet

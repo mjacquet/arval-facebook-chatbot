@@ -23,7 +23,7 @@ app.get('/images', (req, res) => {
     console.log('req.originalUrl: ', req.originalUrl);
     var urlParts = req.originalUrl.split("?");
     console.log('urlParts: ', urlParts);
-    
+
     var theList = urlParts[1].split(".");
     console.log('theList: ', theList);
     var img = fs.readFileSync('./images/'+urlParts[1]);
@@ -65,7 +65,7 @@ app.post('/webhook', (req, res) => {
             if (result) {
                 let handler = handlers[result.handler];
                 if (handler && typeof handler === "function") {
-                    handler(sender, result.match);
+                    handler(sender,event.message.text, result.match);
                 } else {
                     console.log("Handler " + result.handlerName + " is not defined");
                 }
