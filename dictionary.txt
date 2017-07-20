@@ -25,4 +25,3 @@ getPhone 07
 getPhone 01
 getRevenue €
 getRevenue $
-getRevenue 000
