@@ -19,10 +19,10 @@ getAddress Paris
 getAddress paris
 getAddress Rueil
 getAddress rueil
-getRevenue €
-getRevenue $
-getRevenue 000
 getEmail @
 getPhone 06
 getPhone 07
 getPhone 01
+getRevenue €
+getRevenue $
+getRevenue 000
