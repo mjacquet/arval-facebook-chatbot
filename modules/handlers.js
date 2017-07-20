@@ -58,7 +58,35 @@ exports.getName = (sender,text) => {
     console.log('getLease '+text);
 
       salesforce.updateMaxBot('LastName__c',text).then(recResult => {
-        messenger.send({text: `Thanks. What is your birthdate?`}, sender);
+        messenger.send({text: `Thanks. What is your address?`}, sender);
   });
 
+};
+
+exports.getAddress = (sender,text) => {
+    console.log('getAddress '+text);
+      salesforce.updateMaxBot('Address__c',text).then(recResult => {
+        messenger.send({text: `Good. What is your annual revenue?`}, sender);
+  });
+};
+
+exports.getRevenue = (sender,text) => {
+    console.log('getRevenue '+text);
+      salesforce.updateMaxBot('AnnualRevenue__c',text).then(recResult => {
+        messenger.send({text: `Thanks. What is your email?`}, sender);
+  });
+};
+
+exports.getEmail = (sender,text) => {
+    console.log('getEmail '+text);
+      salesforce.updateMaxBot('Email__c',text).then(recResult => {
+        messenger.send({text: `Great. What is your Phone Number?`}, sender);
+  });
+};
+
+exports.getPhone = (sender,text) => {
+    console.log('getPhone '+text);
+      salesforce.updateMaxBot('Mobile__c',text).then(recResult => {
+        messenger.send({text: `Now, what is the car you'd enjoy driving?`}, sender);
+  });
 };
