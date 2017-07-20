@@ -21,7 +21,6 @@ getAddress Rueil
 getAddress rueil
 getRevenue €
 getRevenue $
-getRevenue £
 getRevenue 000
 getEmail @
 getPhone 06
