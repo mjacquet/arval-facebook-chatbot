@@ -6,6 +6,8 @@ let messenger = require('./messenger'),
     visionService = require('./vision-service-mock'),
     nodeGeocoder = require('node-geocoder');
 
+  
+
 var options = {
       provider: 'google'
 };
@@ -16,6 +18,11 @@ exports.processUpload = (sender, attachments) => {
     if (attachments.length > 0) {
         let attachment = attachments[0];
         console.log('attachment: ', attachment);
+        //attachment.payload.url
+        salesforce.uploadAttachment(attachment.payload.url).then(recResult => {
+          messenger.send({text: `Thanks.`}, sender);
+        });
+
         if (attachment.type === "image") {
             console.log('image attachment');
 
@@ -36,7 +43,7 @@ exports.processUpload = (sender, attachments) => {
             geocoder.reverse({lat: attachment.payload.coordinates.lat, lon: attachment.payload.coordinates.long}).then(function(res) {
                 console.log('result: ', res);
                 console.log('ZIPCODE!: ', res[0].zipcode);
-                
+
                 if(!res[0].zipcode){
                     res[0].zipcode = 'Cannot determine zip code.';
                 }
@@ -46,7 +53,7 @@ exports.processUpload = (sender, attachments) => {
                         messenger.send(formatter.renderRooms(response), sender);
                     });
                 });
-                
+
             }).catch(function(err) {
                 console.log('err: ', err);
             });

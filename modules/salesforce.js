@@ -15,6 +15,7 @@ let org = nforce.createConnection({
     autoRefresh: true
 });
 
+
 /*let theCase = nforce.createSObject('Case');
 theCase.set('Subject', `Réclamation-Campanille-Duplicata`);
 theCase.set('RecordTypeId', `0126A000000r9Lv`);
@@ -49,6 +50,31 @@ let updateMaxBot = (field,text) => {
    });
 });
 };
+
+
+let uploadAttachment = (url) => {
+    return new Promise((resolve, reject) => {
+      let maxBot = nforce.createSObject('maxBot__c');
+      maxBot.set('Id','a4y0Y000000Gs7c');
+      var request = require('request').defaults({ encoding: null });
+      request.get(url, function (err, res, body) {
+            maxBot.setAttachment('idcard',body);
+            org.update({ sobject: maxBot }, function(err, resp){
+                if(!err){
+                    console.log('It worked!');
+                    resolve(maxBot);
+                }
+                else{
+                  console.log(maxBot);
+                    reject("Error updating the maxBot");
+                }
+            });
+      });
+
+});
+};
+
+
 /*
 let createLead = (params) => {
     return new Promise((resolve,reject) => {
