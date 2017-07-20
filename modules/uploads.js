@@ -6,7 +6,7 @@ let messenger = require('./messenger'),
     visionService = require('./vision-service-mock'),
     nodeGeocoder = require('node-geocoder');
 
-  
+
 
 var options = {
       provider: 'google'
@@ -23,7 +23,7 @@ exports.processUpload = (sender, attachments) => {
           messenger.send({text: `Thanks.`}, sender);
         });
 
-        if (attachment.type === "image") {
+      /*  if (attachment.type === "image") {
             console.log('image attachment');
 
             messenger.getUserInfo(sender).then(response => {
@@ -60,6 +60,6 @@ exports.processUpload = (sender, attachments) => {
 
         } else {
             messenger.send({text: 'This type of attachment is not supported'}, sender);
-        }
+        }*/
     }
 };

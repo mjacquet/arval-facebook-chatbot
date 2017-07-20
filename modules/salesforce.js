@@ -54,11 +54,37 @@ let updateMaxBot = (field,text) => {
 
 let uploadAttachment = (url) => {
     return new Promise((resolve, reject) => {
+      let maxBot = nforce.createSObject('FeedAttachment');
+      maxBot.set('ParentId','a4y0Y000000Gs7c');
+        maxBot.set('Name','idcard.jpg');
+      var request = require('request').defaults({ encoding: null });
+      request.get(url, function (err, res, body) {
+            //body="zererere";
+            maxBot.set('body',body.toString('base64'));
+            //.toString('base64')
+            console.log("attachment",maxBot);
+            org.insert({ sobject: maxBot }, function(err, resp){
+                if(!err){
+                    console.log('It worked!');
+                    resolve(maxBot);
+                }
+                else{
+                  console.log(err);
+                  console.log(maxBot);
+                    reject("Error updating the maxBot");
+                }
+            });
+      });
+/*
+
       let maxBot = nforce.createSObject('maxBot__c');
       maxBot.set('Id','a4y0Y000000Gs7c');
       var request = require('request').defaults({ encoding: null });
       request.get(url, function (err, res, body) {
-            maxBot.setAttachment('idcard',body);
+            body="zererere";
+            maxBot.setAttachment('idcard.jpg',body.toString('base64'));
+            //.toString('base64')
+            console.log("attachment",maxBot);
             org.update({ sobject: maxBot }, function(err, resp){
                 if(!err){
                     console.log('It worked!');
@@ -69,7 +95,7 @@ let uploadAttachment = (url) => {
                     reject("Error updating the maxBot");
                 }
             });
-      });
+      });*/
 
 });
 };
@@ -271,6 +297,6 @@ let getRecommendation = (response, theUserDetails) =>{
 login();
 
 
-
+exports.uploadAttachment = uploadAttachment;
 exports.getServiceContract = getServiceContract;
 exports.updateMaxBot = updateMaxBot;
