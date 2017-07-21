@@ -89,14 +89,14 @@ exports.getName = (sender,text) => {
 exports.getAddress = (sender,text) => {
     console.log('getAddress '+text);
       salesforce.updateMaxBot('Address__c',text).then(recResult => {
-        messenger.send({text: `Good. What is your annual revenue?`}, sender);
+        messenger.send({text: `Good. What is your email?`}, sender);
   });
 };
 
 exports.getRevenue = (sender,text) => {
     console.log('getRevenue '+text);
       salesforce.updateMaxBot('AnnualRevenue__c',text).then(recResult => {
-        messenger.send({text: `Thanks. What is your email?`}, sender);
+        messenger.send({text: `Now, what is the car you'd enjoy driving?`}, sender);
   });
 };
 
@@ -110,10 +110,11 @@ exports.getEmail = (sender,text) => {
 exports.getPhone = (sender,text) => {
     console.log('getPhone '+text);
       salesforce.updateMaxBot('Mobile__c',text).then(recResult => {
-        messenger.send({text: `Now, what is the car you'd enjoy driving?`}, sender);
+        messenger.send({text: `Thanks, what is your annual revenue?`}, sender);
   });
 };
 
 exports.leadinfo = (req,res) => {
-  messenger.send({text: `Now, what is the car you'd enjoy driving?`}, req.query.sender);
+  messenger.send({text: `Thanks, what is your annual revenue?`}, req.query.sender);
+  res.sendStatus(200);
 };
