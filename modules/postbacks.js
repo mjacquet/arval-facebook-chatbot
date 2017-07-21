@@ -50,3 +50,8 @@ exports.q2 = (sender, values) => {
         messenger.send(formatter.question3(response), sender);
     });
 };
+
+exports.converse = (sender) => {
+    console.log('converse');
+    messenger.send({text: `Sure. First, what is your First and Lastname`}, sender);
+};

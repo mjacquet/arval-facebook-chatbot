@@ -19,6 +19,8 @@ app.set('port', process.env.PORT || 5000);
 
 app.use(bodyParser.json());
 
+app.get('/leadinfo', handlers['leadinfo']);
+
 app.get('/images', (req, res) => {
     console.log('req.originalUrl: ', req.originalUrl);
     var urlParts = req.originalUrl.split("?");

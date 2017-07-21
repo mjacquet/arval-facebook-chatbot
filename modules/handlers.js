@@ -51,7 +51,30 @@ exports.next3 = (sender) => {
 
 exports.getLease = (sender) => {
     console.log('getLease');
-    messenger.send({text: `Sure. I will need some information from you. First, what is your First and Lastname`}, sender);
+    //https://sdo-demo-main-15d2d0523d5.secure.force.com/arval/ChatLead
+
+    let message={
+        "attachment": {
+            "type": "template",
+            "payload": {
+                "template_type": "button",
+                "text": "Leasing Offer",
+                "buttons": [
+                    {
+                      "type":"web_url",
+                      "title":"Give us more info",
+                      "url": "https://sdo-demo-main-15d2d0523d5.secure.force.com/arval/ChatLead?sender="+sender,
+                      "webview_height_ratio": "compact",
+                      "messenger_extensions": false,
+                      "webview_share_button":"hide"
+                    }
+                ]
+
+            }
+        }
+    };
+    messenger.send(message, sender);
+  //  messenger.send({text: `Sure. I will need some information from you. First, what is your First and Lastname`}, sender);
 };
 
 exports.getName = (sender,text) => {
@@ -89,4 +112,8 @@ exports.getPhone = (sender,text) => {
       salesforce.updateMaxBot('Mobile__c',text).then(recResult => {
         messenger.send({text: `Now, what is the car you'd enjoy driving?`}, sender);
   });
+};
+
+exports.leadinfo = (req,res) => {
+  messenger.send({text: `Now, what is the car you'd enjoy driving?`}, req.query.sender);
 };
